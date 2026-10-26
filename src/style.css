@@ -20,3 +20,20 @@ figure{margin:0}.heroPhoto{position:relative;align-self:stretch;min-height:440px
 .heroLogo img{display:block;width:min(100%,540px);height:auto;filter:drop-shadow(0 3px 12px #0008)}
 .footerLogo img{width:140px}
 @media(max-width:700px){.logoWordmark img{width:88px}.footerLogo img{width:115px}.heroCopy .heroLogo{margin:18px 0}.heroLogo img{width:min(100%,380px)}}
+
+/* Balance the neon accents with warmer reds, amber, and cool blue. */
+body{background:#101010}
+nav button[aria-current],.eyebrow,.announcement span,.photoEthos .eyebrow{color:#f3c65e}
+.button{background:#ed343b;color:#f4f1e8;border-color:#ed343b;box-shadow:3px 3px 0 #63191c}
+.button:hover{background:#c92630}
+em,.photoEthos em{color:#ed5960}
+.ticker{background:#ed343b;color:#f4f1e8}
+.p0{background:repeating-linear-gradient(130deg,#b63c43 0 18px,#a62f38 19px 21px)}
+.purple{background:#182a3b;color:#f4f1e8;border-block:1px solid #285379}
+.purple em{color:#f3c65e}
+.purple .eyebrow,.purple .muted{color:#93bfe0}
+.photoEthos{background:#18191b}
+.photoEthos .muted{color:#b0b4bd}
+.filters .active{background:#ed343b;color:#f4f1e8}
+.heroBackdrop:after{background:linear-gradient(90deg,#090909e8 0%,#09090970 55%,#09090920),linear-gradient(0deg,#101010,transparent 30%)}
+.quietEthos{border-top-color:#393939}
