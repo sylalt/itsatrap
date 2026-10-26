@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
+import photoRecords from './photos.json';
+const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 
 const pages = ['2026 Edition', 'Ethos', 'Archive', 'Through the Lens', 'Community'];
 const pageRoutes = {
@@ -341,19 +343,9 @@ function App() {
     setNotice(t.community.downloaded);
   }
 
-  const ethos = (
-    <>
-      <span className="eyebrow">{t.ethos.eyebrow}</span>
-      <h2>{t.ethos.heading}</h2>
-      <p>{t.ethos.intro}</p>
-      <p className="muted">{t.ethos.proposed}</p>
-      <div className="values">
-        {t.ethos.values.map(([heading, description]) => (
-          <article key={heading}><b>{heading}</b><p>{description}</p></article>
-        ))}
-      </div>
-    </>
-  );
+  const words=(en,pt)=>isPortuguese?pt:en;
+  const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
+  const ethos=<><span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.','A MÚSICA JUNTA-NOS. AS PESSOAS FAZEM-NOS VOLTAR.')}</span><h2>{words('A crowd. A connection.','Uma multidão. Uma ligação.')}<br/><em>{words('A community.','Uma comunidade.')}</em></h2><p>{words('Come for the music. Find your people. Look after each other.','Vem pela música. Encontra os teus. Cuidem uns dos outros.')}</p></>;
 
   return (
     <>
@@ -385,62 +377,15 @@ function App() {
       </header>
 
       <main>
-        {page === 'Home' && (
-          <>
-            <section className="hero">
-              <div>
-                <span className="eyebrow">{t.home.eyebrow}</span>
-                <h1>IT’S A<br /><em>TRAP!</em></h1>
-                <div className="year">{t.home.newEdition} <span>2026</span></div>
-                <p>{t.home.intro}</p>
-                <div className="actions">
-                  {button(t.home.explore, '2026 Edition')}
-                  {button(t.home.ethos, 'Ethos', 'textbutton')}
-                </div>
-                <small>{t.home.announcement}</small>
-              </div>
-              <div className="art" aria-hidden="true">
-                <div className="poster-kicker">LISBOA / EST. 2016</div>
-                <div className="cutout-title">{'IT’S A TRAP'.split('').map((letter, index) => <span key={index} className={`cutout cutout-${index % 5}`}>{letter === ' ' ? '\u00a0' : letter}</span>)}</div>
-                <div className="photo-stage"><span>2026</span><i>See you in the crowd.</i></div>
-                <span className="sticker">{isPortuguese ? <>LISBOA<br />PELA NOITE</> : <>LISBON<br />AFTER DARK</>}</span>
-                <span className="artnote">{isPortuguese ? 'SENTE O SOM. VIVE A NOITE. SÊ TU.' : 'TURN IT UP. SHOW UP. BE YOU.'}</span>
-              </div>
-            </section>
-            <div className="ticker">{`${t.home.ticker} / ${t.home.ticker}`}</div>
-            <section className="split">
-              <div><span className="eyebrow">{t.home.chapter}</span><h2>{t.home.crowd}</h2></div>
-              <div>
-                <p>{t.home.nextChapter}</p>
-                <div className="facts">
-                  <span>{t.home.when}<b>{t.home.toBeAnnounced}</b></span>
-                  <span>{t.home.where}<b>{t.home.toBeAnnounced}</b></span>
-                </div>
-                {button(t.home.details, '2026 Edition')}
-              </div>
-            </section>
-            <section className="purple">{ethos}{button(t.home.readEthos, 'Ethos', 'button light')}</section>
-            <section>
-              <div className="sectiontop">
-                <div><span className="eyebrow">{t.home.memories}</span><h2>{t.home.archive}</h2></div>
-                {button(t.home.exploreArchive, 'Archive', 'textbutton')}
-              </div>
-              <div className="posters">
-                {['THE POSTERS', 'THE PEOPLE', 'THE NIGHTS'].map((label, index) => (
-                  <button key={label} className={`poster p${index}`} onClick={() => go(index === 1 ? 'Through the Lens' : 'Archive')}>
-                    <span>{t.home.contentComing}</span><strong>{isPortuguese ? ['OS CARTAZES', 'AS PESSOAS', 'AS NOITES'][index] : label}</strong><span>{t.home.discoverScene}</span>
-                  </button>
-                ))}
-              </div>
-            </section>
-            <section className="communityCall">
-              <span className="eyebrow">{t.home.community}</span>
-              <h2>{t.home.communityHeading}</h2>
-              <p>{t.home.communityInvite}</p>
-              {button(t.home.findPeople, 'Community')}
-            </section>
-          </>
-        )}
+{page==='Home'?<>
+<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1>IT’S A<br/><em>TRAP!</em></h1><p>{words('A night made by the people in it.','Uma noite feita por quem a vive.')}</p><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div><small>{words('2026 / DATE + VENUE + LINEUP COMING SOON','2026 / DATA + LOCAL + CARTAZ EM BREVE')}</small></div></section>
+<section className="storyChapter"><span className="eyebrow">{words('01 / COME THROUGH','01 / APARECE')}</span><h2>{words('It starts with ','Tudo começa com ')}<em>{words('the crowd.','as pessoas.')}</em></h2><div className="storyDuo">{shot(1,words('That feeling when your song comes on.','Quando começa aquela música.'),'tall')}{shot(5,words('Your people. Your night.','A tua gente. A tua noite.'),'offset')}</div></section>
+<section className="storyChapter"><div className="storyHeading"><h2>{words('Everyone brings','Cada pessoa traz')}<br/><em>{words('something.','algo seu.')}</em></h2><span className="eyebrow">{words('02 / THE PEOPLE MAKE THE PARTY','02 / AS PESSOAS FAZEM A FESTA')}</span></div><div className="communityMosaic">{shot(6,words('The faces you came with.','As caras que vieram contigo.'))}{shot(10,words('The moments in between.','Os momentos entre músicas.'))}{shot(4,words('The energy you share.','A energia que partilhamos.'))}{shot(12,words('A night with its own character.','Uma noite com personalidade.'))}</div></section>
+<div className="photoBreak">{shot(3,words('One room. All together.','Uma sala. Todos juntos.'))}</div>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(8,'','sunsetCrop')}{shot(7,'')}</div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
+<section className="storyChapter"><h2>{words('The sound.','O som.')}<br/><em>{words('The release.','A liberdade.')}</em></h2><div className="communityMosaic performers">{shot(15,'')}{shot(14,'')}{shot(11,'')}{shot(16,'')}</div></section>
+<section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section>
+<section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[5].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}{button(words('See all photographs','Ver todas as fotografias'),'Archive','textbutton')}</section></>:null}
 
         {page === '2026 Edition' && (
           <section>
@@ -460,14 +405,7 @@ function App() {
           </section>
         )}
 
-        {page === 'Ethos' && (
-          <section className="ethosPage">
-            {ethos}
-            <h2>{t.ethos.story}</h2>
-            <p>{t.ethos.storyText}</p>
-          </section>
-        )}
-
+{page==='Ethos'&&<section className="ethosPage">{ethos}<div className="storyDuo">{shot(6,words('Come as you are.','Vem como és.'))}{shot(5,words('Make room for each other.','Há espaço para todos.'),'offset')}</div><div className="photoBreak">{shot(9,words('The room comes alive together.','Juntos damos vida à sala.'))}</div><p>{words('Respect identities, personal space and boundaries. No harassment or discrimination.','Respeita identidades, espaço pessoal e limites. Sem assédio nem discriminação.')}</p></section>}
         {page === 'Archive' && (
           <section>
             <span className="eyebrow">{t.archive.eyebrow}</span>
@@ -479,18 +417,7 @@ function App() {
                 return <button className={category === value ? 'active' : ''} onClick={() => setCategory(value)} key={value}>{label}</button>;
               })}
             </div>
-            <div className="posters">
-              {['Posters', 'Lineups', 'Photographs']
-                .filter((item) => category === 'All' || category === item)
-                .map((item, index) => (
-                  <div className={`poster p${index}`} key={item}>
-                    <span>{t.archive.collection}</span>
-                    <strong>{isPortuguese ? ['CARTAZES', 'ALINHAMENTOS', 'FOTOGRAFIAS'][['Posters', 'Lineups', 'Photographs'].indexOf(item)] : item.toUpperCase()}</strong>
-                    <span>{t.archive.verified}</span>
-                  </div>
-                ))}
-            </div>
-            <p className="muted">{t.archive.note}</p>
+<div className="gallery">{photos.filter(photo=>category==='All'||(category==='Posters'?photo.kind==='Poster':category==='Photographs'?photo.kind!=='Poster':false)).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div>{category==='Lineups'&&<p>{words('Lineups coming soon.','Alinhamentos em breve.')}</p>}<p className="muted">{words('Photographer credits and edition details are being collected.','Créditos fotográficos e detalhes das edições em atualização.')}</p>
           </section>
         )}
 
@@ -499,10 +426,7 @@ function App() {
             <span className="eyebrow">{t.lens.eyebrow}</span>
             <h1 className="pagetitle">{t.lens.title}</h1>
             <p>{t.lens.intro}</p>
-            <div className="lens">
-              <span>✳</span>
-              <div><h2>{t.lens.heading}</h2><p>{t.lens.galleries}</p></div>
-            </div>
+<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster').map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             <h2>{t.lens.press}</h2>
             <p>{t.lens.coverage}</p>
             {button(t.lens.contact, 'Contact')}
@@ -512,7 +436,7 @@ function App() {
         {page === 'Community' && (
           <section>
             <span className="eyebrow">{t.community.eyebrow}</span>
-            <h1 className="pagetitle">{t.community.title}</h1>
+            <h1 className="pagetitle">{t.community.title}</h1><div className="communityMosaic">{shot(6,'')}{shot(5,'')}{shot(10,'')}</div>
             <div className="split inner">
               <div>
                 <h2>{t.community.group}</h2>
