@@ -42,3 +42,21 @@ header nav button:after{content:'';position:absolute;right:0;bottom:0;left:0;hei
 header nav button:hover{color:var(--paper)}
 header nav button:hover:after,header nav button[aria-current]:after{transform:scaleX(1)}
 header nav button[aria-current]{color:var(--yellow)}
+.ethosMasthead{max-width:1050px;padding:35px 0 65px}
+.ethosMasthead h1{font-size:clamp(64px,9vw,118px);line-height:.86;letter-spacing:-3px;margin:28px 0}
+.ethosMasthead h1 em{color:var(--red);font-style:normal}
+.ethosMasthead>p{max-width:570px;font-size:18px}
+.ethosHistory{max-width:1160px;margin:0 auto}
+.ethosChapter{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,1fr);align-items:center;gap:clamp(32px,5vw,72px);padding:64px 0;border-top:1px solid var(--line)}
+.ethosChapterReverse .ethosChapterCopy{order:2}
+.ethosChapterReverse .ethosPhoto{order:1}
+.ethosChapterCopy .eyebrow{display:block;margin-bottom:22px}
+.ethosChapterCopy p,.ethosClosing p{max-width:640px;color:#c9c2b5;font-size:16px;line-height:1.9}
+.ethosPhoto img{display:block;width:100%;height:520px;object-fit:cover;background:#18191b}
+.ethosChapter:first-child .ethosPhoto img{object-position:center 38%}
+.ethosChapterReverse .ethosPhoto img{object-position:center 35%}
+.ethosClosing{max-width:850px;margin:30px auto 10px;padding:42px clamp(24px,5vw,64px);border-left:2px solid var(--red);background:#121311}
+.ethosClosing .eyebrow{display:block;margin-bottom:20px}
+.ethosClosing p:last-child{margin-bottom:0}
+@media(max-width:850px){.ethosChapter{grid-template-columns:minmax(0,1fr) minmax(230px,1fr);gap:30px}.ethosPhoto img{height:460px}}
+@media(max-width:600px){.ethosMasthead{padding:15px 0 42px}.ethosMasthead h1{font-size:clamp(58px,14vw,88px);letter-spacing:-2px}.ethosMasthead>p{font-size:16px}.ethosChapter{grid-template-columns:1fr;padding:38px 0;gap:20px}.ethosChapterReverse .ethosChapterCopy,.ethosChapterReverse .ethosPhoto{order:initial}.ethosPhoto img{height:auto;max-height:500px;aspect-ratio:4/3}.ethosClosing{margin-top:20px;padding:30px 24px}}
