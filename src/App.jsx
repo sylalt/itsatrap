@@ -38,6 +38,8 @@ const pressArticles = [
     outlet: 'NiT',
     title: 'Lisboa recebe mega festa de trap este sábado',
     url: 'https://www.nit.pt/cultura/musica/lisboa-recebe-mega-festa-de-trap-este-sabado',
+    image: 'https://www.nit.pt/wp-content/uploads/2021/12/6cb97df18ad1f55c23f4d0bbfc7211e2.jpg',
+    imageCredit: 'NiT',
     summary: {
       en: 'Coverage of the fifth anniversary at Lisboa ao Vivo.',
       pt: 'Notícia sobre o quinto aniversário no Lisboa ao Vivo.',
@@ -48,6 +50,8 @@ const pressArticles = [
     outlet: 'Gerador',
     title: 'Conversa com João Moura, Oseias e Young Boda: “Não digam que o Hip Hop está a morrer, está bem longe disso”',
     url: 'https://gerador.eu/conversa-com-joao-moura-oseias-e-young-boda-nao-digam-que-o-hip-hop-esta-a-morrer-esta-bem-longe-disso/',
+    image: 'https://gerador.eu/wp-content/uploads/2019/09/web_its_a_trap_perfil-3.jpg',
+    imageCredit: 'Gerador',
     summary: {
       en: 'An interview on It’s a Trap’s beginnings, community and emerging artists.',
       pt: 'Uma entrevista sobre o início da It’s a Trap, a comunidade e artistas emergentes.',
@@ -68,6 +72,8 @@ const pressArticles = [
     outlet: 'NiT',
     title: 'It’s a Trap: a festa tendência do hip hop está de volta a Lisboa',
     url: 'https://www.nit.pt/cultura/musica/its-trap-festa-tendencia-do-hip-hop-esta-volta-lisboa',
+    image: 'https://www.nit.pt/wp-content/uploads/2019/04/2a860fe7f5fb3c624d296bf59d78488a.jpg',
+    imageCredit: 'NiT',
     summary: {
       en: 'Comethazine headlines an edition at Lisboa ao Vivo.',
       pt: 'Comethazine lidera uma edição no Lisboa ao Vivo.',
@@ -78,6 +84,8 @@ const pressArticles = [
     outlet: 'Rimas e Batidas',
     title: 'It’s a Trap no Estúdio Time Out: um peixe fora d’água em noite de estreia',
     url: 'https://www.rimasebatidas.pt/its-a-trap-no-estudio-time-out-um-peixe-fora-dagua-em-noite-de-estreia/',
+    image: 'https://www.rimasebatidas.pt/wp-content/uploads/2019/02/ItsATrap_11Lit3s_53.jpg',
+    imageCredit: 'Rimas e Batidas / Beatriz Santos',
     summary: {
       en: 'A review of the One Step Forward collaboration and its atmosphere.',
       pt: 'Uma crítica à colaboração One Step Forward e ao ambiente da noite.',
@@ -195,11 +203,12 @@ const copy = {
     archive: {
       eyebrow: 'PAST NIGHTS / LASTING ENERGY',
       title: <>THE<br /><em>ARCHIVE.</em></>,
-      intro: 'Posters, lineups and moments from previous editions.',
-      filters: ['All', 'Posters', 'Lineups', 'Photographs'],
+      intro: 'Posters and lineups from previous editions.',
+      filters: ['All', 'Poster', 'Lineups'],
       collection: 'COLLECTION IN PROGRESS',
       verified: 'Verified years and event records coming soon.',
       note: 'These are original placeholder graphics, not historical event posters. Year and event browsing will appear as the archive is populated.',
+      categories: ['All', 'Poster', 'Lineups'],
     },
     lens: {
       eyebrow: 'THE PEOPLE BEHIND THE CAMERA',
@@ -313,12 +322,12 @@ const copy = {
     archive: {
       eyebrow: 'NOITES PASSADAS / ENERGIA QUE FICA',
       title: <>O<br /><em>ARQUIVO.</em></>,
-      intro: 'Cartazes, alinhamentos e momentos de edições anteriores.',
-      filters: ['Tudo', 'Cartazes', 'Alinhamentos', 'Fotografias'],
+      intro: 'Cartazes e alinhamentos de edições anteriores.',
+      filters: ['Tudo', 'Cartaz', 'Alinhamentos'],
       collection: 'COLEÇÃO EM CONSTRUÇÃO',
       verified: 'Em breve: anos e registos de eventos verificados.',
       note: 'Estas imagens são ilustrações provisórias, não cartazes históricos do evento. A pesquisa por ano e evento será adicionada à medida que o arquivo for sendo organizado.',
-      categories: ['All', 'Posters', 'Lineups', 'Photographs'],
+      categories: ['All', 'Poster', 'Lineups'],
     },
     lens: {
       eyebrow: 'AS PESSOAS POR TRÁS DA CÂMARA',
@@ -371,6 +380,7 @@ const copy = {
 function App() {
   const [page, setPage] = useState(pageFromLocation);
   const [category, setCategory] = useState('All');
+  const [showAllPress, setShowAllPress] = useState(false);
   const [notice, setNotice] = useState('');
   const [language, setLanguage] = useState(() => {
     try {
@@ -561,11 +571,17 @@ function App() {
             <p>{t.archive.intro}</p>
             <div className="filters">
               {t.archive.filters.map((label, index) => {
-                const value = t.archive.categories?.[index] ?? ['All', 'Posters', 'Lineups', 'Photographs'][index];
+                const value = t.archive.categories[index];
                 return <button className={category === value ? 'active' : ''} onClick={() => setCategory(value)} key={value}>{label}</button>;
               })}
             </div>
-<div className="gallery">{photos.filter(photo=>category==='All'||(category==='Posters'?photo.kind==='Poster':category==='Photographs'?photo.kind!=='Poster':false)).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div>{category==='Lineups'&&<p>{words('Lineups coming soon.','Alinhamentos em breve.')}</p>}<p className="muted">{words('Photographer credits and edition details are being collected.','Créditos fotográficos e detalhes das edições em atualização.')}</p>
+            <div className="gallery">
+              {photos
+                .filter(photo => photo.kind === 'Poster' && (category === 'All' || category === 'Poster'))
+                .map(photo => <figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt} /></figure>)}
+            </div>
+            {category === 'Lineups' && <p>{words('Lineups coming soon.','Alinhamentos em breve.')}</p>}
+            <p className="muted">{words('Verified poster images and event details are being collected.','Imagens verificadas dos cartazes e detalhes dos eventos estão a ser reunidos.')}</p>
           </section>
         )}
 
@@ -577,8 +593,15 @@ function App() {
             <h2>{t.lens.press}</h2>
             <p>{t.lens.coverage}</p>
             <div className="pressGrid">
-              {pressArticles.map(article => (
+              {[...pressArticles.filter(article => article.image), ...pressArticles.filter(article => !article.image)]
+                .slice(0, showAllPress ? pressArticles.length : 4)
+                .map(article => (
                 <article className="pressCard" key={article.url}>
+                  {article.image && (
+                    <a className="pressImageLink" href={article.url} target="_blank" rel="noopener noreferrer" aria-label={article.title}>
+                      <img src={article.image} alt="" loading="lazy" />
+                    </a>
+                  )}
                   <div className="pressMeta">
                     <span>{article.outlet}</span>
                     <time dateTime={article.date}>
@@ -589,11 +612,17 @@ function App() {
                       }).format(new Date(`${article.date}T00:00:00`))}
                     </time>
                   </div>
+                  {article.imageCredit && <span className="pressImageCredit">{words('Photo: ', 'Fotografia: ')}{article.imageCredit}</span>}
                   <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a></h3>
                   <p>{words(article.summary.en, article.summary.pt)}</p>
                 </article>
               ))}
             </div>
+            {pressArticles.length > 4 && (
+              <button className="pressToggle textbutton" type="button" aria-expanded={showAllPress} onClick={() => setShowAllPress(!showAllPress)}>
+                {showAllPress ? words('View Less', 'Ver menos') : words('View More', 'Ver mais')}
+              </button>
+            )}
             <h2>{t.lens.heading}</h2>
 <div className="gallery">{photos.filter(photo=>photo.kind!=='Poster').map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             {button(t.lens.contact, 'Contact')}
