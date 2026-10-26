@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 import photoRecords from './photos.json';
-import brandLogo from '../assets/its-a-trap-logo.png';
+const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 
 const pages = ['2026 Edition', 'Ethos', 'Archive', 'Through the Lens', 'Community'];
@@ -504,4 +504,5 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />);
+
 
