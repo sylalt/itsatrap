@@ -1,13 +1,13 @@
 {
+  "name": "its-a-trap",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node scripts/serve.js"
+  },
   "dependencies": {
     "esbuild": "^0.28.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
-  },
-  "name": "its-a-trap",
-  "private": true,
-  "scripts": {
-    "build": "esbuild src/App.jsx --bundle --minify --outfile=dist/app.js && cp index.html dist/index.html",
-    "start": "python3 -m http.server 3000 --directory dist"
   }
 }
