@@ -14,7 +14,8 @@ async function build() {
     minify: true,
     outfile: path.join(output, 'app.js'),
   });
-  await fs.copyFile(path.join(root, 'index.html'), path.join(output, 'index.html'));
+  const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
+  await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.'));
 }
 
 build().catch((error) => {
