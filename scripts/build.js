@@ -10,6 +10,7 @@ async function build() {
   await esbuild.build({
     absWorkingDir: root,
     bundle: true,
+    loader: { '.png': 'dataurl' },
     entryPoints: ['src/App.jsx'],
     minify: true,
     external: ['assets/*'],
@@ -24,3 +25,4 @@ build().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
