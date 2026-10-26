@@ -17,7 +17,7 @@ async function build() {
   });
   await fs.cp(path.join(root, 'assets'), path.join(output, 'assets'), { recursive: true });
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
-  await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.').replace(/app\\.(css|js)(?:\\?[^\"]*)?\"/g, 'app.$1?v=community-20261026\"'));
+  await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.'));
 }
 
 build().catch((error) => {
