@@ -399,12 +399,10 @@ function App() {
                 </div>
                 <small>{t.home.announcement}</small>
               </div>
-              <div className="art" aria-label={isPortuguese ? 'Ilustração original de um monstro verde ácido' : 'Original illustrative acid-green monster graphic'}>
-                <div className="orbit">✦</div>
-                <div className="monster">
-                  <div className="eyes"><i /><i /></div>
-                  <div className="mouth">▾▾▾▾▾<br />▴▴▴▴▴</div>
-                </div>
+              <div className="art" aria-hidden="true">
+                <div className="poster-kicker">LISBOA / EST. 2016</div>
+                <div className="cutout-title">{'IT’S A TRAP'.split('').map((letter, index) => <span key={index} className={`cutout cutout-${index % 5}`}>{letter === ' ' ? '\u00a0' : letter}</span>)}</div>
+                <div className="photo-stage"><span>2026</span><i>See you in the crowd.</i></div>
                 <span className="sticker">{isPortuguese ? <>LISBOA<br />PELA NOITE</> : <>LISBON<br />AFTER DARK</>}</span>
                 <span className="artnote">{isPortuguese ? 'SENTE O SOM. VIVE A NOITE. SÊ TU.' : 'TURN IT UP. SHOW UP. BE YOU.'}</span>
               </div>
