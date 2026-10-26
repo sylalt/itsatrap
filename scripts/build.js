@@ -12,8 +12,10 @@ async function build() {
     bundle: true,
     entryPoints: ['src/App.jsx'],
     minify: true,
+    external: ['assets/*'],
     outfile: path.join(output, 'app.js'),
   });
+  await fs.cp(path.join(root, 'assets'), path.join(output, 'assets'), { recursive: true });
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
   await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.'));
 }
