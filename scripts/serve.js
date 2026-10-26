@@ -3,10 +3,12 @@ const http = require('node:http');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..', 'dist');
+const port = Number(process.env.PORT) || 3000;
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  '.svg': 'image/svg+xml; charset=utf-8',
 };
 
 http.createServer((request, response) => {
@@ -40,6 +42,6 @@ http.createServer((request, response) => {
     }
   });
   stream.pipe(response);
-}).listen(3000, '127.0.0.1', () => {
-  console.log('It’s a Trap is available at http://localhost:3000');
+}).listen(port, '127.0.0.1', () => {
+  console.log(`It’s a Trap is available at http://localhost:${port}`);
 });
