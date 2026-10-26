@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 import photoRecords from './photos.json';
+import brandLogo from '../assets/its-a-trap-logo.png';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 
 const pages = ['2026 Edition', 'Ethos', 'Archive', 'Through the Lens', 'Community'];
@@ -350,7 +351,7 @@ function App() {
   return (
     <>
       <header>
-        <button className="wordmark" onClick={() => go('Home')}>IT’S A<br /><span>TRAP!</span></button>
+        <button className="wordmark logoWordmark" aria-label="It’s a Trap — Home" onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" /></button>
         <nav aria-label={t.navLabel}>
           {pages.map((item) => (
             <button key={item} aria-current={page === item ? 'page' : undefined} onClick={() => go(item)}>
@@ -378,7 +379,7 @@ function App() {
 
       <main>
 {page==='Home'?<>
-<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1>IT’S A<br/><em>TRAP!</em></h1><p>{words('A night made by the people in it.','Uma noite feita por quem a vive.')}</p><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div><small>{words('2026 / DATE + VENUE + LINEUP COMING SOON','2026 / DATA + LOCAL + CARTAZ EM BREVE')}</small></div></section>
+<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={brandLogo} alt="It’s a Trap" fetchPriority="high" /></h1><p>{words('A night made by the people in it.','Uma noite feita por quem a vive.')}</p><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div><small>{words('2026 / DATE + VENUE + LINEUP COMING SOON','2026 / DATA + LOCAL + CARTAZ EM BREVE')}</small></div></section>
 <section className="storyChapter"><span className="eyebrow">{words('01 / COME THROUGH','01 / APARECE')}</span><h2>{words('It starts with ','Tudo começa com ')}<em>{words('the crowd.','as pessoas.')}</em></h2><div className="storyDuo">{shot(1,words('That feeling when your song comes on.','Quando começa aquela música.'),'tall')}{shot(5,words('Your people. Your night.','A tua gente. A tua noite.'),'offset')}</div></section>
 <section className="storyChapter"><div className="storyHeading"><h2>{words('Everyone brings','Cada pessoa traz')}<br/><em>{words('something.','algo seu.')}</em></h2><span className="eyebrow">{words('02 / THE PEOPLE MAKE THE PARTY','02 / AS PESSOAS FAZEM A FESTA')}</span></div><div className="communityMosaic">{shot(6,words('The faces you came with.','As caras que vieram contigo.'))}{shot(10,words('The moments in between.','Os momentos entre músicas.'))}{shot(4,words('The energy you share.','A energia que partilhamos.'))}{shot(12,words('A night with its own character.','Uma noite com personalidade.'))}</div></section>
 <div className="photoBreak">{shot(3,words('One room. All together.','Uma sala. Todos juntos.'))}</div>
@@ -489,7 +490,7 @@ function App() {
       </main>
 
       <footer>
-        <button className="wordmark" onClick={() => go('Home')}>IT’S A TRAP!</button>
+        <button className="wordmark logoWordmark footerLogo" aria-label="It’s a Trap — Home" onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" loading="lazy" /></button>
         <p>{t.footer.tagline}</p>
         <div>
           <button onClick={() => go('Contact')}>{t.footer.contact} ↗</button>
@@ -503,3 +504,4 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />);
+
