@@ -22,6 +22,109 @@ const pageRouteKeys = Object.fromEntries(
   Object.entries(pageRoutes).map(([route, page]) => [page, route]),
 );
 
+const pressArticles = [
+  {
+    date: '2023-02-24',
+    outlet: 'NiT',
+    title: 'It’s a Trap: festa de hip hop regressa com estreia em Portugal de French The Kid',
+    url: 'https://www.nit.pt/cultura/musica/its-trap-festa-de-hip-hop-esta-de-volta-com-estreia-em-portugal-de-french-the-kid',
+    summary: {
+      en: 'French The Kid’s Portuguese debut at Lisboa ao Vivo.',
+      pt: 'A estreia de French The Kid em Portugal, no Lisboa ao Vivo.',
+    },
+  },
+  {
+    date: '2021-12-16',
+    outlet: 'NiT',
+    title: 'Lisboa recebe mega festa de trap este sábado',
+    url: 'https://www.nit.pt/cultura/musica/lisboa-recebe-mega-festa-de-trap-este-sabado',
+    summary: {
+      en: 'Coverage of the fifth anniversary at Lisboa ao Vivo.',
+      pt: 'Notícia sobre o quinto aniversário no Lisboa ao Vivo.',
+    },
+  },
+  {
+    date: '2019-09-18',
+    outlet: 'Gerador',
+    title: 'Conversa com João Moura, Oseias e Young Boda: “Não digam que o Hip Hop está a morrer, está bem longe disso”',
+    url: 'https://gerador.eu/conversa-com-joao-moura-oseias-e-young-boda-nao-digam-que-o-hip-hop-esta-a-morrer-esta-bem-longe-disso/',
+    summary: {
+      en: 'An interview on It’s a Trap’s beginnings, community and emerging artists.',
+      pt: 'Uma entrevista sobre o início da It’s a Trap, a comunidade e artistas emergentes.',
+    },
+  },
+  {
+    date: '2019-08-19',
+    outlet: 'Time Out',
+    title: 'Festival Iminente traz Common e outros artistas a Lisboa',
+    url: 'https://www.timeout.pt/lisboa/pt/noticias/festival-iminente-traz-common-e-outros-artistas-a-lisboa-081919',
+    summary: {
+      en: 'The Iminente programme includes a curation by It’s a Trap.',
+      pt: 'O programa do Iminente inclui uma curadoria da It’s a Trap.',
+    },
+  },
+  {
+    date: '2019-04-09',
+    outlet: 'NiT',
+    title: 'It’s a Trap: a festa tendência do hip hop está de volta a Lisboa',
+    url: 'https://www.nit.pt/cultura/musica/its-trap-festa-tendencia-do-hip-hop-esta-volta-lisboa',
+    summary: {
+      en: 'Comethazine headlines an edition at Lisboa ao Vivo.',
+      pt: 'Comethazine lidera uma edição no Lisboa ao Vivo.',
+    },
+  },
+  {
+    date: '2019-01-28',
+    outlet: 'Rimas e Batidas',
+    title: 'It’s a Trap no Estúdio Time Out: um peixe fora d’água em noite de estreia',
+    url: 'https://www.rimasebatidas.pt/its-a-trap-no-estudio-time-out-um-peixe-fora-dagua-em-noite-de-estreia/',
+    summary: {
+      en: 'A review of the One Step Forward collaboration and its atmosphere.',
+      pt: 'Uma crítica à colaboração One Step Forward e ao ambiente da noite.',
+    },
+  },
+  {
+    date: '2018-12-20',
+    outlet: 'NiT',
+    title: 'It’s a Trap: este sábado há uma festa épica de rap em Lisboa',
+    url: 'https://www.nit.pt/cultura/musica/its-trap-sabado-ha-festa-epica-rap-lisboa',
+    summary: {
+      en: 'The second anniversary at Labirinto and Unknown T’s Portuguese debut.',
+      pt: 'O segundo aniversário no Labirinto e a estreia de Unknown T em Portugal.',
+    },
+  },
+  {
+    date: '2018-08-29',
+    outlet: 'BANTUMEN',
+    title: 'IT’S A TRAP com NGA, uma semana antes do novo álbum',
+    url: 'https://www.bantumen.com/en/artigo/nga-its-a-trap/',
+    summary: {
+      en: 'Coverage of an NGA edition at Time Out Market.',
+      pt: 'Notícia sobre uma edição com NGA no Time Out Market.',
+    },
+  },
+  {
+    date: '2018-03-22',
+    outlet: 'NiT',
+    title: 'Fãs de hip hop: esta sexta-feira há uma festa para vocês',
+    url: 'https://www.nit.pt/cultura/musica/fas-hip-hop-esta-sexta-feira-ha-festa-voces',
+    summary: {
+      en: 'An edition with Landim and Vado, and Syl’s DJ debut.',
+      pt: 'Uma edição com Landim e Vado, e a estreia de Syl como DJ.',
+    },
+  },
+  {
+    date: '2017-06-23',
+    outlet: 'Time Out',
+    title: 'Time Out Market: o melhor dos próximos dias',
+    url: 'https://www.timeout.pt/lisboa/pt/blog/time-out-market-o-melhor-dos-proximos-dias-062317',
+    summary: {
+      en: 'An early announcement for a party at Time Out Market.',
+      pt: 'Um dos primeiros anúncios de uma festa no Time Out Market.',
+    },
+  },
+];
+
 function pageFromLocation() {
   return pageRoutes[window.location.hash.slice(1)] || 'Home';
 }
@@ -105,7 +208,7 @@ const copy = {
       heading: <>Give the eye<br /><em>its credit.</em></>,
       galleries: 'Galleries are awaiting approved images. Every collection will name its photographer and link prominently to their portfolio.',
       press: <>In the <em>press.</em></>,
-      coverage: 'Selected coverage will appear here once article titles, dates and links have been checked.',
+      coverage: 'Selected news, interviews, reviews and features about It’s a Trap.',
       contact: 'Photography & press enquiries',
     },
     community: {
@@ -224,7 +327,7 @@ const copy = {
       heading: <>Quem fotografa<br /><em>merece crédito.</em></>,
       galleries: 'As galerias aguardam imagens aprovadas. Cada coleção identificará a pessoa fotógrafa e terá um link para o seu portefólio.',
       press: <>Na <em>imprensa.</em></>,
-      coverage: 'A cobertura selecionada será publicada aqui depois de confirmarmos os títulos, as datas e os links.',
+      coverage: 'Uma seleção de notícias, entrevistas, críticas e reportagens sobre a It’s a Trap.',
       contact: 'Contactos de fotografia e imprensa',
     },
     community: {
@@ -471,9 +574,28 @@ function App() {
             <span className="eyebrow">{t.lens.eyebrow}</span>
             <h1 className="pagetitle">{t.lens.title}</h1>
             <p>{t.lens.intro}</p>
-<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster').map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             <h2>{t.lens.press}</h2>
             <p>{t.lens.coverage}</p>
+            <div className="pressGrid">
+              {pressArticles.map(article => (
+                <article className="pressCard" key={article.url}>
+                  <div className="pressMeta">
+                    <span>{article.outlet}</span>
+                    <time dateTime={article.date}>
+                      {new Intl.DateTimeFormat(isPortuguese ? 'pt-PT' : 'en-GB', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }).format(new Date(`${article.date}T00:00:00`))}
+                    </time>
+                  </div>
+                  <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a></h3>
+                  <p>{words(article.summary.en, article.summary.pt)}</p>
+                </article>
+              ))}
+            </div>
+            <h2>{t.lens.heading}</h2>
+<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster').map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             {button(t.lens.contact, 'Contact')}
           </section>
         )}
