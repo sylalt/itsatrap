@@ -225,7 +225,7 @@ const copy = {
       title: <>YOUR<br /><em>PEOPLE.</em></>,
       group: <>Take it to<br /><em>the group.</em></>,
       news: 'News, conversations and ideas beyond the dance floor.',
-      whatsapp: 'WhatsApp · opening soon ↗',
+      whatsapp: 'WhatsApp group coming soon',
       whatsappNotice: 'The official WhatsApp invitation is coming soon.',
       agreement: 'The community agreement',
       agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion. Ask before sharing someone’s photographs or personal information.',
@@ -344,7 +344,7 @@ const copy = {
       title: <>A TUA<br /><em>GENTE.</em></>,
       group: <>Leva a conversa<br /><em>para o grupo.</em></>,
       news: 'Novidades, conversas e ideias para lá da pista.',
-      whatsapp: 'WhatsApp · em breve ↗',
+      whatsapp: 'Grupo de WhatsApp em breve',
       whatsappNotice: 'O convite oficial para o WhatsApp estará disponível em breve.',
       agreement: 'Acordo da comunidade',
       agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada. Pede autorização antes de partilhares fotografias ou dados pessoais de alguém.',
@@ -630,12 +630,12 @@ function App() {
         {page === 'Community' && (
           <section>
             <span className="eyebrow">{t.community.eyebrow}</span>
-            <h1 className="pagetitle">{t.community.title}</h1><div className="communityMosaic">{shot(6,'')}{shot(5,'')}{shot(10,'')}</div>
+            <h1 className="pagetitle">{t.community.title}</h1>
             <div className="split inner">
               <div>
                 <h2>{t.community.group}</h2>
                 <p>{t.community.news}</p>
-                <button className="button" onClick={() => setNotice(t.community.whatsappNotice)}>{t.community.whatsapp}</button>
+                <button className="button whatsappButton" onClick={() => setNotice(t.community.whatsappNotice)}>{t.community.whatsapp}</button>
                 <p role="status">{notice}</p>
               </div>
               <div className="agreement">
