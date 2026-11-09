@@ -95,3 +95,28 @@ header nav button[aria-current]{color:var(--yellow)}
 .djTriptych .storyShot:nth-child(4) img {
   object-position: 65% center;
 }
+
+/* Phone layout: keep the DJ photo strip to two columns and fit the heading. */
+@media(max-width:600px){
+  .storyChapter h2{
+    max-width:100%;
+    font-size:clamp(34px,9vw,48px);
+    line-height:.96;
+    letter-spacing:-.5px;
+    overflow-wrap:break-word;
+  }
+  .djTriptych{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(10px,3vw,14px);
+  }
+  .djTriptych .storyShot{
+    min-width:0;
+    aspect-ratio:4 / 5;
+  }
+  .djTriptych .storyShot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .storyChapter .actions{margin-top:26px}
+}
