@@ -623,7 +623,7 @@ function App() {
               </button>
             )}
             <h2>{t.lens.heading}</h2>
-<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster' && !photo.src.endsWith('assets/crowd-hero.svg')).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
+<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster' && !['crowd-hero.svg', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp'].some(file=>photo.src.endsWith('assets/'+file))).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             {button(t.lens.contact, 'Contact')}
           </section>
         )}
