@@ -133,9 +133,23 @@
     "kind": "Poster"
   },
   {
-    "src": "assets/dj-blue-crowd.webp",
-    "alt": "DJ at the decks, with the blue-lit crowd behind him",
-    "original": "IMG_4500.JPG",
+    "src": "assets/dj-4499.jpg",
+    "alt": "DJ performing beneath a blue-lit tent",
+    "original": "IMG_4499.JPG.jpeg",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph"
+  },
+  {
+    "src": "assets/dj-4466.jpg",
+    "alt": "Crowd facing the stage beneath a tent at a live music event",
+    "original": "IMG_4466.JPG.jpeg",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph"
+  },
+  {
+    "src": "assets/dj-7689.jpg",
+    "alt": "DJ performing beneath vivid red and purple stage lights",
+    "original": "IMG_7689.JPG.jpeg",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph"
   }
