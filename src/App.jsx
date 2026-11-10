@@ -5,6 +5,7 @@ import photoRecords from './photos.json';
 const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
 const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/dj-home.jpg';
+const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 const ethosPhotos = ['ethos-pluma.png', 'ethos-performance.png', 'ethos-crowd.png']
@@ -509,6 +510,9 @@ function App() {
               <span>{t.edition.date}<b>{t.edition.eventDate}</b></span>
               <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
             </div>
+            <figure className="editionPhoto">
+              <img src={editionCrowdPhoto} alt="A packed nightclub crowd gathered around the DJ booth" />
+            </figure>
             <h2>{t.edition.lineup}</h2>
             <div className="announcement" aria-hidden="true" />
             <h2>{t.edition.knowBefore}</h2>
@@ -550,7 +554,7 @@ function App() {
         <p>{words('The party also brought Portuguese talent together with artists from abroad. Its second anniversary brought Unknown T to Portugal; later editions featured Comethazine and French The Kid. Portuguese DJs and artists shared those lineups, putting the local scene in conversation with what was happening in rap, trap and drill elsewhere.','A festa também aproximou o talento português de artistas internacionais. O segundo aniversário trouxe Unknown T a Portugal; edições posteriores contaram com Comethazine e French The Kid. DJs e artistas portugueses partilharam esses cartazes, pondo a cena local em diálogo com o que acontecia no rap, trap e drill além-fronteiras.')}</p>
       </div>
       <figure className="ethosPhoto">
-        <img src={ethosPhotos[2]} alt={words('A performer holds a Portuguese flag above a crowd.','Um artista ergue uma bandeira portuguesa perante o público.')} />
+        <img src={ethosPhotos[2]} alt={words('A DJ wearing a tiara performs in front of pink and blue lights.','Uma DJ com uma tiara atua diante de luzes cor-de-rosa e azuis.')} />
       </figure>
     </article>
     <div className="ethosClosing">
