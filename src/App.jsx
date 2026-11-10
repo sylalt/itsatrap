@@ -6,6 +6,7 @@ const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '')
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
 const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/dj-home.jpg';
 const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
+const communityPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/community-photo.png';
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
@@ -645,10 +646,15 @@ function App() {
                 <p>{t.community.news}</p>
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
-              <div className="agreement">
-                <h3>{t.community.agreement}</h3>
-                <p>{t.community.agreementText}</p>
-                <p>{t.community.moderation}</p>
+              <div className="communityAside">
+                <figure className="communityPhoto">
+                  <img src={communityPhoto} alt="A fan leans toward the camera in a packed club crowd" loading="lazy" decoding="async" />
+                </figure>
+                <div className="agreement">
+                  <h3>{t.community.agreement}</h3>
+                  <p>{t.community.agreementText}</p>
+                  <p>{t.community.moderation}</p>
+                </div>
               </div>
             </div>
           </section>
