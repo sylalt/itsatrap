@@ -8,7 +8,7 @@ const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '
 const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
-const ethosPhotos = ['ethos-pluma.png', 'ethos-performance.png', 'ethos-crowd.png']
+const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
   .map(file => (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/' + file);
 
 const pages = ['2026 Edition', 'Ethos', 'Through the Lens', 'Community'];
@@ -544,7 +544,7 @@ function App() {
         <p>{words('The dance floor mattered just as much as the music. Writing about the January 2019 edition at Estúdio Time Out, journalist João Daniel Marques noticed how naturally all kinds of clothes and self-expression fit into the crowd: “Não há comportamento ou outfit que destoe”—no behaviour or outfit seems out of place. People could dress, move and enjoy the music in their own way, among others who got it. Difference became a way to connect, not a reason to stand apart.','A pista de dança importava tanto como a música. Ao escrever sobre a edição de janeiro de 2019 no Estúdio Time Out, o jornalista João Daniel Marques reparou na naturalidade com que diferentes estilos e formas de expressão se integravam na multidão: “Não há comportamento ou outfit que destoe”. Cada pessoa podia vestir-se, dançar e viver a música à sua maneira, rodeada de outras que a compreendiam. A diferença tornava-se uma forma de ligação, não um motivo para ficar de fora.')}</p>
       </div>
       <figure className="ethosPhoto">
-        <img src={ethosPhotos[1]} alt={words('A performer shares a moment with the crowd under green lights.','Um artista partilha um momento com o público sob luzes verdes.')} />
+        <img src={ethosPhotos[1]} alt={words('A DJ wearing a tiara performs in front of pink and blue lights.','Uma DJ com uma tiara atua diante de luzes cor-de-rosa e azuis.')} />
       </figure>
     </article>
     <article className="ethosChapter">
@@ -554,7 +554,7 @@ function App() {
         <p>{words('The party also brought Portuguese talent together with artists from abroad. Its second anniversary brought Unknown T to Portugal; later editions featured Comethazine and French The Kid. Portuguese DJs and artists shared those lineups, putting the local scene in conversation with what was happening in rap, trap and drill elsewhere.','A festa também aproximou o talento português de artistas internacionais. O segundo aniversário trouxe Unknown T a Portugal; edições posteriores contaram com Comethazine e French The Kid. DJs e artistas portugueses partilharam esses cartazes, pondo a cena local em diálogo com o que acontecia no rap, trap e drill além-fronteiras.')}</p>
       </div>
       <figure className="ethosPhoto">
-        <img src={ethosPhotos[2]} alt={words('A DJ wearing a tiara performs in front of pink and blue lights.','Uma DJ com uma tiara atua diante de luzes cor-de-rosa e azuis.')} />
+        <img src={ethosPhotos[2]} alt={words('A performer shares a moment with the crowd under green lights.','Um artista partilha um momento com o público sob luzes verdes.')} />
       </figure>
     </article>
     <div className="ethosClosing">
