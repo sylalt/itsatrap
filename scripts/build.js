@@ -17,8 +17,9 @@ async function build() {
     outfile: path.join(output, 'app.js'),
   });
   await fs.cp(path.join(root, 'assets'), path.join(output, 'assets'), { recursive: true });
+  await fs.copyFile(path.join(root, 'archive-enhancement.js'), path.join(output, 'archive-enhancement.js'));
   const html = await fs.readFile(path.join(root, 'index.html'), 'utf8');
-  await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.'));
+  await fs.writeFile(path.join(output, 'index.html'), html.replaceAll('dist/app.', 'app.').replaceAll('dist/archive-enhancement.js', 'archive-enhancement.js'));
 }
 
 build().catch((error) => {
