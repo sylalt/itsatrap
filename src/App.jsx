@@ -138,6 +138,19 @@ function pageFromLocation() {
   return pageRoutes[window.location.hash.slice(1)] || 'Home';
 }
 
+function daysUntilEvent() {
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone: 'Europe/Lisbon',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  }).formatToParts(new Date());
+  const localDate = Object.fromEntries(parts.map(({ type, value }) => [type, Number(value)]));
+  const today = Date.UTC(localDate.year, localDate.month - 1, localDate.day);
+  const eventDay = Date.UTC(2026, 11, 19);
+  return Math.max(0, Math.round((eventDay - today) / 86_400_000));
+}
+
 const copy = {
   en: {
     language: 'Português',
@@ -165,6 +178,12 @@ const copy = {
       exploreArchive: 'Explore archive',
       contentComing: 'ARCHIVE / CONTENT COMING',
       discoverScene: 'Discover the scene ↗',
+      ticketEyebrow: '10 YEARS OF IT’S A TRAP · LISBON',
+      ticketHeading: 'GET TICKETS',
+      ticketDate: '19 DECEMBER 2026',
+      ticketDay: 'DAY TO GO',
+      ticketDays: 'DAYS TO GO',
+      ticketCta: 'GET TICKETS',
       community: 'KEEP THE CONNECTION',
       communityHeading: <>The night ends.<br /><em>The community doesn’t.</em></>,
       communityInvite: 'Join the conversation. Suggest an artist. Bring an idea.',
@@ -284,6 +303,12 @@ const copy = {
       exploreArchive: 'Explora o arquivo',
       contentComing: 'ARQUIVO / CONTEÚDOS EM BREVE',
       discoverScene: 'Descobre a cena ↗',
+      ticketEyebrow: '10 ANOS DE IT’S A TRAP · LISBOA',
+      ticketHeading: 'BILHETES',
+      ticketDate: '19 DE DEZEMBRO DE 2026',
+      ticketDay: 'DIA ATÉ AO EVENTO',
+      ticketDays: 'DIAS ATÉ AO EVENTO',
+      ticketCta: 'COMPRAR BILHETES',
       community: 'MANTÉM A LIGAÇÃO',
       communityHeading: <>A noite acaba.<br /><em>A comunidade continua.</em></>,
       communityInvite: 'Junta-te à conversa. Sugere um artista. Traz uma ideia.',
@@ -383,6 +408,7 @@ function App() {
   const [category, setCategory] = useState('All');
   const [showAllPress, setShowAllPress] = useState(false);
   const [notice, setNotice] = useState('');
+  const [daysToEvent, setDaysToEvent] = useState(daysUntilEvent);
   const [language, setLanguage] = useState(() => {
     try {
       return window.localStorage.getItem('itsatrap-language') === 'pt' ? 'pt' : 'en';
@@ -392,6 +418,11 @@ function App() {
   });
   const t = copy[language];
   const isPortuguese = language === 'pt';
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setDaysToEvent(daysUntilEvent()), 60_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     function syncPageWithLocation() {
@@ -497,7 +528,7 @@ function App() {
       <main>
 {page==='Home'?<>
 <section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div></div></section>
-<section className="storyChapter"><span className="eyebrow">{words('01 / COME THROUGH','01 / APARECE')}</span><h2>{words('It starts with ','Tudo começa com ')}<em>{words('the crowd.','as pessoas.')}</em></h2><div className="storyDuo">{shot(1,words('That feeling when your song comes on.','Quando começa aquela música.'),'tall')}{shot(4,words('Your people. Your night.','A tua gente. A tua noite.'),'offset')}</div></section>
+<section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <div className="photoBreak">{shot(3,'')}</div>
 <section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(7,'')}{shot(6,'')}<figure className="storyShot"><img loading="lazy" src={homeDjPhoto} alt="DJ performing at the decks beneath blue lights" /></figure></div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section>
