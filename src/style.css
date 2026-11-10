@@ -166,11 +166,6 @@ header nav button[aria-current]{color:var(--yellow)}
     height:100%;
     object-fit:cover;
   }
-  .djTriptych .storyShot:last-child{
-    grid-column:1 / -1;
-    width:calc(50% - clamp(5px, 1.5vw, 7px));
-    justify-self:center;
-  }
   .storyChapter .actions{margin-top:26px}
 }
 
