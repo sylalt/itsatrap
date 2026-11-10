@@ -6,7 +6,7 @@ const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '')
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
 const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/dj-home.jpg';
 const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
-const communityPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/community-photo.png';
+const communityPhoto = editionCrowdPhoto;
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
@@ -234,7 +234,7 @@ const copy = {
       categories: ['All', 'Poster', 'Lineups'],
     },
     lens: {
-      eyebrow: 'THE PEOPLE BEHIND THE CAMERA',
+      eyebrow: '',
       title: <>THROUGH<br /><em>THE LENS.</em></>,
       intro: 'The dance floor, seen from the inside.',
       heading: <>Give the eye<br /><em>its credit.</em></>,
@@ -347,7 +347,7 @@ const copy = {
       categories: ['All', 'Poster', 'Lineups'],
     },
     lens: {
-      eyebrow: 'AS PESSOAS POR TRÁS DA CÂMARA',
+      eyebrow: '',
       title: <>ATRAVÉS<br /><em>DA LENTE.</em></>,
       intro: 'A pista vista por dentro. Um espaço para as pessoas que registam a cena em fotografia.',
       heading: <>Quem fotografa<br /><em>merece crédito.</em></>,
@@ -588,7 +588,7 @@ function App() {
 
         {page === 'Through the Lens' && (
           <section>
-            <span className="eyebrow">{t.lens.eyebrow}</span>
+            {t.lens.eyebrow && <span className="eyebrow">{t.lens.eyebrow}</span>}
             <h1 className="pagetitle">{t.lens.title}</h1>
             <p>{t.lens.intro}</p>
             <h2>{t.lens.press}</h2>
@@ -648,7 +648,7 @@ function App() {
               </div>
               <div className="communityAside">
                 <figure className="communityPhoto">
-                  <img src={communityPhoto} alt="A fan leans toward the camera in a packed club crowd" loading="lazy" decoding="async" />
+                  <img src={communityPhoto} alt="A packed nightclub crowd gathered around the DJ booth" loading="lazy" decoding="async" />
                 </figure>
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
