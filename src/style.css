@@ -62,6 +62,11 @@ header nav button[aria-current]{color:var(--yellow)}
 .ethosClosing{max-width:850px;margin:30px auto 10px;padding:42px clamp(24px,5vw,64px);border-left:2px solid var(--red);background:#121311}
 .ethosClosing .eyebrow{display:block;margin-bottom:20px}
 .ethosClosing p:last-child{margin-bottom:0}
+.ethosSources{max-width:850px;margin:18px auto 0;color:#77746c;font-size:11px;line-height:1.7}
+.ethosSources>span{display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.12em}
+.ethosSources ul{margin:0;padding:0;list-style:none}
+.ethosSources a{color:inherit;text-decoration:underline;text-decoration-color:#45443e;text-underline-offset:2px}
+.ethosSources a:hover{color:var(--paper)}
 @media(max-width:850px){.ethosChapter{grid-template-columns:minmax(0,1fr) minmax(230px,1fr);gap:30px}.ethosPhoto img{height:460px}}
 @media(max-width:600px){.ethosMasthead{padding:15px 0 42px}.ethosMasthead h1{font-size:clamp(58px,14vw,88px);letter-spacing:-2px}.ethosMasthead>p{font-size:16px}.ethosChapter{grid-template-columns:1fr;padding:38px 0;gap:20px}.ethosChapterReverse .ethosChapterCopy,.ethosChapterReverse .ethosPhoto{order:initial}.ethosPhoto img{height:auto;max-height:500px;aspect-ratio:4/3}.ethosClosing{margin-top:20px;padding:30px 24px}}
 .pressGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 34px;margin:34px 0 80px}
