@@ -46,7 +46,8 @@
     "alt": "DJ at the mixer in black and white",
     "original": "11.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "storyGallery": true
   },
   {
     "src": "assets/behind-the-deck-dj-booth-blue-tent.webp",
@@ -147,17 +148,57 @@
     "kind": "Photograph"
   },
   {
-    "src": "assets/dj-4500-behind-decks.webp",
-    "alt": "DJ performing behind the decks under purple and blue light",
-    "original": "IMG_4500.JPG(1).jpeg",
+    "src": "assets/dj-colour.svg",
+    "alt": "DJ mixing at the decks under yellow and purple lights",
+    "original": "3.PNG",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph"
   },
   {
-    "src": "assets/dj-booth-bottle-removed.webp",
-    "alt": "DJ performing behind the decks in front of a packed crowd",
-    "original": "DJ Booth with Bottle Removed.png",
+    "src": "assets/dj-pink.svg",
+    "alt": "DJ mixing at the decks under pink and green lights",
+    "original": "6.PNG",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph"
+  },
+  {
+    "src": "assets/dj-gallery-real-madrid.png",
+    "alt": "DJ performing in a football jersey beneath purple and yellow lights",
+    "original": "User-provided photo",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph",
+    "storyGallery": true
+  },
+  {
+    "src": "assets/dj-gallery-purple-light.png",
+    "alt": "DJ performing under purple stage lighting",
+    "original": "User-provided photo",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph",
+    "storyGallery": true
+  },
+  {
+    "src": "assets/dj-gallery-blue-tent.png",
+    "alt": "DJ playing to a crowd beneath a blue-lit tent",
+    "original": "User-provided photo",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph",
+    "storyGallery": true
+  },
+  {
+    "src": "assets/dj-gallery-pink-dj.png",
+    "alt": "DJ mixing at her equipment under pink and teal lights",
+    "original": "User-provided photo",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph",
+    "storyGallery": true
+  },
+  {
+    "src": "assets/dj-gallery-monochrome.png",
+    "alt": "DJ performing behind turntables in black and white",
+    "original": "User-provided photo",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph",
+    "storyGallery": true
   }
 ]

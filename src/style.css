@@ -81,6 +81,10 @@ header nav button[aria-current]{color:var(--yellow)}
 .pressCard h3 a:hover{color:var(--yellow)}
 .pressCard p{margin-bottom:0}
 .pressToggle{display:block;margin:-50px auto 80px;padding:14px 24px;border:1px solid var(--line);font:700 12px monospace;letter-spacing:1px;text-transform:uppercase}
+.lensSubmission{width:fit-content;max-width:100%;margin:28px 0 18px;padding:12px 16px;border:1px solid var(--line)}
+.lensSubmission p{margin:0;color:#a49b8d;font-size:12px;line-height:1.6}
+.lensSubmission a{color:var(--paper);text-decoration:underline;text-decoration-color:#71695d;text-underline-offset:3px}
+.lensSubmission a:hover{color:var(--yellow)}
 @media(max-width:700px){
   .pressGrid{grid-template-columns:1fr;gap:12px;margin:26px 0 42px}
   .pressCard:has(.pressImageLink){
@@ -129,27 +133,27 @@ header nav button[aria-current]{color:var(--yellow)}
 @media(max-width:700px){.hero.immersive{min-height:0;padding:0 0 28px}.heroBackdrop{position:relative;inset:auto;z-index:0;width:100%;height:clamp(250px,75vw,360px)}.heroBackdrop:after{display:none}.heroCopy{position:relative;z-index:1;display:flex;flex-direction:column;padding:26px 6% 0}.heroCopy .actions{display:contents}.heroCopy .actions>.button{order:1;align-self:flex-start;margin-top:10px}.heroCopy small{order:2;margin-top:8px}.heroCopy .actions>.textbutton{order:3;align-self:flex-start;margin-top:4px}.storyChapter{padding:36px 5%}.photoBreak{margin:28px 0}.quietEthos,.communityCall{padding:48px 6%}}
 .whatsappButton,.whatsappButton:hover{background:#25d366;color:#111;border-color:#25d366;box-shadow:3px 3px 0 #167c3a}
 
-/* Five photo tiles, arranged as a balanced three-plus-two gallery */
-.djTriptych {
+/* Six photo tiles, arranged in a three-by-two gallery */
+.djGallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(4px, 1.4vw, 18px);
 }
-.djTriptych .storyShot {
+.djGallery .storyShot {
   aspect-ratio: 3 / 4;
   overflow: hidden;
 }
-.djTriptych .storyShot img {
+.djGallery .storyShot img {
   height: 100%;
 }
-.djTriptych .storyShot:nth-child(2) img {
+.djGallery .storyShot:nth-child(2) img {
   object-position: 70% center;
 }
-.djTriptych .storyShot:nth-child(4) img {
+.djGallery .storyShot:nth-child(4) img {
   object-position: 65% center;
 }
 
-/* Phone layout: keep the DJ photo strip to two columns and fit the heading. */
+/* Phone layout: keep the six-photo gallery to two columns and fit the heading. */
 @media(max-width:600px){
   .storyChapter h2{
     max-width:100%;
@@ -158,15 +162,15 @@ header nav button[aria-current]{color:var(--yellow)}
     letter-spacing:-.5px;
     overflow-wrap:break-word;
   }
-  .djTriptych{
+  .djGallery{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:clamp(10px,3vw,14px);
   }
-  .djTriptych .storyShot{
+  .djGallery .storyShot{
     min-width:0;
     aspect-ratio:4 / 5;
   }
-  .djTriptych .storyShot img{
+  .djGallery .storyShot img{
     width:100%;
     height:100%;
     object-fit:cover;

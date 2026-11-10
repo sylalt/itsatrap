@@ -4,10 +4,10 @@ import './style.css';
 import photoRecords from './photos.json';
 const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
-const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
-const communityPhoto = editionCrowdPhoto;
+const communityPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/community-photo.png';
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
+const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
   .map(file => (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/' + file);
 
@@ -454,7 +454,7 @@ function App() {
   const words=(en,pt)=>isPortuguese?pt:en;
   const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
   const lensPhotos = photos
-    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp', 'dj-4500-behind-decks.webp', 'dj-booth-bottle-removed.webp'].some(file => photo.src.endsWith('assets/' + file)))
+    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'dj-gallery-pink-dj.png', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp'].some(file => photo.src.endsWith('assets/' + file)))
     .sort((a, b) => {
       const isFeatured = (photo) => photo.src.endsWith('assets/performance.svg');
       if (isFeatured(a) && !isFeatured(b)) return -1;
@@ -497,7 +497,7 @@ function App() {
 <section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div></div></section>
 <section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <div className="photoBreak">{shot(3,'')}</div>
-<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(7,'')}{shot(6,'')}{shot(18,'')}{shot(19,'')}</div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section>
 <section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}{button(words('See all photographs','Ver todas as fotografias'),'Archive','textbutton')}</section></>:null}
 
@@ -633,7 +633,11 @@ function App() {
               <figure className={photo.src.endsWith('assets/performance.svg') ? 'featured' : ''} key={photo.src}>
                 <img loading="lazy" src={photo.src} alt={photo.alt}/>
               </figure>
-            ))}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
+            ))}</div>
+            <aside className="lensSubmission">
+              <p>{words('Submit your photos and videos.','Envia as tuas fotografias e vídeos.')} <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noopener noreferrer">{words('DM us on Instagram','Envia-nos uma mensagem no Instagram')} @itsatrap.official ↗</a></p>
+            </aside>
+            <p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
             <a className="textbutton" href={`mailto:${pressEmail}`}>{t.lens.contact} ↗</a>
             <div className="actions">
               {button(words('Explore past editions', 'Explorar edições anteriores'), 'Archive')}
@@ -652,7 +656,7 @@ function App() {
               </div>
               <div className="communityAside">
                 <figure className="communityPhoto">
-                  <img src={communityPhoto} alt="A packed nightclub crowd gathered around the DJ booth" loading="lazy" decoding="async" />
+                  <img src={communityPhoto} alt="A partygoer smiling in front of a crowded dance floor" loading="lazy" decoding="async" />
                 </figure>
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
