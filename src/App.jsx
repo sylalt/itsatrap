@@ -243,7 +243,6 @@ const copy = {
     },
     community: {
       eyebrow: 'BE PART OF WHAT COMES NEXT',
-      title: <>YOUR<br /><em>PEOPLE.</em></>,
       group: <>Take it to<br /><em>the group.</em></>,
       news: 'News, conversations and ideas beyond the dance floor.',
       whatsapp: 'Join the WhatsApp group',
@@ -357,7 +356,6 @@ const copy = {
     },
     community: {
       eyebrow: 'FAZ PARTE DO QUE VEM A SEGUIR',
-      title: <>A TUA<br /><em>GENTE.</em></>,
       group: <>Leva a conversa<br /><em>para o grupo.</em></>,
       news: 'Novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
@@ -635,12 +633,11 @@ function App() {
         )}
 
         {page === 'Community' && (
-          <section>
+          <section className="communityPage">
             <span className="eyebrow">{t.community.eyebrow}</span>
-            <h1 className="pagetitle">{t.community.title}</h1>
-            <div className="split inner">
-              <div>
-                <h2>{t.community.group}</h2>
+            <div className="split inner communityLayout">
+              <div className="communityIntro">
+                <h1 className="communityHeadline">{t.community.group}</h1>
                 <p>{t.community.news}</p>
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
