@@ -1,12 +1,11 @@
 # Community photo essay
 
-18 of 20 supplied images included. 6.PNG included as requested; its original pixels and branding remain in the source, with a tighter CSS crop on the homepage. Full image appears in galleries. minguito.PNG excluded because the downloaded file was truncated.
+17 of 20 supplied images included. 2.PNG and Capturar.PNG removed; minguito.PNG excluded because the downloaded file was truncated.
 
 1.PNG → assets/crowd-hero.png
 14.PNG → assets/dancefloor-motion.png
 3.PNG → assets/dj-colour.png
 26.PNG → assets/crowd-stage.png
-2.PNG → assets/stage-moments.png
 10.PNG → assets/community.png
 117.PNG → assets/friends.png
 11.PNG → assets/dj-monochrome.png
