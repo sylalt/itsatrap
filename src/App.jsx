@@ -506,13 +506,13 @@ function App() {
             <span className="eyebrow">{t.edition.eyebrow}</span>
             <h1 className="pagetitle">{t.edition.title}</h1>
             <p>{t.edition.intro}</p>
+            <figure className="editionPhoto">
+              <img src={editionCrowdPhoto} alt="A packed nightclub crowd gathered around the DJ booth" />
+            </figure>
             <div className="facts">
               <span>{t.edition.date}<b>{t.edition.eventDate}</b></span>
               <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
             </div>
-            <figure className="editionPhoto">
-              <img src={editionCrowdPhoto} alt="A packed nightclub crowd gathered around the DJ booth" />
-            </figure>
             <h2>{t.edition.lineup}</h2>
             <div className="announcement" aria-hidden="true" />
             <h2>{t.edition.knowBefore}</h2>
