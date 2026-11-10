@@ -180,6 +180,7 @@ const copy = {
       discoverScene: 'Discover the scene ↗',
       ticketEyebrow: '10 YEARS OF IT’S A TRAP · LISBON',
       ticketHeading: 'GET TICKETS',
+      ticketDate: '19 DECEMBER 2026',
       ticketDay: 'DAY TO GO',
       ticketDays: 'DAYS TO GO',
       ticketCta: 'GET TICKETS',
@@ -202,14 +203,15 @@ const copy = {
       storyText: 'The full story of It’s a Trap will live here, built with the people who made it happen. Historical dates, voices and quotations are awaiting verification and approval.',
     },
     edition: {
-      eyebrow: 'THE NEXT CHAPTER / LISBON',
+      eyebrow: '10 YEARS OF IT’S A TRAP / LISBON',
       title: <>2026<br /><em>EDITION.</em></>,
+      intro: 'Celebrate It’s a Trap’s 10th anniversary on 19 December at Disaster. Lineup and ticket details have not been announced.',
       date: 'DATE',
       venue: 'VENUE',
-      tickets: 'TICKETS',
-      ticketsNotOnSale: 'Not on sale yet',
+      eventDate: '19 December 2026',
+      eventVenue: 'Disaster',
       lineup: <>The <em>lineup.</em></>,
-      firstNames: 'FIRST NAMES COMING SOON',
+      firstNames: 'LINEUP TO BE ANNOUNCED',
       knowBefore: <>Know before <em>you go.</em></>,
       faqs: [
         ['What time does it start?', 'Doors, performance times and last entry will be published with the event announcement.'],
@@ -292,6 +294,7 @@ const copy = {
       discoverScene: 'Descobre a cena ↗',
       ticketEyebrow: '10 ANOS DE IT’S A TRAP · LISBOA',
       ticketHeading: 'BILHETES',
+      ticketDate: '19 DE DEZEMBRO DE 2026',
       ticketDay: 'DIA ATÉ AO EVENTO',
       ticketDays: 'DIAS ATÉ AO EVENTO',
       ticketCta: 'COMPRAR BILHETES',
@@ -314,14 +317,15 @@ const copy = {
       storyText: 'A história completa de It’s a Trap será construída aqui com as pessoas que lhe deram vida. As datas, testemunhos e citações do passado aguardam verificação e aprovação.',
     },
     edition: {
-      eyebrow: 'O PRÓXIMO CAPÍTULO / LISBOA',
+      eyebrow: '10 ANOS DE IT’S A TRAP / LISBOA',
       title: <>EDIÇÃO<br /><em>2026.</em></>,
+      intro: 'Celebra os 10 anos da It’s a Trap a 19 de dezembro no Disaster. O cartaz e os detalhes dos bilhetes ainda não foram anunciados.',
       date: 'DATA',
       venue: 'LOCAL',
-      tickets: 'BILHETES',
-      ticketsNotOnSale: 'Ainda não estão à venda',
+      eventDate: '19 de dezembro de 2026',
+      eventVenue: 'Disaster',
       lineup: <>O <em>cartaz.</em></>,
-      firstNames: 'PRIMEIROS NOMES EM BREVE',
+      firstNames: 'CARTAZ A ANUNCIAR',
       knowBefore: <>Antes de <em>chegares.</em></>,
       faqs: [
         ['A que horas começa?', 'A abertura de portas, os horários das atuações e a última entrada serão anunciados com os detalhes do evento.'],
@@ -483,7 +487,7 @@ function App() {
       <main>
 {page==='Home'?<>
 <section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div></div></section>
-<section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
+<section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <div className="photoBreak">{shot(3,'')}</div>
 <section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(7,'')}{shot(6,'')}<figure className="storyShot"><img loading="lazy" src={homeDjPhoto} alt="DJ performing at the decks beneath blue lights" /></figure></div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section>
@@ -493,10 +497,10 @@ function App() {
           <section>
             <span className="eyebrow">{t.edition.eyebrow}</span>
             <h1 className="pagetitle">{t.edition.title}</h1>
+            <p>{t.edition.intro}</p>
             <div className="facts">
-              <span>{t.edition.date}<b>{t.home.toBeAnnounced}</b></span>
-              <span>{t.edition.venue}<b>{t.home.toBeAnnounced}</b></span>
-              <span>{t.edition.tickets}<b>{t.edition.ticketsNotOnSale}</b></span>
+              <span>{t.edition.date}<b>{t.edition.eventDate}</b></span>
+              <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
             </div>
             <h2>{t.edition.lineup}</h2>
             <div className="announcement">{t.edition.firstNames}<span>↗</span></div>
