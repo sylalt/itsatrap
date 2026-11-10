@@ -70,6 +70,13 @@
     "kind": "Photograph"
   },
   {
+    "src": "assets/lens-djs-bw.jpg",
+    "alt": "Black-and-white photograph of people performing behind DJ decks",
+    "original": "lens-djs-bw.jpg",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph"
+  },
+  {
     "src": "assets/together-on-stage.svg",
     "alt": "Two people sharing a moment on stage",
     "original": "tiagao.PNG",
@@ -80,6 +87,13 @@
     "src": "assets/microphone-closeup.svg",
     "alt": "Performer holding a microphone",
     "original": "pierre.PNG",
+    "credit": "Photographer credit to be confirmed",
+    "kind": "Photograph"
+  },
+  {
+    "src": "assets/lens-vocalist-bw.jpg",
+    "alt": "Black-and-white close-up of a performer singing into a microphone",
+    "original": "lens-vocalist-bw.jpg",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph"
   },

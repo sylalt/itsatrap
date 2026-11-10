@@ -21,3 +21,8 @@ m huncho.PNG → assets/purple-stage.png
 4.PNG → assets/hands-up.png
 8.PNG → assets/after-dark.png
 Capturar.PNG → assets/syl-poster.png
+
+Additional images provided for the Through the Lens gallery:
+
+1b09db8f-763f-4d6b-9aad-6b4425c0adb9.jpg → assets/lens-vocalist-bw.jpg
+0e19f150-9cbb-4a4a-a533-65eae7d201c4.jpg → assets/lens-djs-bw.jpg
