@@ -4,7 +4,6 @@ import './style.css';
 import photoRecords from './photos.json';
 const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
-const communityPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/community-photo.png';
 const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
@@ -248,7 +247,7 @@ const copy = {
       news: 'News, conversations and ideas beyond the dance floor.',
       whatsapp: 'Join the WhatsApp group',
       agreement: 'Rules',
-      agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion. Ask before sharing someone’s photographs or personal information.',
+      agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion.',
       moderation: 'Moderation and reporting details will accompany the invitation.',
     },
     contact: {
@@ -361,7 +360,7 @@ const copy = {
       news: 'Novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
       agreement: 'Acordo da comunidade',
-      agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada. Pede autorização antes de partilhares fotografias ou dados pessoais de alguém.',
+      agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada.',
       moderation: 'As informações de moderação e denúncia serão partilhadas com o convite.',
     },
     contact: {
@@ -454,7 +453,7 @@ function App() {
   const words=(en,pt)=>isPortuguese?pt:en;
   const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
   const lensPhotos = photos
-    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'dj-gallery-pink-dj.png', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp'].some(file => photo.src.endsWith('assets/' + file)))
+    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'dj-gallery-pink-dj.png', 'dj-gallery-blue-tent.png', 'dj-gallery-monochrome.png', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp'].some(file => photo.src.endsWith('assets/' + file)))
     .sort((a, b) => {
       const isFeatured = (photo) => photo.src.endsWith('assets/performance.svg');
       if (isFeatured(a) && !isFeatured(b)) return -1;
@@ -630,7 +629,7 @@ function App() {
             )}
             <h2>{t.lens.heading}</h2>
             <div className="gallery">{lensPhotos.map(photo => (
-              <figure className={photo.src.endsWith('assets/performance.svg') ? 'featured' : ''} key={photo.src}>
+              <figure className={photo.src.endsWith('assets/performance.svg') || photo.src.endsWith('assets/purple-stage.svg') ? 'featured' : ''} key={photo.src}>
                 <img loading="lazy" src={photo.src} alt={photo.alt}/>
               </figure>
             ))}</div>
@@ -655,9 +654,6 @@ function App() {
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
               <div className="communityAside">
-                <figure className="communityPhoto">
-                  <img src={communityPhoto} alt="A partygoer smiling in front of a crowded dance floor" loading="lazy" decoding="async" />
-                </figure>
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
                   <p>{t.community.agreementText}</p>
