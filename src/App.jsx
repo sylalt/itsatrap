@@ -5,6 +5,7 @@ import photoRecords from './photos.json';
 const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
 const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/dj-home.jpg';
+const pressEmail = 'Producao@grvve.com';
 const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
 const ethosPhotos = ['ethos-pluma.png', 'ethos-performance.png', 'ethos-crowd.png']
   .map(file => (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/' + file);
@@ -233,7 +234,7 @@ const copy = {
     lens: {
       eyebrow: 'THE PEOPLE BEHIND THE CAMERA',
       title: <>THROUGH<br /><em>THE LENS.</em></>,
-      intro: 'The dance floor, seen from the inside. A home for the photographers who document the scene.',
+      intro: 'The dance floor, seen from the inside.',
       heading: <>Give the eye<br /><em>its credit.</em></>,
       galleries: 'Galleries are awaiting approved images. Every collection will name its photographer and link prominently to their portfolio.',
       press: <>In the <em>press.</em></>,
@@ -254,7 +255,8 @@ const copy = {
       eyebrow: 'LET’S CONNECT',
       title: <>MAKE<br /><em>CONTACT.</em></>,
       topics: 'Booking · Partnerships · Press · Photography',
-      intro: 'Dedicated contact details are coming soon. In the meantime, find It’s a Trap on Instagram.',
+      intro: 'For press and photography enquiries, email:',
+      emailLabel: 'Email press and photography',
     },
     footer: {
       tagline: 'LISBON. LOUD. TOGETHER.',
@@ -367,7 +369,8 @@ const copy = {
       eyebrow: 'VAMOS FALAR',
       title: <>ENTRA<br /><em>EM CONTACTO.</em></>,
       topics: 'Programação · Parcerias · Imprensa · Fotografia',
-      intro: 'Os contactos específicos serão divulgados em breve. Entretanto, encontra It’s a Trap no Instagram.',
+      intro: 'Para questões de imprensa e fotografia, envia um email para:',
+      emailLabel: 'Email de imprensa e fotografia',
     },
     footer: {
       tagline: 'LISBOA. ALTA. EM COMUNIDADE.',
@@ -451,6 +454,14 @@ function App() {
 
   const words=(en,pt)=>isPortuguese?pt:en;
   const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
+  const lensPhotos = photos
+    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp'].some(file => photo.src.endsWith('assets/' + file)))
+    .sort((a, b) => {
+      const isFeatured = (photo) => photo.src.endsWith('assets/performance.svg');
+      if (isFeatured(a) && !isFeatured(b)) return -1;
+      if (!isFeatured(a) && isFeatured(b)) return 1;
+      return 0;
+    });
   const ethos=<><span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.','A MÚSICA JUNTA-NOS. AS PESSOAS FAZEM-NOS VOLTAR.')}</span><h2>{words('A crowd. A connection.','Uma multidão. Uma ligação.')}<br/><em>{words('A community.','Uma comunidade.')}</em></h2><p>{words('Come for the music. Find your people. Look after each other.','Vem pela música. Encontra os teus. Cuidem uns dos outros.')}</p></>;
 
   return (
@@ -513,7 +524,7 @@ function App() {
   <div className="ethosMasthead">
     <span className="eyebrow">{words('LISBON / A STORY SINCE 2016','LISBOA / UMA HISTÓRIA DESDE 2016')}</span>
     <h1>{words('A party shaped','Uma festa feita')}<br/><em>{words('by its people.','pelas pessoas.')}</em></h1>
-    <p>{words('Founded in 2016, It’s a Trap marks its 10th anniversary in 2026. Its story lives in the music, the people who filled the room, and the scene that grew around them.','Fundada em 2016, a It’s a Trap celebra 10 anos em 2026. A sua história vive na música, nas pessoas que enchiam a sala e na cena que cresceu à sua volta.')}</p>
+    <p>{words('Founded in 2016, It’s a Trap marks its 10th anniversary in 2026. Its story lives in the music and the people who filled the rooms.','Fundada em 2016, a It’s a Trap celebra 10 anos em 2026. A sua história vive na música e nas pessoas que enchiam as salas.')}</p>
   </div>
   <div className="ethosHistory">
     <article className="ethosChapter">
@@ -611,8 +622,12 @@ function App() {
               </button>
             )}
             <h2>{t.lens.heading}</h2>
-<div className="gallery">{photos.filter(photo=>photo.kind!=='Poster' && !['crowd-hero.svg', 'crowd-stage.png', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp'].some(file=>photo.src.endsWith('assets/'+file))).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
-            {button(t.lens.contact, 'Contact', 'textbutton')}
+            <div className="gallery">{lensPhotos.map(photo => (
+              <figure className={photo.src.endsWith('assets/performance.svg') ? 'featured' : ''} key={photo.src}>
+                <img loading="lazy" src={photo.src} alt={photo.alt}/>
+              </figure>
+            ))}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
+            <a className="textbutton" href={`mailto:${pressEmail}`}>{t.lens.contact} ↗</a>
             <div className="actions">
               {button(words('Explore past editions', 'Explorar edições anteriores'), 'Archive')}
             </div>
@@ -644,6 +659,7 @@ function App() {
             <h1 className="pagetitle">{t.contact.title}</h1>
             <p>{t.contact.topics}</p>
             <p>{t.contact.intro}</p>
+            <p><a className="contactEmail" href={`mailto:${pressEmail}`}>{t.contact.emailLabel} ↗</a></p>
             <a className="button" href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noreferrer">@itsatrap.official ↗</a>
           </section>
         )}
