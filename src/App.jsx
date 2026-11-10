@@ -211,7 +211,6 @@ const copy = {
       eventDate: '19 December 2026',
       eventVenue: 'Disaster',
       lineup: <>The <em>lineup.</em></>,
-      firstNames: 'LINEUP TO BE ANNOUNCED',
       knowBefore: <>Know before <em>you go.</em></>,
       faqs: [
         ['What time does it start?', 'Doors, performance times and last entry will be published with the event announcement.'],
@@ -325,7 +324,6 @@ const copy = {
       eventDate: '19 de dezembro de 2026',
       eventVenue: 'Disaster',
       lineup: <>O <em>cartaz.</em></>,
-      firstNames: 'CARTAZ A ANUNCIAR',
       knowBefore: <>Antes de <em>chegares.</em></>,
       faqs: [
         ['A que horas começa?', 'A abertura de portas, os horários das atuações e a última entrada serão anunciados com os detalhes do evento.'],
@@ -503,7 +501,7 @@ function App() {
               <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
             </div>
             <h2>{t.edition.lineup}</h2>
-            <div className="announcement">{t.edition.firstNames}<span>↗</span></div>
+            <div className="announcement" aria-hidden="true" />
             <h2>{t.edition.knowBefore}</h2>
             {t.edition.faqs.map(([question, answer]) => (
               <details key={question}><summary>{question}</summary><p>{answer}</p></details>
