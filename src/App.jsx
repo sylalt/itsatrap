@@ -244,22 +244,10 @@ const copy = {
       title: <>YOUR<br /><em>PEOPLE.</em></>,
       group: <>Take it to<br /><em>the group.</em></>,
       news: 'News, conversations and ideas beyond the dance floor.',
-      whatsapp: 'WhatsApp group coming soon',
-      whatsappNotice: 'The official WhatsApp invitation is coming soon.',
-      agreement: 'The community agreement',
+      whatsapp: 'Join the WhatsApp group',
+      agreement: 'Rules',
       agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion. Ask before sharing someone’s photographs or personal information.',
       moderation: 'Moderation and reporting details will accompany the invitation.',
-      idea: <>Got an <em>idea?</em></>,
-      suggestionsIntro: 'Artist requests, collaborations, accessibility or anything else. You can leave your name and email blank.',
-      category: 'Category',
-      categories: ['Artist request', 'Collaboration', 'Accessibility', 'General feedback'],
-      suggestion: 'Your suggestion',
-      placeholder: 'Tell us what you have in mind…',
-      name: 'Name (optional)',
-      email: 'Email (optional)',
-      privacy: 'Preview mode: download your suggestion as a file. Nothing is submitted or stored by this website.',
-      download: 'Download suggestion ↗',
-      downloaded: 'Suggestion downloaded. Nothing has been sent. Submissions will open when the community launches.',
     },
     contact: {
       eyebrow: 'LET’S CONNECT',
@@ -368,22 +356,10 @@ const copy = {
       title: <>A TUA<br /><em>GENTE.</em></>,
       group: <>Leva a conversa<br /><em>para o grupo.</em></>,
       news: 'Novidades, conversas e ideias para lá da pista.',
-      whatsapp: 'Grupo de WhatsApp em breve',
-      whatsappNotice: 'O convite oficial para o WhatsApp estará disponível em breve.',
+      whatsapp: 'Junta-te ao grupo de WhatsApp',
       agreement: 'Acordo da comunidade',
       agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada. Pede autorização antes de partilhares fotografias ou dados pessoais de alguém.',
       moderation: 'As informações de moderação e denúncia serão partilhadas com o convite.',
-      idea: <>Tens uma <em>ideia?</em></>,
-      suggestionsIntro: 'Sugestões de artistas, colaborações, acessibilidade ou qualquer outra ideia. Podes deixar o nome e o email em branco.',
-      category: 'Categoria',
-      categories: ['Sugestão de artista', 'Colaboração', 'Acessibilidade', 'Comentário geral'],
-      suggestion: 'A tua sugestão',
-      placeholder: 'Conta-nos a tua ideia…',
-      name: 'Nome (opcional)',
-      email: 'Email (opcional)',
-      privacy: 'Pré-visualização: descarrega a tua sugestão num ficheiro. Este site não a envia nem guarda.',
-      download: 'Descarregar sugestão ↗',
-      downloaded: 'Sugestão descarregada. Nada foi enviado. O envio de sugestões estará disponível quando a comunidade for lançada.',
     },
     contact: {
       eyebrow: 'VAMOS FALAR',
@@ -405,7 +381,6 @@ function App() {
   const [page, setPage] = useState(pageFromLocation);
   const [category, setCategory] = useState('All');
   const [showAllPress, setShowAllPress] = useState(false);
-  const [notice, setNotice] = useState('');
   const [daysToEvent, setDaysToEvent] = useState(daysUntilEvent);
   const [language, setLanguage] = useState(() => {
     try {
@@ -425,7 +400,6 @@ function App() {
   useEffect(() => {
     function syncPageWithLocation() {
       setPage(pageFromLocation());
-      setNotice('');
       window.scrollTo(0, 0);
     }
 
@@ -462,33 +436,16 @@ function App() {
       window.history.pushState(null, '', `#${route}`);
     }
     setPage(nextPage);
-    setNotice('');
     window.scrollTo(0, 0);
   }
 
   function toggleLanguage() {
     setLanguage(isPortuguese ? 'en' : 'pt');
-    setNotice('');
   }
 
   const button = (text, target, className = 'button') => (
     <button className={className} onClick={() => go(target)}>{text} ↗</button>
   );
-
-  function suggest(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const blob = new Blob([JSON.stringify(Object.fromEntries(formData), null, 2)], {
-      type: 'application/json',
-    });
-    const anchor = document.createElement('a');
-    const url = URL.createObjectURL(blob);
-    anchor.href = url;
-    anchor.download = 'its-a-trap-suggestion.json';
-    anchor.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    setNotice(t.community.downloaded);
-  }
 
   const words=(en,pt)=>isPortuguese?pt:en;
   const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
@@ -665,8 +622,7 @@ function App() {
               <div>
                 <h2>{t.community.group}</h2>
                 <p>{t.community.news}</p>
-                <button className="button whatsappButton" onClick={() => setNotice(t.community.whatsappNotice)}>{t.community.whatsapp}</button>
-                <p role="status">{notice}</p>
+                <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
               <div className="agreement">
                 <h3>{t.community.agreement}</h3>
@@ -674,30 +630,6 @@ function App() {
                 <p>{t.community.moderation}</p>
               </div>
             </div>
-            <h2>{t.community.idea}</h2>
-            <p>{t.community.suggestionsIntro}</p>
-            <form onSubmit={suggest}>
-              <label>{t.community.category}
-                <select name="category">
-                  {t.community.categories.map((label, index) => (
-                    <option key={label} value={isPortuguese
-                      ? ['artist-request', 'collaboration', 'accessibility', 'general-feedback'][index]
-                      : ['Artist request', 'Collaboration', 'Accessibility', 'General feedback'][index]}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>{t.community.suggestion}
-                <textarea name="suggestion" required rows="5" maxLength="4000" placeholder={t.community.placeholder} />
-              </label>
-              <div className="formrow">
-                <label>{t.community.name}<input name="name" autoComplete="name" /></label>
-                <label>{t.community.email}<input name="email" type="email" autoComplete="email" /></label>
-              </div>
-              <p className="muted">{t.community.privacy}</p>
-              <button className="button">{t.community.download}</button>
-            </form>
           </section>
         )}
 
