@@ -4,7 +4,6 @@ import './style.css';
 import photoRecords from './photos.json';
 const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
 const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
-const homeDjPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/dj-home.jpg';
 const editionCrowdPhoto = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/2026-edition-crowd.png';
 const communityPhoto = editionCrowdPhoto;
 const pressEmail = 'Producao@grvve.com';
@@ -498,7 +497,7 @@ function App() {
 <section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('Find your people','Encontra os teus'),'Community','textbutton')}</div></div></section>
 <section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <div className="photoBreak">{shot(3,'')}</div>
-<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(7,'')}{shot(6,'')}<figure className="storyShot"><img loading="lazy" src={homeDjPhoto} alt="DJ performing at the decks beneath blue lights" /></figure></div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djTriptych">{shot(2,'')}{shot(7,'')}{shot(6,'')}</div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section>
 <section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}{button(words('See all photographs','Ver todas as fotografias'),'Archive','textbutton')}</section></>:null}
 
@@ -507,9 +506,6 @@ function App() {
             <span className="eyebrow">{t.edition.eyebrow}</span>
             <h1 className="pagetitle">{t.edition.title}</h1>
             <p>{t.edition.intro}</p>
-            <figure className="editionPhoto">
-              <img src={editionCrowdPhoto} alt="A packed nightclub crowd gathered around the DJ booth" />
-            </figure>
             <div className="facts">
               <span>{t.edition.date}<b>{t.edition.eventDate}</b></span>
               <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
