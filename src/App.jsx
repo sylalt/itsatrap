@@ -9,7 +9,7 @@ const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(windo
 const ethosPhotos = ['ethos-pluma.png', 'ethos-performance.png', 'ethos-crowd.png']
   .map(file => (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/' + file);
 
-const pages = ['2026 Edition', 'Ethos', 'Archive', 'Through the Lens', 'Community'];
+const pages = ['2026 Edition', 'Ethos', 'Through the Lens', 'Community'];
 const pageRoutes = {
   home: 'Home',
   edition: '2026 Edition',
@@ -612,7 +612,10 @@ function App() {
             )}
             <h2>{t.lens.heading}</h2>
 <div className="gallery">{photos.filter(photo=>photo.kind!=='Poster' && !['crowd-hero.svg', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp'].some(file=>photo.src.endsWith('assets/'+file))).map(photo=><figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
-            {button(t.lens.contact, 'Contact')}
+            {button(t.lens.contact, 'Contact', 'textbutton')}
+            <div className="actions">
+              {button(words('Explore past editions', 'Explorar edições anteriores'), 'Archive')}
+            </div>
           </section>
         )}
 
