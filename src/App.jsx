@@ -454,7 +454,7 @@ function App() {
   const words=(en,pt)=>isPortuguese?pt:en;
   const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
   const lensPhotos = photos
-    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'behind-the-deck-dj-booth-purple-light.webp'].some(file => photo.src.endsWith('assets/' + file)))
+    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-colour.svg', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp', 'dj-4500-behind-decks.webp', 'dj-booth-bottle-removed.webp'].some(file => photo.src.endsWith('assets/' + file)))
     .sort((a, b) => {
       const isFeatured = (photo) => photo.src.endsWith('assets/performance.svg');
       if (isFeatured(a) && !isFeatured(b)) return -1;
