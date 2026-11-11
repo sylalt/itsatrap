@@ -45,7 +45,8 @@ function render(){
 }
 if(!document.getElementById("archive-event-gallery-style")){const galleryStyle=document.createElement("style");galleryStyle.id="archive-event-gallery-style";galleryStyle.textContent=".archive-event-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:16px 0}.archive-event-gallery img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#111;border:1px solid var(--line)}@media(max-width:560px){.archive-event-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}";document.head.appendChild(galleryStyle)}
 const observer=new MutationObserver(function(){render()});
-observer.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
+const reactRoot=document.getElementById("root");
+if(reactRoot)observer.observe(reactRoot,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
 window.addEventListener("hashchange",render);
 window.addEventListener("storage",render);
 document.addEventListener("DOMContentLoaded",render);
