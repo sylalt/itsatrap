@@ -429,8 +429,10 @@ function App() {
     }
 
     window.addEventListener('hashchange', syncPageWithLocation);
+    window.addEventListener('popstate', syncPageWithLocation);
     return () => {
       window.removeEventListener('hashchange', syncPageWithLocation);
+      window.removeEventListener('popstate', syncPageWithLocation);
     };
   }, []);
 
