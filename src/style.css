@@ -312,3 +312,25 @@ header nav button[aria-current]{color:var(--yellow)}
   color:#fa36e5;
   text-shadow:0 0 12px rgba(251,70,251,.42),2px 2px 0 #551244;
 }
+
+.featurePosterWrap{
+  max-width:1600px;
+  padding:0 4%;
+  margin-bottom:36px;
+}
+.featurePoster{
+  max-width:1365px;
+}
+@media(max-width:700px){
+  .featurePosterWrap{
+    width:100%;
+    max-width:none;
+    padding:0;
+    margin-bottom:18px;
+  }
+  .featurePoster{
+    max-width:none;
+    border:0;
+    box-shadow:none;
+  }
+}
