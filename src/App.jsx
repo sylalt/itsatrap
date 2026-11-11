@@ -2,15 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 import photoRecords from './photos.json';
-const brandLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo.png';
-const heroLogo = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-logo-hero.png';
-const featurePosterDesktop = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-2026-poster-landscape.png';
-const featurePosterMobile = (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/its-a-trap-2026-poster-portrait.png';
+const assetBase = /\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '';
+const assetUrl = (path) => `${assetBase}${path}`;
+const brandLogo = assetUrl('assets/its-a-trap-logo.png');
+const heroLogo = assetUrl('assets/its-a-trap-logo-hero.png');
+const featurePosterDesktop = assetUrl('assets/its-a-trap-2026-poster-landscape.png');
+const featurePosterMobile = assetUrl('assets/its-a-trap-2026-poster-portrait.png');
 const pressEmail = 'Producao@grvve.com';
-const photos=photoRecords.map(photo=>({...photo,src:(/\/dist(?:\/|$)/.test(window.location.pathname)?'../':'')+photo.src}));
+const photos = photoRecords.map((photo) => ({ ...photo, src: assetUrl(photo.src) }));
 const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
-  .map(file => (/\/dist(?:\/|$)/.test(window.location.pathname) ? '../' : '') + 'assets/' + file);
+  .map(file => assetUrl(`assets/${file}`));
+const excludedLensPhotos = new Set([
+  'community.svg',
+  'hands-up.svg',
+  'crowd-hero.svg',
+  'crowd-stage.png',
+  'dj-monochrome.svg',
+  'dj-pass-energy.webp',
+  'dancefloor-motion.svg',
+  'dj-gallery-pink-dj.png',
+  'dj-gallery-blue-tent.png',
+  'dj-gallery-monochrome.png',
+  'behind-the-deck-dj-booth-purple-light.webp',
+  'behind-the-deck-dj-booth-blue-tent.webp',
+]);
+const lensPhotos = photos
+  .filter(photo => photo.kind !== 'Poster' && !excludedLensPhotos.has(photo.src.split('/').pop()))
+  .sort((a, b) => Number(b.src.endsWith('assets/performance.svg')) - Number(a.src.endsWith('assets/performance.svg')));
 
 const pages = ['2026 Edition', 'Ethos', 'Through the Lens', 'Community'];
 const pageRoutes = {
@@ -135,6 +154,11 @@ const pressArticles = [
       pt: 'Um dos primeiros anúncios de uma festa no Time Out Market.',
     },
   },
+];
+
+const pressArticlesWithImagesFirst = [
+  ...pressArticles.filter(article => article.image),
+  ...pressArticles.filter(article => !article.image),
 ];
 
 function pageFromLocation() {
@@ -408,10 +432,8 @@ function App() {
       window.scrollTo(0, 0);
     }
 
-    window.addEventListener('popstate', syncPageWithLocation);
     window.addEventListener('hashchange', syncPageWithLocation);
     return () => {
-      window.removeEventListener('popstate', syncPageWithLocation);
       window.removeEventListener('hashchange', syncPageWithLocation);
     };
   }, []);
@@ -452,17 +474,24 @@ function App() {
     <button className={className} onClick={() => go(target)}>{text} ↗</button>
   );
 
-  const words=(en,pt)=>isPortuguese?pt:en;
-  const shot=(i,caption,cls='')=><figure className={'storyShot '+cls}><img loading="lazy" src={photos[i].src} alt={photos[i].alt}/>{caption&&<figcaption>{caption}</figcaption>}</figure>;
-  const lensPhotos = photos
-    .filter(photo => photo.kind !== 'Poster' && !['community.svg', 'hands-up.svg', 'crowd-hero.svg', 'crowd-stage.png', 'dj-monochrome.svg', 'dj-pass-energy.webp', 'dancefloor-motion.svg', 'dj-gallery-pink-dj.png', 'dj-gallery-blue-tent.png', 'dj-gallery-monochrome.png', 'behind-the-deck-dj-booth-purple-light.webp', 'behind-the-deck-dj-booth-blue-tent.webp'].some(file => photo.src.endsWith('assets/' + file)))
-    .sort((a, b) => {
-      const isFeatured = (photo) => photo.src.endsWith('assets/performance.svg');
-      if (isFeatured(a) && !isFeatured(b)) return -1;
-      if (!isFeatured(a) && isFeatured(b)) return 1;
-      return 0;
-    });
-  const ethos=<><span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.','A MÚSICA JUNTA-NOS. AS PESSOAS FAZEM-NOS VOLTAR.')}</span><h2>{words('A crowd. A connection.','Uma multidão. Uma ligação.')}<br/><em>{words('A community.','Uma comunidade.')}</em></h2><p>{words('Come for the music. Find your people. Look after each other.','Vem pela música. Encontra os teus. Cuidem uns dos outros.')}</p></>;
+  const words = (en, pt) => isPortuguese ? pt : en;
+  const shot = (i, caption, cls = '') => (
+    <figure className={`storyShot ${cls}`}>
+      <img loading="lazy" src={photos[i].src} alt={photos[i].alt} />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+  const ethos = (
+    <>
+      <span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.', 'A MÚSICA JUNTA-NOS. AS PESSOAS FAZEM-NOS VOLTAR.')}</span>
+      <h2>
+        {words('A crowd. A connection.', 'Uma multidão. Uma ligação.')}
+        <br />
+        <em>{words('A community.', 'Uma comunidade.')}</em>
+      </h2>
+      <p>{words('Come for the music. Find your people. Look after each other.', 'Vem pela música. Encontra os teus. Cuidem uns dos outros.')}</p>
+    </>
+  );
 
   return (
     <>
@@ -536,7 +565,7 @@ function App() {
         <span className="eyebrow">{words('01 / A SCENE TAKES SHAPE','01 / UMA CENA GANHA FORMA')}</span>
         <p>{words('It’s a Trap has its own place in Lisbon’s hip-hop nightlife: a party that grew into something bigger through the people who kept showing up. Founded in 2016 by João Moura and Rodrigo Balona, it brought Rap Notícias and GRVVE together, and grew alongside a generation of Portuguese trap artists and listeners. In April 2019, NiT called it “uma das maiores tendências do hip hop em Portugal”—one of the biggest trends in Portuguese hip-hop. The growing crowds and larger editions tell the story of a party becoming a reference point in the scene.','A It’s a Trap conquistou um lugar próprio na noite hip-hop de Lisboa: uma festa que se tornou algo maior graças às pessoas que continuaram a aparecer. Fundada em 2016 por João Moura e Rodrigo Balona, juntou a Rap Notícias e a GRVVE e cresceu com uma geração de artistas e ouvintes portugueses de trap. Em abril de 2019, a NiT descreveu-a como “uma das maiores tendências do hip hop em Portugal”. As multidões cada vez maiores e as edições de maior dimensão contam a história de uma festa que se tornou uma referência na cena.')}</p>
       </div>
-      <figure className="ethosPhoto ethosPhotoWide">
+      <figure className="ethosPhoto">
         <img src={ethosPhotos[0]} alt={words('A Portuguese rapper performs as the crowd watches from the front of the stage.','Um rapper português atua perante o público junto ao palco.')} />
       </figure>
     </article>
@@ -582,7 +611,7 @@ function App() {
             <div className="filters">
               {t.archive.filters.map((label, index) => {
                 const value = t.archive.categories[index];
-                return <button className={category === value ? 'active' : ''} onClick={() => setCategory(value)} key={value}>{label}</button>;
+                return <button aria-pressed={category === value} className={category === value ? 'active' : ''} onClick={() => setCategory(value)} key={value}>{label}</button>;
               })}
             </div>
             <div className="gallery">
@@ -603,7 +632,7 @@ function App() {
             <h2>{t.lens.press}</h2>
             <p>{t.lens.coverage}</p>
             <div className="pressGrid">
-              {[...pressArticles.filter(article => article.image), ...pressArticles.filter(article => !article.image)]
+              {pressArticlesWithImagesFirst
                 .slice(0, showAllPress ? pressArticles.length : 4)
                 .map(article => (
                 <article className="pressCard" key={article.url}>
@@ -659,7 +688,7 @@ function App() {
                 <p>{t.community.news}</p>
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
-              <div className="communityAside">
+              <div>
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
                   <p>{t.community.agreementText}</p>
