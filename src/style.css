@@ -1615,3 +1615,25 @@ header nav button[aria-current] {
     box-shadow: none;
   }
 }
+
+/* Through the Lens: single immersive editorial photograph */
+.lensHeroPhoto {
+  width: 100%;
+  margin: 32px 0 28px;
+  overflow: hidden;
+  background: #151515;
+}
+.lensHeroPhoto img {
+  display: block;
+  width: 100%;
+  height: clamp(360px, 52vw, 720px);
+  object-fit: cover;
+  object-position: center 48%;
+}
+@media (max-width: 700px) {
+  .lensHeroPhoto { margin: 26px 0 24px; }
+  .lensHeroPhoto img {
+    height: clamp(380px, 108vw, 580px);
+    object-position: center center;
+  }
+}
