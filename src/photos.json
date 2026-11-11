@@ -42,8 +42,8 @@
     "kind": "Photograph"
   },
   {
-    "src": "assets/dj-monochrome-replacement.jpeg",
-    "alt": "DJ performing at the mixer in a white shirt among partygoers",
+    "src": "assets/dj-gallery-real-madrid.png",
+    "alt": "DJ performing in a football jersey beneath purple and yellow lights",
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
@@ -162,16 +162,16 @@
     "kind": "Photograph"
   },
   {
-    "src": "assets/dj-gallery-real-madrid.png",
-    "alt": "DJ performing in a football jersey beneath purple and yellow lights",
+    "src": "assets/dj-gallery-pink-dj.png",
+    "alt": "DJ mixing at her equipment under pink and teal lights",
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
     "storyGallery": true
   },
   {
-    "src": "assets/dj-gallery-purple-light.png",
-    "alt": "DJ performing under purple stage lighting",
+    "src": "assets/dj-monochrome-replacement.jpeg",
+    "alt": "DJ performing at the mixer in a white shirt among partygoers",
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
@@ -186,8 +186,8 @@
     "storyGallery": true
   },
   {
-    "src": "assets/dj-gallery-pink-dj.png",
-    "alt": "DJ mixing at her equipment under pink and teal lights",
+    "src": "assets/dj-gallery-purple-light.png",
+    "alt": "DJ performing under purple stage lighting",
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
