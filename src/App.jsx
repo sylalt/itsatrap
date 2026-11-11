@@ -661,11 +661,9 @@ function App() {
               </button>
             )}
             <h2>{t.lens.heading}</h2>
-            <div className="gallery">{lensPhotos.map(photo => (
-              <figure className={photo.src.endsWith('assets/performance.svg') || photo.src.endsWith('assets/purple-stage.svg') ? 'featured' : ''} key={photo.src}>
-                <img loading="lazy" src={photo.src} alt={photo.alt}/>
-              </figure>
-            ))}</div>
+            <figure className="lensHeroPhoto">
+              <img loading="lazy" src={assetUrl('assets/dj-4466.jpg')} alt="A packed It’s a Trap crowd facing the stage beneath the festival tent" />
+            </figure>
             <aside className="lensSubmission">
               <p>{words('Submit your photos and videos.','Envia as tuas fotografias e vídeos.')} <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noopener noreferrer">{words('DM us on Instagram','Envia-nos uma mensagem no Instagram')} @itsatrap.official ↗</a></p>
             </aside>
