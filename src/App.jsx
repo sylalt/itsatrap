@@ -31,7 +31,7 @@ const lensPhotos = photos
   .filter(photo => photo.kind !== 'Poster' && !excludedLensPhotos.has(photo.src.split('/').pop()))
   .sort((a, b) => Number(b.src.endsWith('assets/performance.svg')) - Number(a.src.endsWith('assets/performance.svg')));
 
-const pages = ['2026 Edition', 'Ethos', 'Through the Lens', 'Community'];
+const pages = ['2026 Edition', 'Ethos', 'Archive', 'Through the Lens', 'Community'];
 const pageRoutes = {
   home: 'Home',
   edition: '2026 Edition',
@@ -528,7 +528,7 @@ function App() {
   </picture>
 </figure>
 <div className="photoBreak">{shot(3,'')}</div>
-<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),words('Through the Lens','Através da lente'),'textbutton')}</div></section>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section><section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}</section></>:null}
 
         {page === '2026 Edition' && (
