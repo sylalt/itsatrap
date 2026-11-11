@@ -273,9 +273,7 @@ const copy = {
       news: 'News, conversations and ideas beyond the dance floor.',
       whatsapp: 'Join the WhatsApp group',
       agreement: 'Rules',
-      agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion.',
-      moderation: 'Moderation and reporting details will accompany the invitation.',
-    },
+      agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion.',    },
     contact: {
       eyebrow: 'LET’S CONNECT',
       title: <>MAKE<br /><em>CONTACT.</em></>,
@@ -386,9 +384,7 @@ const copy = {
       news: 'Novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
       agreement: 'Acordo da comunidade',
-      agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada.',
-      moderation: 'As informações de moderação e denúncia serão partilhadas com o convite.',
-    },
+      agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada.',    },
     contact: {
       eyebrow: 'VAMOS FALAR',
       title: <>ENTRA<br /><em>EM CONTACTO.</em></>,
@@ -691,9 +687,7 @@ function App() {
               <div>
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
-                  <p>{t.community.agreementText}</p>
-                  <p>{t.community.moderation}</p>
-                </div>
+                  <p>{t.community.agreementText}</p>                </div>
               </div>
             </div>
           </section>
