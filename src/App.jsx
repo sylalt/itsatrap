@@ -19,6 +19,16 @@ const archiveGallery = [
   { src: 'assets/archive-2019-yuri-nr5.jpg', year: '2019', titleEn: 'Yuri NR5', titlePt: 'Yuri NR5', detailEn: 'Third Anniversary · December 2019', detailPt: 'Terceiro aniversário · dezembro de 2019', altEn: 'Yuri NR5 performing at the third anniversary in December 2019', altPt: 'Yuri NR5 a atuar no terceiro aniversário, em dezembro de 2019' },
   { src: 'assets/archive-2020-pierre-bourne.jpg', year: '2020', titleEn: 'Pierre Bourne', titlePt: 'Pierre Bourne', detailEn: 'Estúdio Time Out, Lisbon · 20 February 2020', detailPt: 'Estúdio Time Out, Lisboa · 20 de fevereiro de 2020', altEn: 'Pierre Bourne performing at Estúdio Time Out in Lisbon on 20 February 2020', altPt: 'Pierre Bourne a atuar no Estúdio Time Out, em Lisboa, a 20 de fevereiro de 2020' },
 ];
+const unverifiedArchivePhotos = [
+  { src: 'assets/archive-undated-stage-blue-light.jpg', altEn: 'Performer on stage under blue light trails', altPt: 'Artista em palco sob rastos de luz azul' },
+  { src: 'assets/archive-undated-crowd-warm-lights.jpg', altEn: 'Crowd facing a performer under warm stage lights', altPt: 'Público diante de um artista sob luzes quentes' },
+  { src: 'assets/archive-undated-two-performers.jpg', altEn: 'Two performers standing together on stage', altPt: 'Dois artistas juntos em palco' },
+  { src: 'assets/archive-undated-performer-colour.jpg', altEn: 'Performer in a colourful outfit against a dark stage', altPt: 'Artista com roupa colorida num palco escuro' },
+  { src: 'assets/archive-undated-performance-monochrome.jpg', altEn: 'Black-and-white photograph of a performer facing the crowd', altPt: 'Fotografia a preto e branco de um artista perante o público' },
+  { src: 'assets/archive-undated-crowd-blue-lights.jpg', altEn: 'Crowd and performer beneath blue and purple lights', altPt: 'Público e artista sob luzes azuis e roxas' },
+  { src: 'assets/archive-undated-stage-crowd.jpg', altEn: 'Performer on stage with the crowd in front', altPt: 'Artista em palco perante o público' },
+  { src: 'assets/archive-undated-masked-performer.jpg', altEn: 'Masked performer under blue and green stage lights', altPt: 'Artista de máscara sob luzes azuis e verdes' },
+];
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
   .map(file => assetUrl(`assets/${file}`));
 const excludedLensPhotos = new Set([
@@ -733,6 +743,7 @@ function App() {
               <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas fotografias não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando forem confirmados.')}</p>
               <nav className="photoArchiveYears" aria-label={words('Browse archive by year', 'Explorar o arquivo por ano')}>
                 {['2018', '2019', '2020'].map(year => <a key={year} href={`#archive-${year}`}>{year} ↘</a>)}
+                <a href="#archive-undated">{words('Undated', 'Sem data')} ↘</a>
               </nav>
             </div>
             {['2018', '2019', '2020'].map(year => (
@@ -756,6 +767,22 @@ function App() {
                 </div>
               </section>
             ))}
+            <section className="photoArchiveYear" id="archive-undated" aria-labelledby="archive-title-undated">
+              <div className="photoArchiveYearHeading">
+                <span className="eyebrow">{words('DETAILS NOT RECORDED', 'DADOS NÃO REGISTADOS')}</span>
+                <h2 id="archive-title-undated">{words('Undated photographs', 'Fotografias sem data')}</h2>
+              </div>
+              <p className="photoArchiveNote">{words('The project archive does not identify the artist, event or date for these images, so no names or dates are attached.', 'O arquivo do projeto não identifica o artista, o evento ou a data destas imagens; por isso, não lhes são atribuídos nomes nem datas.')}</p>
+              <div className="photoArchiveGrid">
+                {unverifiedArchivePhotos.map(photo => (
+                  <figure className="photoArchiveCard photoArchiveUncaptioned" key={photo.src}>
+                    <div className="photoArchiveImage">
+                      <img src={assetUrl(photo.src)} alt={isPortuguese ? photo.altPt : photo.altEn} loading="lazy" decoding="async" />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </section>
           </section>
         )}
       </main>

@@ -1885,3 +1885,18 @@ header nav button[aria-current] {
     margin-bottom: 54px;
   }
 }
+
+
+.photoArchiveUncaptioned .photoArchiveImage img {
+  filter: saturate(.96);
+}
+@media (max-width: 560px) {
+  .photoArchiveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 360px) {
+  .photoArchiveGrid {
+    grid-template-columns: 1fr;
+  }
+}
