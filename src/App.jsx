@@ -484,6 +484,7 @@ function App() {
     } catch {
       // Language switching still works when browser storage is unavailable.
     }
+    window.dispatchEvent(new Event('itsatrap-language-change'));
   }, [isPortuguese, language]);
 
   function go(nextPage) {
