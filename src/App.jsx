@@ -241,8 +241,8 @@ const copy = {
       storyHeading: <>A scene <em>in motion.</em></>,
       storyText: 'From the roots and golden years to the next generation, Portuguese trap has always moved through the people in the room: familiar sounds finding new life, discoveries becoming memories, and each crowd making the story its own. This anniversary is a reunion with that energy—and a revival looking ahead.',
       lineup: <>The soundtrack <em>across generations.</em></>,
-      lineupIntro: 'The order moves from Oseias and Guima to a Syl b2b Oseias set, then Trillseco, Osyl and Bobby Johnson.',
-      djs: ['Oseias', 'Guima', 'Syl b2b Oseias', 'Trillseco', 'Osyl', 'Bobby Johnson'],
+      lineupIntro: 'Oseias, Syl, Guima, Trillseco, Osyl and Bobby Johnson—with Oseias b2b Syl.',
+      djs: ['Oseias', 'Syl', 'Guima', 'Trillseco', 'Osyl', 'Bobby Johnson'],
       surpriseHeading: <>Stay open to <em>the unexpected.</em></>,
       surpriseText: 'Surprise artist appearances will be woven into the DJ sets at different moments. Identities and timings stay unannounced—part of the night’s discoveries, not a separately scheduled live show.',
       knowBefore: <>Know before <em>you go.</em></>,
@@ -275,6 +275,7 @@ const copy = {
       group: <>Take it to<br /><em>the group.</em></>,
       news: 'News, conversations and ideas beyond the dance floor.',
       whatsapp: 'Join the WhatsApp group',
+      spotify: 'Add to the Spotify playlist',
       agreement: 'Rules',
       agreementText: 'Respect identities and boundaries. No harassment, hate speech, spam or unsolicited promotion.',    },
     contact: {
@@ -354,8 +355,8 @@ const copy = {
       storyHeading: <>Uma cena <em>em movimento.</em></>,
       storyText: 'Das raízes e dos anos dourados à nova geração, o trap português construiu-se com as pessoas que enchem as salas: sons familiares que ganham nova vida, descobertas que se transformam em memórias e cada público a escrever a sua parte da história. Este aniversário é um reencontro com essa energia e um novo impulso para o futuro.',
       lineup: <>A banda sonora <em>de várias gerações.</em></>,
-      lineupIntro: 'A sequência é Oseias, Guima, Syl b2b Oseias, Trillseco, Osyl e Bobby Johnson.',
-      djs: ['Oseias', 'Guima', 'Syl b2b Oseias', 'Trillseco', 'Osyl', 'Bobby Johnson'],
+      lineupIntro: 'Oseias, Syl, Guima, Trillseco, Osyl e Bobby Johnson — com Oseias b2b Syl.',
+      djs: ['Oseias', 'Syl', 'Guima', 'Trillseco', 'Osyl', 'Bobby Johnson'],
       surpriseHeading: <>À espera <em>do inesperado.</em></>,
       surpriseText: 'Haverá aparições surpresa de artistas em diferentes momentos dos sets dos DJs. As identidades e os horários ficam por revelar: as surpresas fazem parte dos sets, não são um espetáculo ao vivo marcado à parte.',
       knowBefore: <>Antes de <em>chegares.</em></>,
@@ -390,6 +391,7 @@ const copy = {
       group: <>Leva a conversa<br /><em>para o grupo.</em></>,
       news: 'Novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
+      spotify: 'Adicionar à playlist no Spotify',
       agreement: 'Regras da comunidade',
       agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam nem promoção não solicitada.',    },
     contact: {
@@ -692,18 +694,9 @@ function App() {
                 <h1 className="communityHeadline">{t.community.group}</h1>
                 <p>{t.community.news}</p>
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
+                <a className="button" href="https://open.spotify.com/playlist/28ScGDb85kOXLTG1YBHOdL?si=89570df84afe4c36&amp;pt=32dfa671e3af5d07669751eebd91174a" target="_blank" rel="noopener noreferrer">{t.community.spotify} ↗</a>
               </div>
               <div className="communityResources">
-                <iframe
-                  className="spotifyEmbed"
-                  title="It's a Trap Spotify playlist"
-                  src="https://open.spotify.com/embed/playlist/28ScGDb85kOXLTG1YBHOdL?utm_source=generator"
-                  width="100%"
-                  height="352"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                />
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
                   <p>{t.community.agreementText}</p>                </div>
