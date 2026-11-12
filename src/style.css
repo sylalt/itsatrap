@@ -782,10 +782,50 @@ figure {
 .heroCopy .heroActions {
   flex-direction: column;
   align-items: flex-start;
-  gap: 0;
+  gap: 18px;
+  margin-top: 18px;
+}
+.heroCopy .heroLogo {
+  margin-bottom: 18px;
 }
 .heroCopy h1 {
   font-size: clamp(95px, 13vw, 185px);
+}
+.heroLogo {
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+}
+.heroLogo img {
+  display: block;
+  width: min(100%, 540px);
+  max-width: 540px;
+  height: auto;
+  filter: drop-shadow(0 3px 12px #0008);
+}
+@media (max-width: 700px) {
+  .heroCopy .heroActions {
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .heroCopy .heroLogo {
+    margin-bottom: 12px;
+  }
+  .heroLogo img {
+    width: min(100%, 380px);
+    max-width: 380px;
+  }
+}
+@media (min-width: 701px) {
+  .heroCopy .heroActions {
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .heroCopy .heroLogo {
+    margin-bottom: 18px;
+  }
 }
 .heroCopy p {
   color: #fff;
@@ -1169,21 +1209,62 @@ header nav button[aria-current] {
     padding: 30px 24px;
   }
 }
+.lensPage .pagetitle {
+  margin-bottom: 18px;
+}
+.lensHeroPhoto {
+  width: 100%;
+  margin: 28px 0 48px;
+}
+.lensHeroPhoto img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 42vw, 600px);
+  object-fit: cover;
+  object-position: center 48%;
+}
+.lensCaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 12px;
+  color: #a49b8d;
+  font-size: 13px;
+}
+.lensCaption a {
+  color: var(--paper);
+  text-underline-offset: 3px;
+}
+.lensCaption a:hover {
+  color: var(--yellow);
+}
+.lensPressHeading h2 {
+  margin-bottom: 8px;
+}
+.lensPressHeading p {
+  margin: 0;
+}
 .pressGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px 34px;
-  margin: 34px 0 80px;
+  gap: 0 30px;
+  margin: 22px 0 16px;
 }
 .pressCard {
-  border-top: 2px solid var(--red);
-  padding: 22px 0;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.pressCard:not(.hasPressImage) {
+  grid-template-columns: minmax(0, 1fr);
 }
 .pressImageLink {
   display: block;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/3;
   overflow: hidden;
-  margin-bottom: 20px;
   background: #181818;
 }
 .pressImageLink img {
@@ -1196,26 +1277,29 @@ header nav button[aria-current] {
 .pressImageLink:hover img {
   transform: scale(1.035);
 }
+.pressCopy {
+  min-width: 0;
+}
 .pressMeta {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 2px 12px;
   color: #a49b8d;
   font: 10px/1.6 monospace;
   letter-spacing: 1px;
 }
 .pressImageCredit {
   display: block;
-  margin-top: 8px;
+  margin-top: 4px;
   color: #969084;
-  font: 10px/1.6 monospace;
+  font: 9px/1.5 monospace;
 }
 .pressCard h3 {
   font:
-    700 clamp(24px, 2.6vw, 36px)/1.05 "Barlow Condensed",
+    700 clamp(19px, 1.8vw, 25px)/1.1 "Barlow Condensed",
     Impact,
     sans-serif;
-  margin: 18px 0;
+  margin: 7px 0;
 }
 .pressCard h3 a {
   text-decoration: none;
@@ -1224,88 +1308,47 @@ header nav button[aria-current] {
   color: var(--yellow);
 }
 .pressCard p {
-  margin-bottom: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
 }
 .pressToggle {
   display: block;
-  margin: -50px auto 80px;
-  padding: 14px 24px;
+  margin: 18px auto 40px;
+  padding: 10px 18px;
   border: 1px solid var(--line);
-  font: 700 12px monospace;
+  font: 700 11px monospace;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-.lensSubmission {
-  width: fit-content;
-  max-width: 100%;
-  margin: 28px 0 18px;
-  padding: 12px 16px;
-  border: 1px solid var(--line);
-}
-.lensSubmission p {
-  margin: 0;
-  color: #a49b8d;
-  font-size: 12px;
-  line-height: 1.6;
-}
-.lensSubmission a {
-  color: var(--paper);
-  text-decoration: underline;
-  text-decoration-color: #71695d;
-  text-underline-offset: 3px;
-}
-.lensSubmission a:hover {
-  color: var(--yellow);
+.lensActions {
+  margin-top: 12px;
 }
 @media (max-width: 700px) {
+  .lensHeroPhoto {
+    margin: 22px 0 38px;
+  }
+  .lensHeroPhoto img {
+    height: clamp(240px, 62vw, 420px);
+    object-position: center center;
+  }
   .pressGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 26px 0 42px;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 14px;
   }
-  .pressCard:has(.pressImageLink) {
-    display: grid;
-    grid-template-columns: clamp(88px, 30vw, 124px) minmax(0, 1fr);
-    grid-template-rows: auto auto auto;
-    column-gap: 16px;
-    row-gap: 7px;
-    padding: 16px 0;
+  .pressCard {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px 0;
   }
-  .pressCard:has(.pressImageLink) .pressImageLink {
-    grid-column: 1;
-    grid-row: 1;
-    aspect-ratio: 1;
-    margin: 0;
+  .pressCard:not(.hasPressImage) {
+    grid-template-columns: minmax(0, 1fr);
   }
-  .pressCard:has(.pressImageLink) .pressMeta {
-    grid-column: 2;
-    grid-row: 1;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-  .pressCard:has(.pressImageLink) .pressImageCredit {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 0;
-    font-size: 9px;
-    line-height: 1.35;
-  }
-  .pressCard:has(.pressImageLink) h3 {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 0;
-    font-size: clamp(21px, 5.6vw, 27px);
-    line-height: 1.04;
-  }
-  .pressCard:has(.pressImageLink) p {
-    grid-column: 2;
-    grid-row: 3;
-    font-size: 13px;
-    line-height: 1.5;
+  .pressCard h3 {
+    font-size: clamp(19px, 5vw, 23px);
   }
   .pressToggle {
-    margin: -18px auto 50px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 700px) {
@@ -1507,15 +1550,12 @@ header nav button[aria-current] {
   header nav {
     grid-column: 1 / -1;
     display: flex;
-    gap: 16px;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 0;
     width: 100%;
     min-width: 0;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-  }
-  header nav::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
   header nav button {
     flex: 0 0 auto;
@@ -1643,27 +1683,5 @@ header nav button[aria-current] {
     max-width: none;
     border: 0;
     box-shadow: none;
-  }
-}
-
-/* Through the Lens: single immersive editorial photograph */
-.lensHeroPhoto {
-  width: 100%;
-  margin: 32px 0 28px;
-  overflow: hidden;
-  background: #151515;
-}
-.lensHeroPhoto img {
-  display: block;
-  width: 100%;
-  height: clamp(360px, 52vw, 720px);
-  object-fit: cover;
-  object-position: center 48%;
-}
-@media (max-width: 700px) {
-  .lensHeroPhoto { margin: 26px 0 24px; }
-  .lensHeroPhoto img {
-    height: clamp(380px, 108vw, 580px);
-    object-position: center center;
   }
 }

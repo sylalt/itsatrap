@@ -259,8 +259,6 @@ const copy = {
       eyebrow: '',
       title: <>THROUGH<br /><em>THE LENS.</em></>,
       intro: 'The dance floor, seen from the inside.',
-      heading: <>Behind every shot,<br /><em>a story.</em></>,
-      galleries: 'Galleries are awaiting approved images. Every collection will credit the photographer and link prominently to their portfolio.',
       press: <>In the <em>press.</em></>,
       coverage: 'Selected news, interviews, reviews and features about It’s a Trap.',
       contact: 'Photography & press enquiries',
@@ -370,8 +368,6 @@ const copy = {
       eyebrow: '',
       title: <>ATRAVÉS<br /><em>DA LENTE.</em></>,
       intro: 'A pista vista por dentro. Um espaço para as pessoas que registam a cena em fotografia.',
-      heading: <>Por detrás de cada imagem,<br /><em>uma história.</em></>,
-      galleries: 'As galerias aguardam imagens aprovadas. Cada coleção vai identificar a pessoa fotógrafa e incluir um link para o seu portefólio.',
       press: <>Na <em>imprensa.</em></>,
       coverage: 'Uma seleção de notícias, entrevistas, críticas e reportagens sobre a It’s a Trap.',
       contact: 'Contactos para fotografia e imprensa',
@@ -608,35 +604,46 @@ function App() {
         )}
 
         {page === 'Through the Lens' && (
-          <section>
+          <section className="lensPage">
             {t.lens.eyebrow && <span className="eyebrow">{t.lens.eyebrow}</span>}
             <h1 className="pagetitle">{t.lens.title}</h1>
             <p>{t.lens.intro}</p>
-            <h2>{t.lens.press}</h2>
-            <p>{t.lens.coverage}</p>
+            <figure className="lensHeroPhoto">
+              <img loading="lazy" src={assetUrl('assets/dj-4466.jpg')} alt={words('A packed It’s a Trap crowd facing the stage beneath the festival tent','Público da It’s a Trap junto ao palco, numa tenda cheia')} />
+              <figcaption className="lensCaption">
+                <span>{words('Photos or videos from the night?','Fotografias ou vídeos da noite?')}</span>
+                <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noopener noreferrer">{words('Send them to @itsatrap.official','Envia para @itsatrap.official')} ↗</a>
+              </figcaption>
+            </figure>
+            <div className="lensPressHeading">
+              <h2>{t.lens.press}</h2>
+              <p>{t.lens.coverage}</p>
+            </div>
             <div className="pressGrid">
               {pressArticlesWithImagesFirst
                 .slice(0, showAllPress ? pressArticles.length : 4)
                 .map(article => (
-                <article className="pressCard" key={article.url}>
+                <article className={`pressCard${article.image ? ' hasPressImage' : ''}`} key={article.url}>
                   {article.image && (
                     <a className="pressImageLink" href={article.url} target="_blank" rel="noopener noreferrer" aria-label={article.title}>
                       <img src={article.image} alt="" loading="lazy" />
                     </a>
                   )}
-                  <div className="pressMeta">
-                    <span>{article.outlet}</span>
-                    <time dateTime={article.date}>
-                      {new Intl.DateTimeFormat(isPortuguese ? 'pt-PT' : 'en-GB', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      }).format(new Date(`${article.date}T00:00:00`))}
-                    </time>
+                  <div className="pressCopy">
+                    <div className="pressMeta">
+                      <span>{article.outlet}</span>
+                      <time dateTime={article.date}>
+                        {new Intl.DateTimeFormat(isPortuguese ? 'pt-PT' : 'en-GB', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        }).format(new Date(`${article.date}T00:00:00`))}
+                      </time>
+                    </div>
+                    {article.imageCredit && <span className="pressImageCredit">{words('Photo: ', 'Fotografia: ')}{article.imageCredit}</span>}
+                    <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a></h3>
+                    <p>{words(article.summary.en, article.summary.pt)}</p>
                   </div>
-                  {article.imageCredit && <span className="pressImageCredit">{words('Photo: ', 'Fotografia: ')}{article.imageCredit}</span>}
-                  <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a></h3>
-                  <p>{words(article.summary.en, article.summary.pt)}</p>
                 </article>
               ))}
             </div>
@@ -645,16 +652,8 @@ function App() {
                 {showAllPress ? words('View Less', 'Ver menos') : words('View More', 'Ver mais')}
               </button>
             )}
-            <h2>{t.lens.heading}</h2>
-            <figure className="lensHeroPhoto">
-              <img loading="lazy" src={assetUrl('assets/dj-4466.jpg')} alt={words('A packed It’s a Trap crowd facing the stage beneath the festival tent','Público da It’s a Trap junto ao palco, numa tenda cheia')} />
-            </figure>
-            <aside className="lensSubmission">
-              <p>{words('Submit your photos and videos.','Envia as tuas fotografias e vídeos.')} <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noopener noreferrer">{words('DM us on Instagram','Envia-nos uma mensagem no Instagram')} @itsatrap.official ↗</a></p>
-            </aside>
-            <p className="muted">{words('Photographer credits and portfolio links coming soon.','Créditos fotográficos e portfólios em breve.')}</p>
-            <a className="textbutton" href={`mailto:${pressEmail}`}>{t.lens.contact} ↗</a>
-            <div className="actions">
+            <div className="actions lensActions">
+              <a className="textbutton" href={`mailto:${pressEmail}`}>{t.lens.contact} ↗</a>
               {button(words('Explore past editions', 'Explorar edições anteriores'), 'Archive')}
             </div>
           </section>
