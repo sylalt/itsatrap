@@ -200,7 +200,7 @@ const copy = {
       toBeAnnounced: 'To be announced',
       details: '2026 details & FAQs',
       readEthos: 'Read our ethos',
-      memories: '02 / THE MEMORIES STAY LOUD',
+      memories: '02 / THE NIGHTS LIVE ON',
       archive: <>From the <em>archive.</em></>,
       exploreArchive: 'Explore archive',
       contentComing: 'ARCHIVE / CONTENT COMING',
@@ -261,7 +261,7 @@ const copy = {
       eyebrow: '',
       title: <>THROUGH<br /><em>THE LENS.</em></>,
       intro: 'The dance floor, seen from the inside.',
-      heading: <>Give the eye<br /><em>its credit.</em></>,
+      heading: <>Behind every shot,<br /><em>a story.</em></>,
       galleries: 'Galleries are awaiting approved images. Every collection will name its photographer and link prominently to their portfolio.',
       press: <>In the <em>press.</em></>,
       coverage: 'Selected news, interviews, reviews and features about It’s a Trap.',
@@ -276,7 +276,7 @@ const copy = {
       agreementText: 'Respect identities and boundaries. No harassment, hate, spam or unsolicited promotion.',    },
     contact: {
       eyebrow: 'LET’S CONNECT',
-      title: <>MAKE<br /><em>CONTACT.</em></>,
+      title: <>GET IN<br /><em>TOUCH.</em></>,
       topics: 'Booking · Partnerships · Press · Photography',
       intro: 'For press and photography enquiries, email:',
       emailLabel: 'Email press and photography',
@@ -311,7 +311,7 @@ const copy = {
       toBeAnnounced: 'A anunciar',
       details: 'Detalhes de 2026 e perguntas frequentes',
       readEthos: 'Lê o nosso manifesto',
-      memories: '02 / AS MEMÓRIAS FICAM',
+      memories: '02 / AS NOITES CONTINUAM VIVAS',
       archive: <>Do <em>arquivo.</em></>,
       exploreArchive: 'Explora o arquivo',
       contentComing: 'ARQUIVO / CONTEÚDOS EM BREVE',
@@ -355,7 +355,7 @@ const copy = {
         ['Onde posso comprar bilhetes?', 'O link oficial para os bilhetes será publicado aqui quando as vendas começarem.'],
         ['Há idade mínima?', 'A idade mínima e os requisitos de identificação ainda serão confirmados.'],
         ['E a acessibilidade?', 'A acessibilidade do espaço, as instalações e um contacto para questões serão confirmados antes da venda de bilhetes.'],
-        ['E se precisar de apoio durante a noite?', 'Os contactos de apoio, o processo para reportar situações e as regras do espaço serão publicados aqui.'],
+        ['E se precisares de apoio durante a noite?', 'Os contactos de apoio, o processo para reportar situações e as regras do espaço serão publicados aqui.'],
       ],
     },
     archive: {
@@ -372,28 +372,28 @@ const copy = {
       eyebrow: '',
       title: <>ATRAVÉS<br /><em>DA LENTE.</em></>,
       intro: 'A pista vista por dentro. Um espaço para as pessoas que registam a cena em fotografia.',
-      heading: <>Quem fotografa<br /><em>merece crédito.</em></>,
+      heading: <>Por trás de cada fotografia,<br /><em>uma história.</em></>,
       galleries: 'As galerias aguardam imagens aprovadas. Cada coleção identificará a pessoa fotógrafa e terá um link para o seu portefólio.',
       press: <>Na <em>imprensa.</em></>,
       coverage: 'Uma seleção de notícias, entrevistas, críticas e reportagens sobre a It’s a Trap.',
-      contact: 'Contactos de fotografia e imprensa',
+      contact: 'Contactos para fotografia e imprensa',
     },
     community: {
       eyebrow: 'FAZ PARTE DO QUE VEM A SEGUIR',
       group: <>Leva a conversa<br /><em>para o grupo.</em></>,
       news: 'Novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
-      agreement: 'Acordo da comunidade',
+      agreement: 'Regras da comunidade',
       agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam ou publicidade não solicitada.',    },
     contact: {
       eyebrow: 'VAMOS FALAR',
-      title: <>ENTRA<br /><em>EM CONTACTO.</em></>,
+      title: <>VAMOS<br /><em>FALAR.</em></>,
       topics: 'Programação · Parcerias · Imprensa · Fotografia',
       intro: 'Para questões de imprensa e fotografia, envia um email para:',
-      emailLabel: 'Email de imprensa e fotografia',
+      emailLabel: 'Contactar a equipa de imprensa e fotografia',
     },
     footer: {
-      tagline: 'LISBOA. ALTA. EM COMUNIDADE.',
+      tagline: 'LISBOA. MÚSICA ALTA. JUNTOS.',
       contact: 'Contactos',
       instagram: 'Instagram',
       community: 'Comunidade',
@@ -481,20 +481,20 @@ function App() {
   );
   const ethos = (
     <>
-      <span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.', 'A MÚSICA JUNTA-NOS. AS PESSOAS FAZEM-NOS VOLTAR.')}</span>
+      <span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.', 'A MÚSICA APROXIMA-NOS. AS PESSOAS FAZEM-NOS REGRESSAR.')}</span>
       <h2>
-        {words('A crowd. A connection.', 'Uma multidão. Uma ligação.')}
+        {words('A crowd. A shared energy.', 'Uma multidão. Uma energia partilhada.')}
         <br />
         <em>{words('A community.', 'Uma comunidade.')}</em>
       </h2>
-      <p>{words('Come for the music. Find your people. Look after each other.', 'Vem pela música. Encontra os teus. Cuidem uns dos outros.')}</p>
+      <p>{words('Come for the music. Find your people. Look after each other.', 'Vem pela música. Encontra os teus. Cuida dos outros.')}</p>
     </>
   );
 
   return (
     <>
       <header>
-        <button className="wordmark logoWordmark" aria-label="It’s a Trap — Home" onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" /></button>
+        <button className="wordmark logoWordmark" aria-label={words('It’s a Trap — Home','It’s a Trap — Início')} onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" /></button>
         <nav aria-label={t.navLabel}>
           {pages.map((item) => (
             <button key={item} aria-current={page === item ? 'page' : undefined} onClick={() => go(item)}>
@@ -522,15 +522,15 @@ function App() {
 
       <main>
 {page==='Home'?<>
-<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">LISBON / THE PORTUGUESE TRAP MOVEMENT</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button('See Past Editions','Archive','textbutton')}</div></div></section><section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
+<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">{words('LISBON / THE PORTUGUESE TRAP MOVEMENT','LISBOA / O MOVIMENTO PORTUGUÊS DE TRAP')}</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('See Past Editions','Explorar edições anteriores'),'Archive','textbutton')}</div></div></section><section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <figure className="featurePosterWrap">
   <picture>
     <source media="(max-width: 700px)" srcSet={featurePosterMobile} />
-    <img className="featurePoster" src={featurePosterDesktop} alt="It’s a Trap 10 years event poster for 19 December in Lisbon, featuring Disaster." loading="eager" />
+    <img className="featurePoster" src={featurePosterDesktop} alt={words('It’s a Trap 10th anniversary poster for 19 December in Lisbon, featuring Disaster.','Cartaz do 10.º aniversário da It’s a Trap, a 19 de dezembro, em Lisboa, no Disaster.')} loading="eager" />
   </picture>
 </figure>
 <div className="photoBreak">{shot(3,'')}</div>
-<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás dos pratos.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás da mesa de mistura.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section><section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}</section></>:null}
 
         {page === '2026 Edition' && (
@@ -569,7 +569,7 @@ function App() {
     </article>
     <article className="ethosChapter ethosChapterReverse">
       <div className="ethosChapterCopy">
-        <span className="eyebrow">{words('02 / ROOM TO BE YOURSELF','02 / ESPAÇO PARA SER')}</span>
+        <span className="eyebrow">{words('02 / ROOM TO BE YOURSELF','02 / ESPAÇO PARA SERMOS NÓS PRÓPRIOS')}</span>
         <p>{words('The dance floor mattered just as much as the music. Writing about the January 2019 edition at Estúdio Time Out, journalist João Daniel Marques noticed how naturally all kinds of clothes and self-expression fit into the crowd: “Não há comportamento ou outfit que destoe”—no behaviour or outfit seems out of place. People could dress, move and enjoy the music in their own way, among others who got it. Difference became a way to connect, not a reason to stand apart.','A pista de dança importava tanto como a música. Ao escrever sobre a edição de janeiro de 2019 no Estúdio Time Out, o jornalista João Daniel Marques reparou na naturalidade com que diferentes estilos e formas de expressão se integravam na multidão: “Não há comportamento ou outfit que destoe”. Cada pessoa podia vestir-se, dançar e viver a música à sua maneira, rodeada de outras que a compreendiam. A diferença tornava-se uma forma de ligação, não um motivo para ficar de fora.')}</p>
       </div>
       <figure className="ethosPhoto">
@@ -588,7 +588,7 @@ function App() {
     </article>
     <div className="ethosClosing">
       <span className="eyebrow">{words('A COMMUNITY THAT TRAVELLED','UMA COMUNIDADE QUE SE MOVEU')}</span>
-      <p>{words('It’s a Trap moved between Lisbon venues, from Estúdio Time Out at Mercado da Ribeira to Labirinto and Lisboa ao Vivo. The locations changed; the community and sound gave the nights their continuity. Coverage of the fifth anniversary in 2021, and of further editions in 2023, shows a party that lasted beyond the first rush of excitement. It became an emblematic gathering in Lisbon’s trap scene—not a stand-in for the city’s entire nightlife, but a distinct part of it.','A It’s a Trap passou por vários espaços de Lisboa, do Estúdio Time Out no Mercado da Ribeira ao Labirinto e ao Lisboa ao Vivo. Os locais mudavam; a comunidade e a música davam continuidade às noites. A cobertura do quinto aniversário, em 2021, e de novas edições em 2023 mostra uma festa que sobreviveu ao entusiasmo inicial. Tornou-se um encontro emblemático da cena trap lisboeta — não um retrato de toda a noite da cidade, mas uma parte própria dela.')}</p>
+      <p>{words('It’s a Trap moved between Lisbon venues, from Estúdio Time Out at Mercado da Ribeira to Labirinto and Lisboa ao Vivo. The locations changed; the community and sound gave the nights their continuity. Coverage of the fifth anniversary in 2021, and of further editions in 2023, shows a party that lasted beyond the first rush of excitement. It became an emblematic gathering in Lisbon’s trap scene—not a stand-in for the city’s entire nightlife, but a distinct part of it.','A It’s a Trap passou por vários espaços de Lisboa, do Estúdio Time Out no Mercado da Ribeira ao Labirinto e ao Lisboa ao Vivo. Os locais mudavam; a comunidade e a música davam continuidade às noites. A cobertura do quinto aniversário, em 2021, e de novas edições em 2023 mostra uma festa que sobreviveu ao entusiasmo inicial. Tornou-se um encontro emblemático da cena trap lisboeta — não um retrato de toda a noite da cidade, mas uma parte com identidade própria.')}</p>
       <p>{words('Taken together, these accounts help explain why some young people may have found a refuge here: a place to recognise themselves in the music, find others with the same tastes and imagine a way in. They describe room for self-expression, community and chances for emerging artists. They don’t tell us who was in the crowd or prove that everyone was safe from discrimination or harassment. “Safe haven” is best understood as the sense of belonging the atmosphere could offer, not as a guarantee about every person’s experience.','Lidos em conjunto, estes relatos ajudam a perceber porque é que alguns jovens poderão ter encontrado aqui um refúgio: um lugar para se reconhecerem na música, encontrarem pessoas com gostos em comum e imaginarem uma forma de participar. Os relatos falam de liberdade de expressão, comunidade e oportunidades para artistas emergentes. Não dizem quem estava na pista nem provam que todas as pessoas estavam protegidas contra a discriminação ou o assédio. “Refúgio seguro” descreve melhor o sentimento de pertença que o ambiente podia proporcionar — não uma garantia sobre a experiência de cada pessoa.')}</p>
     </div>
     <aside className="ethosSources" aria-label={words('Sources for quoted passages','Fontes dos excertos citados')}>
@@ -662,7 +662,7 @@ function App() {
             )}
             <h2>{t.lens.heading}</h2>
             <figure className="lensHeroPhoto">
-              <img loading="lazy" src={assetUrl('assets/dj-4466.jpg')} alt="A packed It’s a Trap crowd facing the stage beneath the festival tent" />
+              <img loading="lazy" src={assetUrl('assets/dj-4466.jpg')} alt={words('A packed It’s a Trap crowd facing the stage beneath the festival tent','Público da It’s a Trap junto ao palco, numa tenda cheia')} />
             </figure>
             <aside className="lensSubmission">
               <p>{words('Submit your photos and videos.','Envia as tuas fotografias e vídeos.')} <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noopener noreferrer">{words('DM us on Instagram','Envia-nos uma mensagem no Instagram')} @itsatrap.official ↗</a></p>
@@ -706,7 +706,7 @@ function App() {
       </main>
 
       <footer>
-        <button className="wordmark logoWordmark footerLogo" aria-label="It’s a Trap — Home" onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" loading="lazy" /></button>
+        <button className="wordmark logoWordmark footerLogo" aria-label={words('It’s a Trap — Home','It’s a Trap — Início')} onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" loading="lazy" /></button>
         <p>{t.footer.tagline}</p>
         <div>
           <button onClick={() => go('Contact')}>{t.footer.contact} ↗</button>
