@@ -40,6 +40,7 @@ const pageRoutes = {
   lens: 'Through the Lens',
   community: 'Community',
   contact: 'Contact',
+  x: 'Section X',
 };
 const pageRouteKeys = Object.fromEntries(
   Object.entries(pageRoutes).map(([route, page]) => [page, route]),
@@ -232,15 +233,21 @@ const copy = {
     edition: {
       eyebrow: '10 YEARS OF IT’S A TRAP / LISBON',
       title: <>2026<br /><em>EDITION.</em></>,
-      intro: 'Celebrate It’s a Trap’s 10th anniversary on 19 December at Disaster. The lineup and ticket details are still to be announced.',
+      intro: 'Ten years after It’s a Trap began, Lisbon meets the next chapter of Portuguese trap. On 19 December, the energy that brought a scene together returns—alongside the new voices carrying it forward.',
       date: 'DATE',
       venue: 'VENUE',
       eventDate: '19 December 2026',
       eventVenue: 'Disaster',
-      lineup: <>The <em>lineup.</em></>,
+      storyHeading: <>A scene <em>in motion.</em></>,
+      storyText: 'From the roots and golden years to the next generation, Portuguese trap has always moved through the people in the room: familiar sounds finding new life, discoveries becoming memories, and each crowd making the story its own. This anniversary is a reunion with that energy—and a revival looking ahead.',
+      lineup: <>The soundtrack <em>across generations.</em></>,
+      lineupIntro: 'The order moves from Oseias and Guima to a Syl b2b Oseias set, then Trillseco, Osyl and Bobby Johnson.',
+      djs: ['Oseias', 'Guima', 'Syl b2b Oseias', 'Trillseco', 'Osyl', 'Bobby Johnson'],
+      surpriseHeading: <>Stay open to <em>the unexpected.</em></>,
+      surpriseText: 'Surprise artist appearances will be woven into the DJ sets at different moments. Identities and timings stay unannounced—part of the night’s discoveries, not a separately scheduled live show.',
       knowBefore: <>Know before <em>you go.</em></>,
       faqs: [
-        ['What time does it start?', 'Doors, performance times and last entry will be published alongside the event announcement.'],
+        ['What time does it start?', 'Door and entry details will be shared when confirmed. Surprise appearances are woven into the DJ sets; no identities or timings will be announced.'],
         ['Where can I buy tickets?', 'The official ticket link will appear here when sales open.'],
         ['Is there an age restriction?', 'Age restrictions and ID requirements are still to be confirmed.'],
         ['What about accessibility?', 'Venue access, facilities and an accessibility enquiry contact will be confirmed before ticket sales.'],
@@ -339,18 +346,24 @@ const copy = {
     edition: {
       eyebrow: '10 ANOS DE IT’S A TRAP / LISBOA',
       title: <>EDIÇÃO<br /><em>2026.</em></>,
-      intro: 'Celebra os 10 anos da It’s a Trap a 19 de dezembro, no Disaster. O cartaz e os detalhes dos bilhetes ainda não foram anunciados.',
+      intro: 'Dez anos depois de a It’s a Trap ter começado, Lisboa prepara-se para o próximo capítulo do trap português. A 19 de dezembro, regressa a energia que uniu a cena e chegam novas vozes para a levar mais longe.',
       date: 'DATA',
       venue: 'LOCAL',
       eventDate: '19 de dezembro de 2026',
       eventVenue: 'Disaster',
-      lineup: <>O <em>cartaz.</em></>,
+      storyHeading: <>Uma cena <em>em movimento.</em></>,
+      storyText: 'Das raízes e dos anos dourados à nova geração, o trap português construiu-se com as pessoas que enchem as salas: sons familiares que ganham nova vida, descobertas que se transformam em memórias e cada público a escrever a sua parte da história. Este aniversário é um reencontro com essa energia e um novo impulso para o futuro.',
+      lineup: <>A banda sonora <em>de várias gerações.</em></>,
+      lineupIntro: 'A sequência é Oseias, Guima, Syl b2b Oseias, Trillseco, Osyl e Bobby Johnson.',
+      djs: ['Oseias', 'Guima', 'Syl b2b Oseias', 'Trillseco', 'Osyl', 'Bobby Johnson'],
+      surpriseHeading: <>À espera <em>do inesperado.</em></>,
+      surpriseText: 'Haverá aparições surpresa de artistas em diferentes momentos dos sets dos DJs. As identidades e os horários ficam por revelar: as surpresas fazem parte dos sets, não são um espetáculo ao vivo marcado à parte.',
       knowBefore: <>Antes de <em>chegares.</em></>,
       faqs: [
-        ['A que horas começa?', 'A abertura de portas, os horários das atuações e a última entrada serão anunciados com o anúncio do evento.'],
+        ['A que horas começa?', 'A abertura de portas e os detalhes de entrada serão divulgados quando estiverem confirmados. As identidades e os horários das aparições surpresa não serão anunciados; estas acontecem durante os sets dos DJs.'],
         ['Onde posso comprar bilhetes?', 'O link oficial para os bilhetes será publicado aqui quando as vendas começarem.'],
         ['Há idade mínima?', 'A idade mínima e os requisitos de identificação ainda serão confirmados.'],
-        ['E a acessibilidade?', 'A acessibilidade do espaço, as instalações e um contacto para questões serão confirmados antes da venda de bilhetes.'],
+        ['E a acessibilidade?', 'A acessibilidade do espaço, as instalações disponíveis e um contacto para esclarecimento de dúvidas serão confirmados antes da abertura das vendas.'],
         ['E se precisares de apoio durante a noite?', 'Os contactos de apoio, o processo para reportar situações e as regras do espaço serão publicados aqui.'],
       ],
     },
@@ -535,8 +548,19 @@ function App() {
               <span>{t.edition.date}<b>{t.edition.eventDate}</b></span>
               <span>{t.edition.venue}<b>{t.edition.eventVenue}</b></span>
             </div>
+            <div className="editionStory">
+              <h2>{t.edition.storyHeading}</h2>
+              <p>{t.edition.storyText}</p>
+            </div>
             <h2>{t.edition.lineup}</h2>
-            <div className="announcement" aria-hidden="true" />
+            <p className="lineupIntro">{t.edition.lineupIntro}</p>
+            <ul className="lineupGrid" aria-label={isPortuguese ? 'DJs' : 'DJs'}>
+              {t.edition.djs.map((dj) => <li key={dj}>{dj}</li>)}
+            </ul>
+            <aside className="surpriseNote">
+              <h3>{t.edition.surpriseHeading}</h3>
+              <p>{t.edition.surpriseText}</p>
+            </aside>
             <h2>{t.edition.knowBefore}</h2>
             {t.edition.faqs.map(([question, answer]) => (
               <details key={question}><summary>{question}</summary><p>{answer}</p></details>
@@ -687,6 +711,13 @@ function App() {
             <a className="button" href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noreferrer">@itsatrap.official ↗</a>
           </section>
         )}
+
+        {page === 'Section X' && (
+          <section className="sectionXPage">
+            <span className="eyebrow">LINK XY</span>
+            <h1 className="pagetitle">SECTION <em>X.</em></h1>
+          </section>
+        )}
       </main>
 
       <footer>
@@ -698,6 +729,7 @@ function App() {
           <button onClick={() => go('Community')}>{t.footer.community} ↗</button>
         </div>
         <small>{t.footer.notice}</small>
+        <a className="footerHiddenLink" href="#x">LINK XY</a>
       </footer>
     </>
   );
