@@ -290,12 +290,19 @@ const copy = {
     },
     community: {
       eyebrow: 'BE PART OF WHAT COMES NEXT',
-      group: <>Take it to<br /><em>the group.</em></>,
-      news: 'News, conversations and ideas beyond the dance floor.',
+      group: <>The night ends.<br /><em>The community doesn’t.</em></>,
+      news: 'Join the WhatsApp group for news, conversations and ideas beyond the dance floor.',
       whatsapp: 'Join the WhatsApp group',
-      spotify: 'Add to the Spotify playlist',
-      agreement: 'Rules',
-      agreementText: 'Respect identities and boundaries. No harassment, hate speech, spam or unsolicited promotion.',    },
+      spotify: 'Add to the It’s a Trap playlist',
+      photoAlt: 'A performer and the crowd sharing the dance floor',
+      photoCaption: 'Lisbon, together on the dance floor.',
+      agreement: 'A few things we share',
+      rules: [
+        'Respect every identity and personal boundary.',
+        'No harassment, hate speech or discrimination.',
+        'No spam or unsolicited promotion.',
+      ],
+    },
     contact: {
       eyebrow: 'LET’S CONNECT',
       title: <>GET IN<br /><em>TOUCH.</em></>,
@@ -406,12 +413,19 @@ const copy = {
     },
     community: {
       eyebrow: 'FAZ PARTE DO QUE VEM A SEGUIR',
-      group: <>Leva a conversa<br /><em>para o grupo.</em></>,
-      news: 'Novidades, conversas e ideias para lá da pista.',
+      group: <>A noite acaba.<br /><em>A comunidade não.</em></>,
+      news: 'Junta-te ao grupo de WhatsApp para novidades, conversas e ideias para lá da pista.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
-      spotify: 'Adicionar à playlist no Spotify',
-      agreement: 'Regras da comunidade',
-      agreementText: 'Respeita todas as identidades e limites. Não são permitidos assédio, discurso de ódio, spam nem promoção não solicitada.',    },
+      spotify: 'Adicionar à playlist It’s a Trap',
+      photoAlt: 'Um artista e o público partilham a pista de dança',
+      photoCaption: 'Lisboa, juntos na pista.',
+      agreement: 'O que partilhamos',
+      rules: [
+        'Respeita todas as identidades e os limites pessoais.',
+        'Não são permitidos assédio, discurso de ódio ou discriminação.',
+        'Sem spam nem promoção não solicitada.',
+      ],
+    },
     contact: {
       eyebrow: 'VAMOS FALAR',
       title: <>VAMOS<br /><em>FALAR.</em></>,
@@ -711,14 +725,19 @@ function App() {
               <div className="communityIntro">
                 <h1 className="communityHeadline">{t.community.group}</h1>
                 <p>{t.community.news}</p>
-                <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
-                <a className="button" href="https://open.spotify.com/playlist/28ScGDb85kOXLTG1YBHOdL?si=89570df84afe4c36&amp;pt=32dfa671e3af5d07669751eebd91174a" target="_blank" rel="noopener noreferrer">{t.community.spotify} ↗</a>
+                <div className="communityActions">
+                  <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp}</a>
+                  <a className="button communitySpotify" href="https://open.spotify.com/playlist/28ScGDb85kOXLTG1YBHOdL?si=89570df84afe4c36&amp;pt=32dfa671e3af5d07669751eebd91174a" target="_blank" rel="noopener noreferrer">{t.community.spotify}</a>
+                </div>
               </div>
-              <div className="communityResources">
-                <div className="agreement">
-                  <h3>{t.community.agreement}</h3>
-                  <p>{t.community.agreementText}</p>                </div>
-              </div>
+              <figure className="communityPhoto">
+                <img src={assetUrl('assets/community-photo.png')} alt={t.community.photoAlt} loading="lazy" />
+                <figcaption>{t.community.photoCaption}</figcaption>
+              </figure>
+            </div>
+            <div className="agreement communityAgreement inner">
+              <h2>{t.community.agreement}</h2>
+              <ul>{t.community.rules.map((rule) => <li key={rule}>{rule}</li>)}</ul>
             </div>
           </section>
         )}
