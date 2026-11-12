@@ -4,42 +4,48 @@
     "alt": "Crowd with raised hands, seen from behind the DJ booth",
     "original": "1.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Multidão de braços no ar, vista de trás da cabine do DJ"
   },
   {
     "src": "assets/dancefloor-motion.svg",
     "alt": "Dancers photographed with warm light and motion blur",
     "original": "14.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Pessoas a dançar sob luz quente, com movimento desfocado"
   },
   {
     "src": "assets/behind-the-deck-dj-booth-purple-light.webp",
     "alt": "DJ performing at the decks under purple and blue stage lighting",
     "original": "DJ Booth with Bottle Removed.png",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ a atuar sob luzes roxas e azuis"
   },
   {
     "src": "assets/crowd-stage.png",
     "alt": "Black-and-white view of a performer and the crowd",
     "original": "26.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Fotografia a preto e branco de um artista e do público"
   },
   {
     "src": "assets/community.svg",
     "alt": "People together on the dance floor",
     "original": "10.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Pessoas reunidas na pista de dança"
   },
   {
     "src": "assets/friends.svg",
     "alt": "Two attendees posing together",
     "original": "117.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Duas pessoas a posar juntas"
   },
   {
     "src": "assets/dj-gallery-real-madrid.png",
@@ -47,119 +53,136 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "DJ com camisola de futebol sob luzes roxas e amarelas"
   },
   {
     "src": "assets/behind-the-deck-dj-booth-blue-tent.webp",
     "alt": "DJ at the booth facing a packed crowd beneath a blue-lit tent",
     "original": "IMG_4500.JPG(1).jpeg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ na cabine perante uma multidão numa tenda iluminada a azul"
   },
   {
     "src": "assets/packed-room.svg",
     "alt": "A packed venue seen from the DJ booth",
     "original": "12.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Sala cheia vista da cabine do DJ"
   },
   {
     "src": "assets/lens-djs-bw.jpg",
     "alt": "Black-and-white photograph of people performing behind DJ decks",
     "original": "lens-djs-bw.jpg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Fotografia a preto e branco de artistas atrás da mesa de mistura"
   },
   {
     "src": "assets/together-on-stage.svg",
     "alt": "Two people sharing a moment on stage",
     "original": "tiagao.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Duas pessoas a partilhar um momento em palco"
   },
   {
     "src": "assets/microphone-closeup.svg",
     "alt": "Performer holding a microphone",
     "original": "pierre.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Artista com um microfone na mão"
   },
   {
     "src": "assets/lens-vocalist-bw.jpg",
     "alt": "Black-and-white close-up of a performer singing into a microphone",
     "original": "lens-vocalist-bw.jpg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Retrato a preto e branco de um artista a cantar ao microfone"
   },
   {
     "src": "assets/green-light.svg",
     "alt": "Attendee under green stage lighting",
     "original": "9.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Pessoa sob luzes verdes junto ao palco"
   },
   {
     "src": "assets/purple-stage.svg",
     "alt": "Masked performer in purple stage light",
     "original": "m huncho.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Artista de máscara sob luzes roxas"
   },
   {
     "src": "assets/performance.svg",
     "alt": "Performer under coloured stage lighting",
     "original": "5.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Artista a atuar sob iluminação colorida"
   },
   {
     "src": "assets/hands-up.svg",
     "alt": "Raised hands near the stage",
     "original": "4.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Braços levantados junto ao palco"
   },
   {
     "src": "assets/after-dark.svg",
     "alt": "Two dark concert frames with coloured lights",
     "original": "8.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Duas fotografias escuras de um concerto com luzes coloridas"
   },
   {
     "src": "assets/dj-4499.jpg",
     "alt": "DJ performing beneath a blue-lit tent",
     "original": "IMG_4499.JPG.jpeg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ a atuar numa tenda iluminada a azul"
   },
   {
     "src": "assets/dj-4466.jpg",
     "alt": "Crowd facing the stage beneath a tent at a live music event",
     "original": "IMG_4466.JPG.jpeg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "Público voltado para o palco numa tenda durante um concerto"
   },
   {
     "src": "assets/dj-7689.jpg",
     "alt": "DJ performing beneath vivid red and purple stage lights",
     "original": "IMG_7689.JPG.jpeg",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ a atuar sob luzes vermelhas e roxas intensas"
   },
   {
     "src": "assets/dj-colour.svg",
     "alt": "DJ mixing at the decks under yellow and purple lights",
     "original": "3.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ a misturar música sob luzes amarelas e roxas"
   },
   {
     "src": "assets/dj-pink.svg",
     "alt": "DJ mixing at the decks under pink and green lights",
     "original": "6.PNG",
     "credit": "Photographer credit to be confirmed",
-    "kind": "Photograph"
+    "kind": "Photograph",
+    "altPt": "DJ a misturar música sob luzes cor-de-rosa e verdes"
   },
   {
     "src": "assets/dj-gallery-pink-dj.png",
@@ -167,7 +190,8 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "DJ na mesa de mistura sob luzes cor-de-rosa e azul-esverdeadas"
   },
   {
     "src": "assets/dj-monochrome-replacement.jpeg",
@@ -175,7 +199,8 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "DJ de camisola branca na mesa de mistura, rodeado de pessoas"
   },
   {
     "src": "assets/behind-the-deck-dj-booth-blue-tent.webp",
@@ -183,7 +208,8 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "DJ a atuar perante o público numa tenda iluminada a azul"
   },
   {
     "src": "assets/dj-gallery-purple-light.png",
@@ -191,7 +217,8 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "DJ a atuar sob luzes roxas"
   },
   {
     "src": "assets/dj-gallery-monochrome.png",
@@ -199,6 +226,7 @@
     "original": "User-provided photo",
     "credit": "Photographer credit to be confirmed",
     "kind": "Photograph",
-    "storyGallery": true
+    "storyGallery": true,
+    "altPt": "Fotografia a preto e branco de um DJ atrás dos pratos"
   }
 ]
