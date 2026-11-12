@@ -619,11 +619,12 @@ function App() {
   </div>
 </section>}
         {page === 'Archive' && (
-          <section>
+          <section className="archivePage">
             <span className="eyebrow">{t.archive.eyebrow}</span>
             <h1 className="pagetitle">{t.archive.title}</h1>
             <p>{t.archive.intro}</p>
             <div className="archive-curated" />
+            <a className="archivePageLink" href="#x">LINK XY</a>
           </section>
         )}
 
@@ -692,7 +693,17 @@ function App() {
                 <p>{t.community.news}</p>
                 <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
               </div>
-              <div>
+              <div className="communityResources">
+                <iframe
+                  className="spotifyEmbed"
+                  title="It's a Trap Spotify playlist"
+                  src="https://open.spotify.com/embed/playlist/28ScGDb85kOXLTG1YBHOdL?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
                 <div className="agreement">
                   <h3>{t.community.agreement}</h3>
                   <p>{t.community.agreementText}</p>                </div>
@@ -729,7 +740,6 @@ function App() {
           <button onClick={() => go('Community')}>{t.footer.community} ↗</button>
         </div>
         <small>{t.footer.notice}</small>
-        <a className="footerHiddenLink" href="#x">LINK XY</a>
       </footer>
     </>
   );
