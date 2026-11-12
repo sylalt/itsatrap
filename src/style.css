@@ -1689,16 +1689,19 @@ header nav button[aria-current] {
   line-height: 1.55;
 }
 .communityPage .communityActions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, max-content);
+  justify-items: start;
+  row-gap: 24px;
+  width: 100%;
 }
 .communityPage .communityActions .button {
   display: inline-flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  min-height: 52px;
   margin: 0;
   text-align: center;
   white-space: normal;
@@ -1755,8 +1758,8 @@ header nav button[aria-current] {
     font-size: 15px;
   }
   .communityPage .communityActions {
-    gap: 14px;
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 20px;
   }
   .communityPage .communityActions .button {
     width: 100%;
