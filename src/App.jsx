@@ -12,9 +12,11 @@ const pressEmail = 'Producao@grvve.com';
 const photos = photoRecords.map((photo) => ({ ...photo, src: assetUrl(photo.src) }));
 const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
 const archiveGallery = [
-  { src: 'assets/archive-2018-artist-unidentified-a.jpg', year: '2018', titleEn: 'Artist unidentified', titlePt: 'Artista não identificado', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a live performance photograph', altPt: 'Artista não identificado numa fotografia de atuação ao vivo' },
+  { src: 'assets/archive-2018-artist-unidentified-a.jpg', year: '2018', titleEn: 'Unidentified artist', titlePt: 'Artista por identificar', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a live performance photograph', altPt: 'Artista não identificado numa fotografia de atuação ao vivo' },
   { src: 'assets/archive-2018-artist-unidentified-b.jpg', year: '2018', titleEn: 'Artist unidentified', titlePt: 'Artista não identificado', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a black-and-white live performance photograph', altPt: 'Artista não identificado numa fotografia a preto e branco de atuação ao vivo' },
-  { src: 'assets/archive-2019-third-anniversary-crowd.jpg', year: '2019', titleEn: 'Third Anniversary', titlePt: 'Terceiro aniversário', detailEn: '2019', detailPt: '2019', altEn: 'Crowd at It’s a Trap’s third anniversary in 2019', altPt: 'Público no terceiro aniversário da It’s a Trap, em 2019' },
+  { src: 'assets/archive-2018-jacin-trill.jpg', year: '2018', titleEn: 'Jacin Trill', titlePt: 'Jacin Trill', detailEn: 'It’s a Trap · Time Out Market Lisboa · 2018', detailPt: 'It’s a Trap · Time Out Market Lisboa · 2018', altEn: 'Jacin Trill performing at It’s a Trap at Time Out Market Lisboa in 2018', altPt: 'Jacin Trill a atuar na It’s a Trap, no Time Out Market Lisboa, em 2018' },
+  { src: 'assets/archive-2018-nga.jpg', year: '2018', titleEn: 'NGA', titlePt: 'NGA', detailEn: 'It’s a Trap · Time Out Market Lisboa · 2018', detailPt: 'It’s a Trap · Time Out Market Lisboa · 2018', altEn: 'NGA performing at It’s a Trap at Time Out Market Lisboa in 2018', altPt: 'NGA a atuar na It’s a Trap, no Time Out Market Lisboa, em 2018' },
+  { src: 'assets/archive-2019-third-anniversary-crowd.jpg', year: '2019', titleEn: 'Third Anniversary', titlePt: '3.º Aniversário', detailEn: '2019', detailPt: '2019', altEn: 'Crowd at It’s a Trap’s third anniversary in 2019', altPt: 'Público no terceiro aniversário da It’s a Trap, em 2019' },
   { src: 'assets/archive-2019-mc-igu.jpg', year: '2019', titleEn: 'MC Igu', titlePt: 'MC Igu', detailEn: 'Estúdio Time Out · 2019', detailPt: 'Estúdio Time Out · 2019', altEn: 'MC Igu performing at Estúdio Time Out in 2019', altPt: 'MC Igu a atuar no Estúdio Time Out, em 2019' },
   { src: 'assets/archive-2019-yuri-nr5.jpg', year: '2019', titleEn: 'Yuri NR5', titlePt: 'Yuri NR5', detailEn: 'Third Anniversary · December 2019', detailPt: 'Terceiro aniversário · dezembro de 2019', altEn: 'Yuri NR5 performing at the third anniversary in December 2019', altPt: 'Yuri NR5 a atuar no terceiro aniversário, em dezembro de 2019' },
   { src: 'assets/archive-2020-pierre-bourne.jpg', year: '2020', titleEn: 'Pierre Bourne', titlePt: 'Pierre Bourne', detailEn: 'Estúdio Time Out, Lisbon · 20 February 2020', detailPt: 'Estúdio Time Out, Lisboa · 20 de fevereiro de 2020', altEn: 'Pierre Bourne performing at Estúdio Time Out in Lisbon on 20 February 2020', altPt: 'Pierre Bourne a atuar no Estúdio Time Out, em Lisboa, a 20 de fevereiro de 2020' },
@@ -25,8 +27,6 @@ const unverifiedArchivePhotos = [
   { src: 'assets/archive-undated-two-performers.jpg', altEn: 'Two performers standing together on stage', altPt: 'Dois artistas juntos em palco' },
   { src: 'assets/archive-undated-performer-colour.jpg', altEn: 'Performer in a colourful outfit against a dark stage', altPt: 'Artista com roupa colorida num palco escuro' },
   { src: 'assets/archive-undated-performance-monochrome.jpg', altEn: 'Black-and-white photograph of a performer facing the crowd', altPt: 'Fotografia a preto e branco de um artista perante o público' },
-  { src: 'assets/archive-undated-crowd-blue-lights.jpg', altEn: 'Crowd and performer beneath blue and purple lights', altPt: 'Público e artista sob luzes azuis e roxas' },
-  { src: 'assets/archive-undated-stage-crowd.jpg', altEn: 'Performer on stage with the crowd in front', altPt: 'Artista em palco perante o público' },
   { src: 'assets/archive-undated-masked-performer.jpg', altEn: 'Masked performer under blue and green stage lights', altPt: 'Artista de máscara sob luzes azuis e verdes' },
 ];
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
@@ -341,8 +341,8 @@ const copy = {
       ticketEyebrow: '10 ANOS DE IT’S A TRAP · LISBOA',
       ticketHeading: 'BILHETES',
       ticketDate: '19 DE DEZEMBRO DE 2026',
-      ticketDay: 'DIA ATÉ AO EVENTO',
-      ticketDays: 'DIAS ATÉ AO EVENTO',
+      ticketDay: 'DIA PARA O EVENTO',
+      ticketDays: 'DIAS PARA O EVENTO',
       ticketCta: 'COMPRAR BILHETES',
       community: 'MANTÉM A LIGAÇÃO',
       communityHeading: <>A noite acaba.<br /><em>A comunidade continua.</em></>,
@@ -389,12 +389,12 @@ const copy = {
     archive: {
       eyebrow: 'NOITES PASSADAS / ENERGIA QUE FICA',
       title: <>O<br /><em>ARQUIVO.</em></>,
-      intro: 'Cartazes e lineups de edições anteriores.',
-      filters: ['Tudo', 'Cartaz', 'Lineups'],
+      intro: 'Cartazes e programações de edições anteriores.',
+      filters: ['Tudo', 'Cartaz', 'Programação'],
       collection: 'COLEÇÃO EM CONSTRUÇÃO',
       verified: 'Em breve: anos e registos de eventos verificados.',
       note: 'Estas imagens são gráficos provisórios, não cartazes históricos do evento. A navegação por ano e evento vai aparecer à medida que o arquivo for preenchido.',
-      categories: ['Tudo', 'Cartaz', 'Lineups'],
+      categories: ['Tudo', 'Cartaz', 'Programação'],
     },
     lens: {
       eyebrow: '',
@@ -740,7 +740,7 @@ function App() {
               <span className="eyebrow">{words('PAST NIGHTS / PHOTO ARCHIVE', 'NOITES PASSADAS / ARQUIVO FOTOGRÁFICO')}</span>
               <h1 className="pagetitle">{words(<>PAST <em>PERFORMANCES.</em></>, <>ATUAÇÕES <em>PASSADAS.</em></>)}</h1>
               <p>{words('Live photographs from It’s a Trap nights. Captions use only artist, event and date details recorded in the project archive.', 'Fotografias de atuações e noites da It’s a Trap. As legendas incluem apenas os nomes, eventos e datas registados no arquivo do projeto.')}</p>
-              <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas fotografias não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando forem confirmados.')}</p>
+              <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas imagens não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando estiverem confirmados.')}</p>
               <nav className="photoArchiveYears" aria-label={words('Browse archive by year', 'Explorar o arquivo por ano')}>
                 {['2018', '2019', '2020'].map(year => <button key={year} type="button" onClick={() => document.getElementById(`archive-${year}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{year} ↘</button>)}
                 <button type="button" onClick={() => document.getElementById('archive-undated')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{words('Undated', 'Sem data')} ↘</button>
