@@ -1688,6 +1688,9 @@ header nav button[aria-current] {
   font-size: clamp(15px, 1.15vw, 17px);
   line-height: 1.55;
 }
+.communityPage .communityIntro > .button + .button {
+  margin-left: 14px;
+}
 .communityPage .spotifyEmbed {
   display: block;
   width: 100%;
@@ -1746,6 +1749,9 @@ header nav button[aria-current] {
     margin: 0 0 10px;
     padding: 14px 16px;
     text-align: center;
+  }
+  .communityPage .communityIntro > .button + .button {
+    margin-left: 0;
   }
   .communityPage .agreement {
     padding: 20px;
