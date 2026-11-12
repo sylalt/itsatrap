@@ -1887,9 +1887,6 @@ header nav button[aria-current] {
 }
 
 
-.photoArchiveUncaptioned .photoArchiveImage img {
-  filter: saturate(.96);
-}
 @media (max-width: 560px) {
   .photoArchiveGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
