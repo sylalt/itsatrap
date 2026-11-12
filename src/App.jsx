@@ -11,6 +11,14 @@ const featurePosterMobile = assetUrl('assets/its-a-trap-2026-poster-portrait.png
 const pressEmail = 'Producao@grvve.com';
 const photos = photoRecords.map((photo) => ({ ...photo, src: assetUrl(photo.src) }));
 const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
+const archiveGallery = [
+  { src: 'assets/archive-2018-artist-unidentified-a.jpg', year: '2018', titleEn: 'Artist unidentified', titlePt: 'Artista não identificado', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a live performance photograph', altPt: 'Artista não identificado numa fotografia de atuação ao vivo' },
+  { src: 'assets/archive-2018-artist-unidentified-b.jpg', year: '2018', titleEn: 'Artist unidentified', titlePt: 'Artista não identificado', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a black-and-white live performance photograph', altPt: 'Artista não identificado numa fotografia a preto e branco de atuação ao vivo' },
+  { src: 'assets/archive-2019-third-anniversary-crowd.jpg', year: '2019', titleEn: 'Third Anniversary', titlePt: 'Terceiro aniversário', detailEn: '2019', detailPt: '2019', altEn: 'Crowd at It’s a Trap’s third anniversary in 2019', altPt: 'Público no terceiro aniversário da It’s a Trap, em 2019' },
+  { src: 'assets/archive-2019-mc-igu.jpg', year: '2019', titleEn: 'MC Igu', titlePt: 'MC Igu', detailEn: 'Estúdio Time Out · 2019', detailPt: 'Estúdio Time Out · 2019', altEn: 'MC Igu performing at Estúdio Time Out in 2019', altPt: 'MC Igu a atuar no Estúdio Time Out, em 2019' },
+  { src: 'assets/archive-2019-yuri-nr5.jpg', year: '2019', titleEn: 'Yuri NR5', titlePt: 'Yuri NR5', detailEn: 'Third Anniversary · December 2019', detailPt: 'Terceiro aniversário · dezembro de 2019', altEn: 'Yuri NR5 performing at the third anniversary in December 2019', altPt: 'Yuri NR5 a atuar no terceiro aniversário, em dezembro de 2019' },
+  { src: 'assets/archive-2020-pierre-bourne.jpg', year: '2020', titleEn: 'Pierre Bourne', titlePt: 'Pierre Bourne', detailEn: 'Estúdio Time Out, Lisbon · 20 February 2020', detailPt: 'Estúdio Time Out, Lisboa · 20 de fevereiro de 2020', altEn: 'Pierre Bourne performing at Estúdio Time Out in Lisbon on 20 February 2020', altPt: 'Pierre Bourne a atuar no Estúdio Time Out, em Lisboa, a 20 de fevereiro de 2020' },
+];
 const ethosPhotos = ['ethos-pluma.png', 'ethos-crowd.png', 'ethos-performance.png']
   .map(file => assetUrl(`assets/${file}`));
 const excludedLensPhotos = new Set([
@@ -40,7 +48,7 @@ const pageRoutes = {
   lens: 'Through the Lens',
   community: 'Community',
   contact: 'Contact',
-  x: 'Section X',
+  x: 'Past Performances',
 };
 const pageRouteKeys = Object.fromEntries(
   Object.entries(pageRoutes).map(([route, page]) => [page, route]),
@@ -626,7 +634,7 @@ function App() {
             <h1 className="pagetitle">{t.archive.title}</h1>
             <p>{t.archive.intro}</p>
             <div className="archive-curated" />
-            <a className="archivePageLink" href="#x">LINK XY</a>
+            <a className="archivePageLink" href="#x">{words('Browse the photo archive', 'Explorar o arquivo fotográfico')} ↗</a>
           </section>
         )}
 
@@ -716,10 +724,38 @@ function App() {
           </section>
         )}
 
-        {page === 'Section X' && (
-          <section className="sectionXPage">
-            <span className="eyebrow">LINK XY</span>
-            <h1 className="pagetitle">SECTION <em>X.</em></h1>
+        {page === 'Past Performances' && (
+          <section className="sectionXPage photoArchivePage">
+            <div className="photoArchiveHeader">
+              <span className="eyebrow">{words('PAST NIGHTS / PHOTO ARCHIVE', 'NOITES PASSADAS / ARQUIVO FOTOGRÁFICO')}</span>
+              <h1 className="pagetitle">{words(<>PAST <em>PERFORMANCES.</em></>, <>ATUAÇÕES <em>PASSADAS.</em></>)}</h1>
+              <p>{words('Live photographs from It’s a Trap nights. Captions use only artist, event and date details recorded in the project archive.', 'Fotografias de atuações e noites da It’s a Trap. As legendas incluem apenas os nomes, eventos e datas registados no arquivo do projeto.')}</p>
+              <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas fotografias não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando forem confirmados.')}</p>
+              <nav className="photoArchiveYears" aria-label={words('Browse archive by year', 'Explorar o arquivo por ano')}>
+                {['2018', '2019', '2020'].map(year => <a key={year} href={`#archive-${year}`}>{year} ↘</a>)}
+              </nav>
+            </div>
+            {['2018', '2019', '2020'].map(year => (
+              <section className="photoArchiveYear" id={`archive-${year}`} key={year} aria-labelledby={`archive-title-${year}`}>
+                <div className="photoArchiveYearHeading">
+                  <span className="eyebrow">{words('YEAR', 'ANO')}</span>
+                  <h2 id={`archive-title-${year}`}>{year}</h2>
+                </div>
+                <div className="photoArchiveGrid">
+                  {archiveGallery.filter(photo => photo.year === year).map(photo => (
+                    <figure className="photoArchiveCard" key={photo.src}>
+                      <div className="photoArchiveImage">
+                        <img src={assetUrl(photo.src)} alt={isPortuguese ? photo.altPt : photo.altEn} loading="lazy" decoding="async" />
+                      </div>
+                      <figcaption>
+                        <strong>{isPortuguese ? photo.titlePt : photo.titleEn}</strong>
+                        <span>{isPortuguese ? photo.detailPt : photo.detailEn}</span>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            ))}
           </section>
         )}
       </main>

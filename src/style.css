@@ -1768,3 +1768,120 @@ header nav button[aria-current] {
     box-shadow: none;
   }
 }
+
+
+/* Photo archive */
+.photoArchivePage {
+  min-height: 70vh;
+}
+.photoArchiveHeader {
+  max-width: 840px;
+  margin: 0 auto 64px;
+}
+.photoArchiveHeader .pagetitle {
+  max-width: 900px;
+}
+.photoArchiveHeader > p {
+  max-width: 680px;
+}
+.photoArchiveNote {
+  color: #a39c90;
+  font-size: .88rem;
+}
+.photoArchiveYears {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.photoArchiveYears a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font: 700 11px/1 "DM Sans", Arial, sans-serif;
+  letter-spacing: .08em;
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease;
+}
+.photoArchiveYears a:hover,
+.photoArchiveYears a:focus-visible {
+  border-color: var(--paper);
+  background: #171614;
+}
+.photoArchiveYear {
+  scroll-margin-top: 110px;
+  margin: 0 0 72px;
+}
+.photoArchiveYearHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.photoArchiveYearHeading .eyebrow {
+  margin: 0;
+}
+.photoArchiveYearHeading h2 {
+  margin: 0 0 12px;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: .95;
+}
+.photoArchiveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
+.photoArchiveCard {
+  min-width: 0;
+  margin: 0;
+}
+.photoArchiveImage {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #171614;
+}
+.photoArchiveImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 43%;
+  transition: transform .35s ease;
+}
+.photoArchiveCard:hover .photoArchiveImage img {
+  transform: scale(1.025);
+}
+.photoArchiveCard figcaption {
+  display: grid;
+  gap: 5px;
+  padding-top: 11px;
+}
+.photoArchiveCard figcaption strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+.photoArchiveCard figcaption span {
+  color: #a39c90;
+  font-size: 12px;
+  line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .photoArchiveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .photoArchiveHeader {
+    margin-bottom: 44px;
+  }
+  .photoArchiveGrid {
+    grid-template-columns: 1fr;
+  }
+  .photoArchiveYear {
+    margin-bottom: 54px;
+  }
+}
