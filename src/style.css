@@ -779,6 +779,11 @@ figure {
 .heroCopy {
   max-width: 620px;
 }
+.heroCopy .heroActions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
 .heroCopy h1 {
   font-size: clamp(95px, 13vw, 185px);
 }
@@ -1501,15 +1506,19 @@ header nav button[aria-current] {
   }
   header nav {
     grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 12px;
+    display: flex;
+    gap: 16px;
     width: 100%;
     min-width: 0;
-    overflow: visible;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  header nav::-webkit-scrollbar {
+    display: none;
   }
   header nav button {
-    justify-self: start;
+    flex: 0 0 auto;
     min-height: 44px;
     padding: 10px 4px;
   }
@@ -1592,6 +1601,23 @@ header nav button[aria-current] {
   .communityPage .communityHeadline {
     font-size: clamp(46px, 12vw, 64px);
     letter-spacing: -2px;
+  }
+}
+
+@media (min-width: 900px) {
+  .ticketCountdownPanel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(24px, 4vw, 60px);
+  }
+  .ticketCountdownCopy h2 {
+    margin: 16px 0 12px;
+  }
+  .ticketCountdownAction {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(20px, 3vw, 40px);
   }
 }
 .ethosMasthead h1 em {
