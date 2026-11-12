@@ -720,8 +720,10 @@ function App() {
               <div className="communityIntro">
                 <h1 className="communityHeadline">{t.community.group}</h1>
                 <p>{t.community.news}</p>
-                <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp} ↗</a>
-                <a className="button" href="https://open.spotify.com/playlist/28ScGDb85kOXLTG1YBHOdL?si=89570df84afe4c36&amp;pt=32dfa671e3af5d07669751eebd91174a" target="_blank" rel="noopener noreferrer">{t.community.spotify} ↗</a>
+                <div className="communityActions">
+                  <a className="button whatsappButton" href="https://chat.whatsapp.com/Jo2MBEVAQsXGkzQWwtBZNd" target="_blank" rel="noopener noreferrer">{t.community.whatsapp}</a>
+                  <a className="button" href="https://open.spotify.com/playlist/28ScGDb85kOXLTG1YBHOdL?si=89570df84afe4c36&amp;pt=32dfa671e3af5d07669751eebd91174a" target="_blank" rel="noopener noreferrer">{t.community.spotify}</a>
+                </div>
               </div>
               <div className="communityResources">
                 <div className="agreement">
