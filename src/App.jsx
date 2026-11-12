@@ -742,8 +742,8 @@ function App() {
               <p>{words('Live photographs from It’s a Trap nights. Captions use only artist, event and date details recorded in the project archive.', 'Fotografias de atuações e noites da It’s a Trap. As legendas incluem apenas os nomes, eventos e datas registados no arquivo do projeto.')}</p>
               <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas fotografias não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando forem confirmados.')}</p>
               <nav className="photoArchiveYears" aria-label={words('Browse archive by year', 'Explorar o arquivo por ano')}>
-                {['2018', '2019', '2020'].map(year => <a key={year} href={`#archive-${year}`}>{year} ↘</a>)}
-                <a href="#archive-undated">{words('Undated', 'Sem data')} ↘</a>
+                {['2018', '2019', '2020'].map(year => <button key={year} type="button" onClick={() => document.getElementById(`archive-${year}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{year} ↘</button>)}
+                <button type="button" onClick={() => document.getElementById('archive-undated')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{words('Undated', 'Sem data')} ↘</button>
               </nav>
             </div>
             {['2018', '2019', '2020'].map(year => (

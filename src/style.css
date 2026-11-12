@@ -1794,7 +1794,8 @@ header nav button[aria-current] {
   gap: 10px;
   margin-top: 28px;
 }
-.photoArchiveYears a {
+.photoArchiveYears a,
+.photoArchiveYears button {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
@@ -1807,7 +1808,9 @@ header nav button[aria-current] {
   transition: border-color .2s ease, background .2s ease;
 }
 .photoArchiveYears a:hover,
-.photoArchiveYears a:focus-visible {
+.photoArchiveYears a:focus-visible,
+.photoArchiveYears button:hover,
+.photoArchiveYears button:focus-visible {
   border-color: var(--paper);
   background: #171614;
 }
