@@ -1900,3 +1900,8 @@ header nav button[aria-current] {
     grid-template-columns: 1fr;
   }
 }
+
+.photoArchiveYears button {
+  background: transparent;
+  cursor: pointer;
+}
