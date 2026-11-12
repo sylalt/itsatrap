@@ -13,7 +13,7 @@ const photos = photoRecords.map((photo) => ({ ...photo, src: assetUrl(photo.src)
 const storyGalleryPhotos = photos.filter(photo => photo.storyGallery);
 const archiveGallery = [
   { src: 'assets/archive-2018-artist-unidentified-a.jpg', year: '2018', titleEn: 'Unidentified artist', titlePt: 'Artista por identificar', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a live performance photograph', altPt: 'Artista não identificado numa fotografia de atuação ao vivo' },
-  { src: 'assets/archive-2018-artist-unidentified-b.jpg', year: '2018', titleEn: 'Artist unidentified', titlePt: 'Artista não identificado', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a black-and-white live performance photograph', altPt: 'Artista não identificado numa fotografia a preto e branco de atuação ao vivo' },
+  { src: 'assets/archive-2018-artist-unidentified-b.jpg', year: '2018', titleEn: 'Unidentified artist', titlePt: 'Artista por identificar', detailEn: '2018', detailPt: '2018', altEn: 'Unidentified artist in a black-and-white live performance photograph', altPt: 'Artista não identificado numa fotografia a preto e branco de atuação ao vivo' },
   { src: 'assets/archive-2018-jacin-trill.jpg', year: '2018', titleEn: 'Jacin Trill', titlePt: 'Jacin Trill', detailEn: 'It’s a Trap · Time Out Market Lisboa · 2018', detailPt: 'It’s a Trap · Time Out Market Lisboa · 2018', altEn: 'Jacin Trill performing at It’s a Trap at Time Out Market Lisboa in 2018', altPt: 'Jacin Trill a atuar na It’s a Trap, no Time Out Market Lisboa, em 2018' },
   { src: 'assets/archive-2018-nga.jpg', year: '2018', titleEn: 'NGA', titlePt: 'NGA', detailEn: 'It’s a Trap · Time Out Market Lisboa · 2018', detailPt: 'It’s a Trap · Time Out Market Lisboa · 2018', altEn: 'NGA performing at It’s a Trap at Time Out Market Lisboa in 2018', altPt: 'NGA a atuar na It’s a Trap, no Time Out Market Lisboa, em 2018' },
   { src: 'assets/archive-2019-third-anniversary-crowd.jpg', year: '2019', titleEn: 'Third Anniversary', titlePt: '3.º Aniversário', detailEn: '2019', detailPt: '2019', altEn: 'Crowd at It’s a Trap’s third anniversary in 2019', altPt: 'Público no terceiro aniversário da It’s a Trap, em 2019' },
@@ -761,8 +761,8 @@ function App() {
               <p>{words('Live photographs from It’s a Trap nights. Captions use only artist, event and date details recorded in the project archive.', 'Fotografias de atuações e noites da It’s a Trap. As legendas incluem apenas os nomes, eventos e datas registados no arquivo do projeto.')}</p>
               <p className="photoArchiveNote">{words('Some archive images have no verified artist or event details. Photo credits will be added when confirmed.', 'Algumas imagens não têm artista ou evento identificados no arquivo. Os créditos fotográficos serão acrescentados quando estiverem confirmados.')}</p>
               <nav className="photoArchiveYears" aria-label={words('Browse archive by year', 'Explorar o arquivo por ano')}>
-                {['2018', '2019', '2020'].map(year => <button key={year} type="button" onClick={() => document.getElementById(`archive-${year}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{year} ↘</button>)}
-                <button type="button" onClick={() => document.getElementById('archive-undated')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{words('Undated', 'Sem data')} ↘</button>
+                {['2018', '2019', '2020'].map(year => <button key={year} type="button" onClick={() => document.getElementById(`archive-${year}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{year}</button>)}
+                <button type="button" onClick={() => document.getElementById('archive-undated')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{words('Undated', 'Sem data')}</button>
               </nav>
             </div>
             {['2018', '2019', '2020'].map(year => (
