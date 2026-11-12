@@ -475,7 +475,7 @@ function App() {
   const words = (en, pt) => isPortuguese ? pt : en;
   const shot = (i, caption, cls = '') => (
     <figure className={`storyShot ${cls}`}>
-      <img loading="lazy" src={photos[i].src} alt={photos[i].alt} />
+      <img loading="lazy" src={photos[i].src} alt={isPortuguese ? (photos[i].altPt || photos[i].alt) : photos[i].alt} />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
@@ -522,7 +522,7 @@ function App() {
 
       <main>
 {page==='Home'?<>
-<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">{words('LISBON / THE PORTUGUESE TRAP MOVEMENT','LISBOA / O MOVIMENTO PORTUGUÊS DE TRAP')}</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('See Past Editions','Explorar edições anteriores'),'Archive','textbutton')}</div></div></section><section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
+<section className="hero immersive"><div className="heroBackdrop"><img src={photos[0].src} alt={isPortuguese ? (photos[0].altPt || photos[0].alt) : photos[0].alt}/></div><div className="heroCopy"><span className="eyebrow">{words('LISBON / THE PORTUGUESE TRAP MOVEMENT','LISBOA / O MOVIMENTO PORTUGUÊS DE TRAP')}</span><h1 className="heroLogo"><img src={heroLogo} alt="It’s a Trap" fetchPriority="high" /></h1><div className="actions">{button(words('2026 edition','Edição 2026'),'2026 Edition')}{button(words('See Past Editions','Explorar edições anteriores'),'Archive','textbutton')}</div></div></section><section className="ticketCountdown" aria-labelledby="ticketCountdownTitle"><div className="ticketCountdownPanel"><div className="ticketCountdownCopy"><span className="eyebrow">{t.home.ticketEyebrow}</span><h2 id="ticketCountdownTitle">{t.home.ticketHeading}</h2><p className="ticketCountdownDate">{t.home.ticketDate}</p></div><div className="ticketCountdownAction"><div className="ticketCountdownCounter" aria-label={`${daysToEvent} ${daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}`}><strong aria-hidden="true">{daysToEvent}</strong><span>{daysToEvent === 1 ? t.home.ticketDay : t.home.ticketDays}</span></div>{button(t.home.ticketCta, '2026 Edition')}</div></div></section>
 <figure className="featurePosterWrap">
   <picture>
     <source media="(max-width: 700px)" srcSet={featurePosterMobile} />
@@ -530,7 +530,7 @@ function App() {
   </picture>
 </figure>
 <div className="photoBreak">{shot(3,'')}</div>
-<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás da mesa de mistura.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
+<section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás da mesa de mistura.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={isPortuguese ? (photo.altPt || photo.alt) : photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
 <section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section><section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}</section></>:null}
 
         {page === '2026 Edition' && (
@@ -615,7 +615,7 @@ function App() {
             <div className="gallery">
               {photos
                 .filter(photo => photo.kind === 'Poster' && (category === 'All' || category === 'Poster'))
-                .map(photo => <figure key={photo.src}><img loading="lazy" src={photo.src} alt={photo.alt} /></figure>)}
+                .map(photo => <figure key={photo.src}><img loading="lazy" src={photo.src} alt={isPortuguese ? (photo.altPt || photo.alt) : photo.alt} /></figure>)}
             </div>
             {category === 'Lineups' && <p>{words('Lineups coming soon.','Alinhamentos em breve.')}</p>}
             <p className="muted">{words('Verified poster images and event details are being collected.','Imagens verificadas dos cartazes e detalhes dos eventos estão a ser reunidos.')}</p>
