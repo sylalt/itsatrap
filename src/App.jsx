@@ -803,9 +803,9 @@ function App() {
         <button className="wordmark logoWordmark footerLogo" aria-label={words('It’s a Trap — Home','It’s a Trap — Início')} onClick={() => go('Home')}><img src={brandLogo} alt="It’s a Trap" loading="lazy" /></button>
         <p>{t.footer.tagline}</p>
         <div>
-          <button onClick={() => go('Contact')}>{t.footer.contact} ↗</button>
-          <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noreferrer">{t.footer.instagram} ↗</a>
-          <button onClick={() => go('Community')}>{t.footer.community} ↗</button>
+          <button onClick={() => go('Contact')}>{t.footer.contact}</button>
+          <a href="https://www.instagram.com/itsatrap.official/" target="_blank" rel="noreferrer">{t.footer.instagram}</a>
+          <button onClick={() => go('Community')}>{t.footer.community}</button>
         </div>
         <small>{t.footer.notice}</small>
       </footer>
