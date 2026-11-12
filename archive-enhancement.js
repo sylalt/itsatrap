@@ -10,18 +10,11 @@ function findSection(){return Array.from(document.querySelectorAll("section")).f
 function render(){
  if(window.location.hash.slice(1)!=="archive")return;
  const section=findSection();if(!section)return;
- const filters=section.querySelector(".filters");if(!filters)return;
- const buttons=Array.from(filters.querySelectorAll("button"));
- const activeIndex=Math.max(0,buttons.findIndex(function(button){return button.classList.contains("active")}));
- const mode=["all","poster","lineups"][activeIndex]||"all";
  const pt=isPt();
- const list=events.filter(function(event){if(mode==="poster")return !!event.poster;if(mode==="lineups")return !!(pt?event.lineupPt:event.lineup);return true});
- const signature=(pt?"pt":"en")+"|"+mode;
+ const list=events;
+ const signature=pt?"pt":"en";
  let root=section.querySelector(".archive-curated");
- if(!root){root=document.createElement("div");root.className="archive-curated";filters.insertAdjacentElement("afterend",root)}
- const gallery=section.querySelector(".gallery");if(gallery)gallery.hidden=true;
- Array.from(section.querySelectorAll("p.muted")).forEach(function(p){p.hidden=true});
- Array.from(section.querySelectorAll("p")).forEach(function(p){if(/coming soon|em breve/i.test(p.textContent))p.hidden=true});
+ if(!root){root=document.createElement("div");root.className="archive-curated";section.appendChild(root)}
  if(root.dataset.signature===signature)return;
  root.dataset.signature=signature;
  const groups=new Map();
@@ -41,7 +34,7 @@ function render(){
   const label=year==="Year to confirm"?(pt?"Ano por confirmar":"Year to confirm"):year;
   return '<div class="archive-year-group"><h2 class="archive-year-heading">'+escapeHtml(label)+'</h2><div class="archive-grid">'+cards+'</div></div>';
  }).join("");
- root.innerHTML=(pt?'<p class="archive-source-note">Arquivo compilado a partir da folha de investigação, cartazes e publicações oficiais. Alguns registos antigos têm informação incompleta; as datas, os locais e os alinhamentos não confirmados estão assinalados.</p>':'<p class="archive-source-note">Compiled from the research spreadsheet, original event flyers and official posts. Some early records are incomplete; unconfirmed dates, venues and lineups are labelled.</p>')+(markup||'<p class="archive-empty">'+(pt?"Não há registos nesta categoria.":"No records in this category.")+'</p>');
+ root.innerHTML=markup||'<p class="archive-empty">'+(pt?"Não há registos.":"No records.")+'</p>';
 }
 if(!document.getElementById("archive-event-gallery-style")){const galleryStyle=document.createElement("style");galleryStyle.id="archive-event-gallery-style";galleryStyle.textContent=".archive-event-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:16px 0}.archive-event-gallery img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#111;border:1px solid var(--line)}@media(max-width:560px){.archive-event-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}";document.head.appendChild(galleryStyle)}
 function toggleArchiveGallery(trigger){const card=trigger.closest(".archive-card");const gallery=card&&card.querySelector(".archive-event-gallery");if(!gallery)return;const opened=trigger.getAttribute("aria-expanded")==="true";trigger.setAttribute("aria-expanded",String(!opened));gallery.style.display=opened?"none":"";}

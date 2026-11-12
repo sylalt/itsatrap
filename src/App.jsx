@@ -193,7 +193,7 @@ const copy = {
       announcement: 'DATE + VENUE + LINEUP — ANNOUNCEMENT COMING',
       ticker: 'TRAP / RAP / COMMUNITY / LISBON / AFTER DARK',
       chapter: '01 / THE NEXT CHAPTER',
-      crowd: <>See you<br /><em>in the crowd.</em></>,
+      crowd: <>See you<br /><em>in the mosh.</em></>,
       nextChapter: 'The 2026 edition is taking shape. This is where the lineup, tickets and everything you need for the night will land.',
       when: 'WHEN',
       where: 'WHERE',
@@ -251,11 +251,9 @@ const copy = {
       eyebrow: 'PAST NIGHTS / LASTING ENERGY',
       title: <>THE<br /><em>ARCHIVE.</em></>,
       intro: 'Posters and lineups from previous editions.',
-      filters: ['All', 'Poster', 'Lineups'],
       collection: 'COLLECTION IN PROGRESS',
       verified: 'Verified years and event records coming soon.',
       note: 'These are original placeholder graphics, not historical event posters. Year and event browsing will appear as the archive is populated.',
-      categories: ['All', 'Poster', 'Lineups'],
     },
     lens: {
       eyebrow: '',
@@ -304,7 +302,7 @@ const copy = {
       announcement: 'DATA + LOCAL + CARTAZ — EM BREVE',
       ticker: 'TRAP / RAP / COMUNIDADE / LISBOA / PELA NOITE DENTRO',
       chapter: '01 / O PRÓXIMO CAPÍTULO',
-      crowd: <>Vemo-nos<br /><em>na pista.</em></>,
+      crowd: <>Vemo-nos<br /><em>no mosh.</em></>,
       nextChapter: 'A edição de 2026 está a ganhar forma. Aqui vais encontrar o cartaz, os bilhetes e tudo o que precisas de saber para a noite.',
       when: 'QUANDO',
       where: 'ONDE',
@@ -404,7 +402,6 @@ const copy = {
 
 function App() {
   const [page, setPage] = useState(pageFromLocation);
-  const [category, setCategory] = useState('All');
   const [showAllPress, setShowAllPress] = useState(false);
   const [daysToEvent, setDaysToEvent] = useState(daysUntilEvent);
   const [language, setLanguage] = useState(() => {
@@ -531,7 +528,7 @@ function App() {
 </figure>
 <div className="photoBreak">{shot(3,'')}</div>
 <section className="storyChapter"><span className="eyebrow">{words('03 / PASS THE ENERGY ON','03 / PASSA A ENERGIA')}</span><h2>{words('Behind the decks.','Atrás da mesa de mistura.')}<br/><em>{words('Inside the moment.','Dentro do momento.')}</em></h2><div className="djGallery">{storyGalleryPhotos.map(photo=><figure className="storyShot" key={photo.src}><img loading="lazy" src={photo.src} alt={isPortuguese ? (photo.altPt || photo.alt) : photo.alt}/></figure>)}</div><div className="actions">{button(words('Through the Lens','Através da lente'),'Through the Lens','textbutton')}</div></section>
-<section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section><section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the crowd.','no meio da multidão.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}</section></>:null}
+<section className="quietEthos">{ethos}{button(words('Our ethos','O nosso manifesto'),'Ethos','textbutton')}</section><section className="communityCall" style={{backgroundImage:`linear-gradient(#111b,#111e),url("${photos[4].src}")`}}><span className="eyebrow">{words('THE CONNECTION CONTINUES','A LIGAÇÃO CONTINUA')}</span><h2>{words('See you','Encontramo-nos')}<br/><em>{words('in the mosh.','no mosh.')}</em></h2>{button(words('Join the community','Junta-te à comunidade'),'Community')}</section></>:null}
 
         {page === '2026 Edition' && (
           <section>
@@ -606,19 +603,7 @@ function App() {
             <span className="eyebrow">{t.archive.eyebrow}</span>
             <h1 className="pagetitle">{t.archive.title}</h1>
             <p>{t.archive.intro}</p>
-            <div className="filters">
-              {t.archive.filters.map((label, index) => {
-                const value = t.archive.categories[index];
-                return <button aria-pressed={category === value} className={category === value ? 'active' : ''} onClick={() => setCategory(value)} key={value}>{label}</button>;
-              })}
-            </div>
-            <div className="gallery">
-              {photos
-                .filter(photo => photo.kind === 'Poster' && (category === 'All' || category === 'Poster'))
-                .map(photo => <figure key={photo.src}><img loading="lazy" src={photo.src} alt={isPortuguese ? (photo.altPt || photo.alt) : photo.alt} /></figure>)}
-            </div>
-            {category === 'Lineups' && <p>{words('Lineups coming soon.','Alinhamentos em breve.')}</p>}
-            <p className="muted">{words('Verified poster images and event details are being collected.','Imagens verificadas dos cartazes e detalhes dos eventos estão a ser reunidos.')}</p>
+            <div className="archive-curated" />
           </section>
         )}
 

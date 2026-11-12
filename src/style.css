@@ -315,27 +315,51 @@ textarea {
 }
 footer {
   border-top: 1px solid var(--line);
-  padding: 45px 7%;
+  padding: 36px 7%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "brand tagline"
+    "links notice";
   align-items: center;
-  gap: 24px;
+  gap: 14px 32px;
 }
-footer div {
+footer > button {
+  grid-area: brand;
+}
+footer .footerLogo img {
+  width: 120px;
+}
+footer > p {
+  grid-area: tagline;
+  margin: 0;
+  color: var(--paper);
+  font: 11px/1.5 monospace;
+  letter-spacing: 2px;
+  text-align: right;
+}
+footer > div {
+  grid-area: links;
   display: flex;
-  align-items: center;
-  gap: 25px;
+  flex-wrap: wrap;
+  gap: 8px 24px;
 }
-footer a {
+footer > div button,
+footer > div a {
+  padding: 8px 0;
+  color: var(--paper);
   font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
 }
-footer small {
-  font: 9px/1.8 monospace;
-  color: #969084;
+footer > div button:hover,
+footer > div a:hover {
+  color: var(--red);
 }
-footer p {
-  font: 10px monospace;
-  letter-spacing: 3px;
+footer > small {
+  grid-area: notice;
+  color: #aaa;
+  font: 10px/1.6 monospace;
   text-align: right;
 }
 @media (max-width: 1000px) {
@@ -383,12 +407,6 @@ footer p {
   .facts {
     gap: 25px;
     flex-wrap: wrap;
-  }
-  footer {
-    grid-template-columns: 1fr;
-  }
-  footer p {
-    text-align: left;
   }
   .actions {
     gap: 18px;
@@ -617,30 +635,6 @@ textarea {
   margin-top: 10px;
   border-radius: 0;
 }
-footer {
-  border-top: 1px solid #44483b;
-  padding: 45px 7%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 22px;
-}
-footer div {
-  display: flex;
-  gap: 24px;
-}
-footer a {
-  font-size: 13px;
-}
-footer small {
-  font: 10px monospace;
-  color: #aaa;
-}
-footer p {
-  font: 12px monospace;
-  letter-spacing: 2px;
-  text-align: right;
-}
 @media (max-width: 850px) {
   header {
     flex-wrap: wrap;
@@ -673,8 +667,18 @@ footer p {
   }
   footer {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "tagline"
+      "links"
+      "notice";
+    gap: 12px;
+    justify-items: start;
   }
-  footer p {
+  footer > p {
+    text-align: left;
+  }
+  footer > small {
     text-align: left;
   }
   .actions {
@@ -932,7 +936,7 @@ figure {
   height: auto;
   filter: drop-shadow(0 3px 12px #0008);
 }
-.footerLogo img {
+footer .footerLogo img {
   width: 140px;
 }
 @media (max-width: 700px) {
@@ -940,7 +944,7 @@ figure {
     width: 88px;
   }
   .footerLogo img {
-    width: 115px;
+    width: 100px;
   }
   .heroCopy .heroLogo {
     margin: 18px 0;
