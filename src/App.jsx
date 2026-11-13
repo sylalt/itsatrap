@@ -588,7 +588,7 @@ function App() {
                 <li key={dj} className={dj === 'Syl' ? 'lineupSyl' : undefined}>
                   {dj === 'Syl' && (
                     <img
-                      src={`${import.meta.env.BASE_URL}assets/IMG_0241.jpeg`}
+                      src={`${import.meta.env.BASE_URL}assets/IMG_0241.jpeg?v=syl-new-20261113`}
                       alt="Syl performing a DJ set"
                       loading="lazy"
                       onLoad={(event) => event.currentTarget.parentElement?.classList.add('hasPhoto')}
