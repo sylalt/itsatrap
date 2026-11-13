@@ -584,7 +584,20 @@ function App() {
             <h2>{t.edition.lineup}</h2>
             <p className="lineupIntro">{t.edition.lineupIntro}</p>
             <ul className="lineupGrid" aria-label={isPortuguese ? 'DJs' : 'DJs'}>
-              {t.edition.djs.map((dj) => <li key={dj}>{dj}</li>)}
+              {t.edition.djs.map((dj) => (
+                <li key={dj} className={dj === 'Syl' ? 'lineupSyl' : undefined}>
+                  {dj === 'Syl' && (
+                    <img
+                      src={`${import.meta.env.BASE_URL}assets/IMG_0241.jpeg`}
+                      alt="Syl performing a DJ set"
+                      loading="lazy"
+                      onLoad={(event) => event.currentTarget.parentElement?.classList.add('hasPhoto')}
+                      onError={(event) => { event.currentTarget.style.display = 'none' }}
+                    />
+                  )}
+                  <span>{dj}</span>
+                </li>
+              ))}
             </ul>
             <aside className="surpriseNote">
               <h3>{t.edition.surpriseHeading}</h3>
