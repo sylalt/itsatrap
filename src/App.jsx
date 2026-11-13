@@ -592,7 +592,7 @@ function App() {
                       alt="Syl performing a DJ set"
                       loading="lazy"
                       onLoad={(event) => event.currentTarget.parentElement?.classList.add('hasPhoto')}
-                      onError={(event) => { event.currentTarget.style.display = 'none' }}
+                      onError={(event) => { event.currentTarget.parentElement?.classList.add('photoUnavailable') }}
                     />
                   )}
                   <span>{dj}</span>
