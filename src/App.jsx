@@ -321,14 +321,14 @@ const copy = {
     home: {
       eyebrow: 'O MOVIMENTO PORTUGUÊS DE TRAP / LISBOA',
       newEdition: 'NOVA EDIÇÃO',
-      intro: <>Música alta. Gente boa.<br />Uma noite para todos.</>,
+      intro: <>Música alta. Gente boa.<br />Uma noite que é nossa.</>,
       explore: 'Descobre a edição',
       ethos: 'Conhece o movimento',
       announcement: 'DATA + LOCAL + CARTAZ — EM BREVE',
       ticker: 'TRAP / RAP / COMUNIDADE / LISBOA / PELA NOITE DENTRO',
       chapter: '01 / O PRÓXIMO CAPÍTULO',
       crowd: <>Vemo-nos<br /><em>no mosh.</em></>,
-      nextChapter: 'A edição de 2026 está a ganhar forma. Aqui vais encontrar o cartaz, os bilhetes e tudo o que precisas de saber para a noite.',
+      nextChapter: 'A próxima edição está aí. Cartaz, bilhetes e tudo o que precisas de saber para entrar na noite.',
       when: 'QUANDO',
       where: 'ONDE',
       toBeAnnounced: 'A anunciar',
@@ -345,15 +345,15 @@ const copy = {
       ticketDay: 'DIA PARA O EVENTO',
       ticketDays: 'DIAS PARA O EVENTO',
       ticketCta: 'COMPRAR BILHETES',
-      community: 'MANTÉM A LIGAÇÃO',
+      community: 'A CENA NÃO PARA',
       communityHeading: <>A noite acaba.<br /><em>A comunidade continua.</em></>,
-      communityInvite: 'Junta-te à conversa. Sugere um artista. Traz uma ideia.',
+      communityInvite: 'Entra na conversa. Manda nomes. Traz ideias.',
       findPeople: 'Encontra a tua gente',
     },
     ethos: {
       eyebrow: 'A ATITUDE POR TRÁS DO SOM',
       heading: <>Mais do que<br />uma <em>noite.</em></>,
-      intro: 'Trap no centro. Uma cena inteira à sua volta. Um espaço para a música, as pessoas e a energia que nascem quando se encontram.',
+      intro: 'Trap no centro. A cena toda à volta. Música, pessoas e aquela energia que só existe quando estamos juntos.',
       proposed: 'Manifesto proposto para a nova edição — sujeito a validação pela organização.',
       values: [
         ['01 / A MÚSICA EM PRIMEIRO', 'Um espaço para trap, rap e os sons que empurram a cena para a frente.'],
@@ -361,24 +361,24 @@ const copy = {
         ['03 / CUIDAMOS UNS DOS OUTROS', 'Não há lugar para assédio nem discriminação. Antes do evento, serão divulgados os contactos de apoio e o processo para reportar situações.'],
       ],
       story: <>Uma história <em>a crescer.</em></>,
-      storyText: 'A história completa da It’s a Trap vai viver aqui, construída com as pessoas que a fizeram acontecer. Datas históricas, vozes e citações aguardam verificação e aprovação.',
+      storyText: 'A história da It’s a Trap faz-se com quem esteve lá. Estamos a juntar memórias, testemunhos e registos para contar tudo como deve ser.',
     },
     edition: {
       eyebrow: '10 ANOS DE IT’S A TRAP / LISBOA',
       title: <>EDIÇÃO<br /><em>2026.</em></>,
-      intro: 'Dez anos depois de a It’s a Trap ter começado, Lisboa prepara-se para o próximo capítulo do trap português. A 19 de dezembro, regressa a energia que uniu a cena e chegam novas vozes para a levar mais longe.',
+      intro: 'Dez anos de It’s a Trap. A 19 de dezembro, Lisboa volta a juntar os OGs e a nova geração do trap português. A energia de sempre, com novos nomes a fazer barulho.',
       date: 'DATA',
       venue: 'LOCAL',
       eventDate: '19 de dezembro de 2026',
       eventVenue: 'Disaster',
       storyHeading: <>Uma cena <em>em movimento.</em></>,
-      storyText: 'Das raízes e dos anos dourados à nova geração, o trap português construiu-se com as pessoas que enchem as salas: sons familiares que ganham nova vida, descobertas que se transformam em memórias e cada público a escrever a sua parte da história. Este aniversário é um reencontro com essa energia e um novo impulso para o futuro.',
-      lineup: <>A banda sonora <em>de várias gerações.</em></>,
+      storyText: 'Dos OGs à nova geração, há sons que nunca saíram da nossa cabeça e nomes novos a escrever o próximo capítulo. Dez anos depois, voltamos a juntar a cena: recordar os tempos de ouro sem ficar presos ao passado.',
+      lineup: <>O som <em>de várias gerações.</em></>,
       lineupIntro: 'Oseias, Syl, Guima, Trillseco, OsylBobby Johnson.',
       djs: ['Oseias', 'Syl', 'Guima', 'Trillseco', 'OsylBobby Johnson'],
-      surpriseHeading: <>À espera <em>do inesperado.</em></>,
-      surpriseText: 'Haverá aparições surpresa de artistas em diferentes momentos dos sets dos DJs. As identidades e os horários ficam por revelar: as surpresas fazem parte dos sets, não são um espetáculo ao vivo marcado à parte.',
-      knowBefore: <>Antes de <em>chegares.</em></>,
+      surpriseHeading: <>Prepara-te para <em>o inesperado.</em></>,
+      surpriseText: 'Os teus artistas favoritos podem aparecer a qualquer momento nos sets dos DJs. Dos OGs à new blood, ninguém sabe quem vem nem a que horas. As surpresas fazem parte da noite — não há um concerto anunciado à parte.',
+      knowBefore: <>Tudo o que precisas de saber <em>antes de entrar.</em></>,
       faqs: [
         ['A que horas começa?', 'A abertura de portas e os detalhes de entrada serão divulgados quando estiverem confirmados. As identidades e os horários das aparições surpresa não serão anunciados; estas acontecem durante os sets dos DJs.'],
         ['Onde posso comprar bilhetes?', 'O link oficial para os bilhetes será publicado aqui quando as vendas começarem.'],
@@ -390,7 +390,7 @@ const copy = {
     archive: {
       eyebrow: 'NOITES PASSADAS / ENERGIA QUE FICA',
       title: <>O<br /><em>ARQUIVO.</em></>,
-      intro: 'Cartazes e programações de edições anteriores.',
+      intro: 'Cartazes, lineups e noites que fizeram história.',
       filters: ['Tudo', 'Cartaz', 'Programação'],
       collection: 'COLEÇÃO EM CONSTRUÇÃO',
       verified: 'Em breve: anos e registos de eventos verificados.',
@@ -400,7 +400,7 @@ const copy = {
     lens: {
       eyebrow: '',
       title: <>ATRAVÉS<br /><em>DA LENTE.</em></>,
-      intro: 'A pista vista por dentro. Um espaço para as pessoas que registam a cena em fotografia.',
+      intro: 'A pista por dentro. O suor, as luzes, os momentos que não se repetem.',
       press: <>Na <em>imprensa.</em></>,
       coverage: 'Uma seleção de notícias, entrevistas, críticas e reportagens sobre a It’s a Trap.',
       contact: 'Contactos para fotografia e imprensa',
@@ -408,12 +408,13 @@ const copy = {
     community: {
       eyebrow: 'FAZ PARTE DO QUE VEM A SEGUIR',
       group: <>A noite acaba.<br /><em>A comunidade não.</em></>,
-      news: 'Junta-te ao grupo de WhatsApp para novidades, conversas e ideias para lá da pista.',
+      news: 'A festa acaba. O grupo continua. Entra no WhatsApp para saber das novidades e trocar ideias com a comunidade.',
       whatsapp: 'Junta-te ao grupo de WhatsApp',
       spotify: 'Adicionar à playlist It’s a Trap',
       photoAlt: 'Um artista e o público partilham a pista de dança',
       photoCaption: 'Lisboa, juntos na pista.',
-      agreement: 'O que partilhamos',
+      agreement: 'Respeita a cena',
+      agreementText: 'Respeita as pessoas e os seus limites. Nada de assédio, discriminação, spam ou promoção não solicitada.',
       rules: [
         'Respeita todas as identidades e os limites pessoais.',
         'Não são permitidos assédio, discurso de ódio ou discriminação.',
@@ -423,7 +424,7 @@ const copy = {
     contact: {
       eyebrow: 'VAMOS FALAR',
       title: <>VAMOS<br /><em>FALAR.</em></>,
-      topics: 'Reservas · Parcerias · Imprensa · Fotografia',
+      topics: 'Bookings · Parcerias · Imprensa · Fotografia',
       intro: 'Para questões de imprensa e fotografia, envia um email para:',
       emailLabel: 'Contactar a equipa de imprensa e fotografia',
     },
@@ -516,13 +517,13 @@ function App() {
   );
   const ethos = (
     <>
-      <span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.', 'A MÚSICA APROXIMA-NOS. AS PESSOAS FAZEM-NOS REGRESSAR.')}</span>
+      <span className="eyebrow">{words('THE MUSIC BRINGS US IN. THE PEOPLE BRING US BACK.', 'A MÚSICA JUNTA-NOS. A MALTA FAZ-NOS VOLTAR.')}</span>
       <h2>
-        {words('A crowd. A shared energy.', 'Uma multidão. Uma energia partilhada.')}
+        {words('A crowd. A shared energy.', 'Uma pista cheia. A mesma energia.')}
         <br />
         <em>{words('A community.', 'Uma comunidade.')}</em>
       </h2>
-      <p>{words('Come for the music. Find your people. Look after each other.', 'Vem pela música. Encontra os teus. Cuida dos outros.')}</p>
+      <p>{words('Come for the music. Find your people. Look after each other.', 'Vem pelo som. Encontra a tua malta. Cuida dos teus.')}</p>
     </>
   );
 
@@ -614,13 +615,13 @@ function App() {
   <div className="ethosMasthead">
     <span className="eyebrow">{words('LX, PORTUGAL','LX, PORTUGAL')}</span>
     <h1>{words('A party shaped','Uma festa feita')}<br/><em>{words('by its people.','pelas pessoas.')}</em></h1>
-    <p>{words('Founded in 2016, It’s a Trap marks its 10th anniversary in 2026. Its story lives in the music and the people who filled the rooms.','Fundada em 2016, a It’s a Trap celebra 10 anos em 2026. A sua história vive na música e nas pessoas que enchiam as salas.')}</p>
+    <p>{words('Founded in 2016, It’s a Trap marks its 10th anniversary in 2026. Its story lives in the music and the people who filled the rooms.','De 2016 a 2026: dez anos de It’s a Trap. A história está na música e em quem encheu as salas.')}</p>
   </div>
   <div className="ethosHistory">
     <article className="ethosChapter">
       <div className="ethosChapterCopy">
         <span className="eyebrow">{words('01 / A SCENE TAKES SHAPE','01 / UMA CENA GANHA FORMA')}</span>
-        <p>{words('It’s a Trap has its own place in Lisbon’s hip-hop nightlife: a party that grew into something bigger through the people who kept showing up. Founded in 2016 by João Moura and Rodrigo Balona, it brought Rap Notícias and GRVVE together, and grew alongside a generation of Portuguese trap artists and listeners. In April 2019, NiT called it “uma das maiores tendências do hip hop em Portugal”—one of the biggest trends in Portuguese hip-hop. The growing crowds and larger editions tell the story of a party becoming a reference point in the scene.','A It’s a Trap conquistou um lugar próprio na noite hip-hop de Lisboa: uma festa que se tornou algo maior graças às pessoas que continuaram a aparecer. Fundada em 2016 por João Moura e Rodrigo Balona, juntou a Rap Notícias e a GRVVE e cresceu com uma geração de artistas e ouvintes portugueses de trap. Em abril de 2019, a NiT descreveu-a como “uma das maiores tendências do hip hop em Portugal”. As multidões cada vez maiores e as edições de maior dimensão contam a história de uma festa que se tornou uma referência na cena.')}</p>
+        <p>{words('It’s a Trap has its own place in Lisbon’s hip-hop nightlife: a party that grew into something bigger through the people who kept showing up. Founded in 2016 by João Moura and Rodrigo Balona, it brought Rap Notícias and GRVVE together, and grew alongside a generation of Portuguese trap artists and listeners. In April 2019, NiT called it “uma das maiores tendências do hip hop em Portugal”—one of the biggest trends in Portuguese hip-hop. The growing crowds and larger editions tell the story of a party becoming a reference point in the scene.','A It’s a Trap ganhou o seu espaço na noite hip-hop de Lisboa. Começou como uma festa e cresceu com quem nunca deixou de aparecer. Fundada em 2016 por João Moura e Rodrigo Balona, juntou a Rap Notícias e a GRVVE e cresceu com uma geração de artistas e ouvintes portugueses de trap. Em abril de 2019, a NiT descreveu-a como “uma das maiores tendências do hip hop em Portugal”. Com o público a crescer e as salas cada vez mais cheias, a festa tornou-se uma referência na cena.')}</p>
       </div>
       <figure className="ethosPhoto">
         <img src={ethosPhotos[0]} alt={words('A Portuguese rapper performs as the crowd watches from the front of the stage.','Um rapper português atua perante o público junto ao palco.')} />
@@ -642,7 +643,7 @@ function App() {
         <p>{words('The party also brought Portuguese talent together with artists from abroad. Its second anniversary brought Unknown T to Portugal; later editions featured Comethazine and French The Kid. Portuguese DJs and artists shared those lineups, putting the local scene in conversation with what was happening in rap, trap and drill elsewhere.','A festa também aproximou o talento português de artistas internacionais. O segundo aniversário trouxe Unknown T a Portugal; edições posteriores contaram com Comethazine e French The Kid. DJs e artistas portugueses partilharam esses cartazes, pondo a cena local em diálogo com o que acontecia no rap, trap e drill além-fronteiras.')}</p>
       </div>
       <figure className="ethosPhoto">
-        <img src={ethosPhotos[2]} alt={words('A performer shares a moment with the crowd under green lights.','Um artista partilha um momento com o público sob luzes verdes.')} />
+        <img src={ethosPhotos[2]} alt={words('A performer shares a moment with the crowd under green lights.','Um artista interage com o público sob luzes verdes.')} />
       </figure>
     </article>
     <div className="ethosClosing">
