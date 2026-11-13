@@ -1987,3 +1987,42 @@ header nav button[aria-current] {
   .lineupGrid li.lineupSyl.hasPhoto img { display:block; width:100%; height:auto; max-height:none; min-height:0; flex:none; object-fit:contain; }
   .lineupGrid li.lineupSyl.hasPhoto span { display:block; padding:20px; }
 }
+
+
+/* Syl lineup: prominent, uncropped original photo at all screen widths. */
+.lineupGrid li.lineupSyl.hasPhoto {
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  gap: 0;
+  padding: 0;
+}
+.lineupGrid li.lineupSyl.hasPhoto img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  flex: none;
+  object-fit: contain;
+}
+.lineupGrid li.lineupSyl.hasPhoto span {
+  display: block;
+  padding: 18px 20px;
+}
+.lineupGrid li.lineupSyl.photoUnavailable img {
+  display: none;
+}
+.lineupGrid li.lineupSyl.photoUnavailable {
+  border-style: dashed;
+}
+@media (min-width: 760px) {
+  .lineupGrid li.lineupSyl.hasPhoto {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 759px) {
+  .lineupGrid li.lineupSyl.hasPhoto {
+    grid-column: 1 / -1;
+  }
+}
