@@ -585,20 +585,27 @@ function App() {
             <h2>{t.edition.lineup}</h2>
             <p className="lineupIntro">{t.edition.lineupIntro}</p>
             <ul className="lineupGrid" aria-label={isPortuguese ? 'DJs' : 'DJs'}>
-              {t.edition.djs.map((dj) => (
-                <li key={dj} className={dj === 'Syl' ? 'lineupSyl' : undefined}>
-                  {dj === 'Syl' && (
-                    <img
-                      src={`${import.meta.env.BASE_URL}assets/IMG_0241.jpeg?v=syl-new-20261113`}
-                      alt="Syl performing a DJ set"
-                      loading="lazy"
-                      onLoad={(event) => event.currentTarget.parentElement?.classList.add('hasPhoto')}
-                      onError={(event) => { event.currentTarget.parentElement?.classList.add('photoUnavailable') }}
-                    />
-                  )}
-                  <span>{dj}</span>
-                </li>
-              ))}
+              {t.edition.djs.map((dj) => {
+                const photo = {
+                  Oseias: { src: 'oseias-2018-black-and-white-portrait.jpg', alt: 'Oseias in a black-and-white portrait from an It’s a Trap night' },
+                  Syl: { src: 'IMG_0241.jpeg?v=syl-new-20261113', alt: 'Syl performing a DJ set' },
+                  'OsylBobby Johnson': { src: 'osyl-2026-lineup-dj-set.jpg', alt: 'Osyl performing at an It’s a Trap DJ set' },
+                }[dj];
+                return (
+                  <li key={dj} className={photo ? 'lineupArtistPhoto' : undefined}>
+                    {photo && (
+                      <img
+                        src={`assets/${photo.src}`}
+                        alt={photo.alt}
+                        loading="lazy"
+                        onLoad={(event) => event.currentTarget.parentElement?.classList.add('hasPhoto')}
+                        onError={(event) => { event.currentTarget.parentElement?.classList.add('photoUnavailable') }}
+                      />
+                    )}
+                    <span>{dj}</span>
+                  </li>
+                );
+              })}
             </ul>
             <aside className="surpriseNote">
               <h3>{t.edition.surpriseHeading}</h3>
