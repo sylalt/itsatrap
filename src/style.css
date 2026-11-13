@@ -1980,3 +1980,10 @@ header nav button[aria-current] {
   cursor: pointer;
 }
 
+
+/* Syl: let the unmodified portrait fill the mobile lineup card without cropping. */
+@media (max-width: 640px) {
+  .lineupGrid li.lineupSyl.hasPhoto { display:flex; flex-direction:column; min-height:0; padding:0; gap:0; align-items:stretch; }
+  .lineupGrid li.lineupSyl.hasPhoto img { display:block; width:100%; height:auto; max-height:none; min-height:0; flex:none; object-fit:contain; }
+  .lineupGrid li.lineupSyl.hasPhoto span { display:block; padding:20px; }
+}
