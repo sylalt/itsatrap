@@ -68,6 +68,7 @@ const pressArticles = [
   {
     date: '2023-02-24',
     outlet: 'NiT',
+    titleEn: "It’s a Trap returns with French The Kid’s Portuguese debut",
     title: 'It’s a Trap: festa de hip hop regressa com estreia em Portugal de French The Kid',
     url: 'https://www.nit.pt/cultura/musica/its-trap-festa-de-hip-hop-esta-de-volta-com-estreia-em-portugal-de-french-the-kid',
     summary: {
@@ -78,6 +79,7 @@ const pressArticles = [
   {
     date: '2021-12-16',
     outlet: 'NiT',
+    titleEn: "Lisbon hosts a huge trap party this Saturday",
     title: 'Lisboa recebe mega festa de trap este sábado',
     url: 'https://www.nit.pt/cultura/musica/lisboa-recebe-mega-festa-de-trap-este-sabado',
     image: 'https://www.nit.pt/wp-content/uploads/2021/12/6cb97df18ad1f55c23f4d0bbfc7211e2.jpg',
@@ -90,28 +92,31 @@ const pressArticles = [
   {
     date: '2019-09-18',
     outlet: 'Gerador',
+    titleEn: "Interview with João Moura, Oseias and Young Boda: “Don’t say hip-hop is dying; it’s far from it.”",
     title: 'Conversa com João Moura, Oseias e Young Boda: “Não digam que o Hip Hop está a morrer, está bem longe disso”',
     url: 'https://gerador.eu/conversa-com-joao-moura-oseias-e-young-boda-nao-digam-que-o-hip-hop-esta-a-morrer-esta-bem-longe-disso/',
     image: 'https://gerador.eu/wp-content/uploads/2019/09/web_its_a_trap_perfil-3.jpg',
     imageCredit: 'Gerador',
     summary: {
-      en: 'An interview on It’s a Trap’s beginnings, community and emerging artists.',
-      pt: 'Uma entrevista sobre o início da It’s a Trap, a comunidade e artistas emergentes.',
+      en: 'An interview about It’s a Trap’s origins, its community and the state of hip-hop in Portugal.',
+      pt: 'Uma entrevista sobre as origens da It’s a Trap, a sua comunidade e o panorama do hip-hop em Portugal.',
     },
   },
   {
     date: '2019-08-19',
     outlet: 'Time Out',
+    titleEn: "Iminente Festival brings Common and other artists to Lisbon",
     title: 'Festival Iminente traz Common e outros artistas a Lisboa',
     url: 'https://www.timeout.pt/lisboa/pt/noticias/festival-iminente-traz-common-e-outros-artistas-a-lisboa-081919',
     summary: {
-      en: 'The Iminente programme includes a curation by It’s a Trap.',
-      pt: 'O programa do Iminente inclui uma curadoria da It’s a Trap.',
+      en: 'The festival programme featured a set curated by It’s a Trap, with Oseias, Young Boda, Syl, Circa Papi and 20Chatear.',
+      pt: 'O programa do festival incluiu um set com curadoria da It’s a Trap, com Oseias, Young Boda, Syl, Circa Papi e 20Chatear.',
     },
   },
   {
     date: '2019-04-09',
     outlet: 'NiT',
+    titleEn: "It’s a Trap: Lisbon’s trendsetting hip-hop party is back",
     title: 'It’s a Trap: a festa tendência do hip hop está de volta a Lisboa',
     url: 'https://www.nit.pt/cultura/musica/its-trap-festa-tendencia-do-hip-hop-esta-volta-lisboa',
     image: 'https://www.nit.pt/wp-content/uploads/2019/04/2a860fe7f5fb3c624d296bf59d78488a.jpg',
@@ -124,6 +129,7 @@ const pressArticles = [
   {
     date: '2019-01-28',
     outlet: 'Rimas e Batidas',
+    titleEn: "It’s a Trap at Estúdio Time Out: a fish out of water on its debut night",
     title: 'It’s a Trap no Estúdio Time Out: um peixe fora d’água em noite de estreia',
     url: 'https://www.rimasebatidas.pt/its-a-trap-no-estudio-time-out-um-peixe-fora-dagua-em-noite-de-estreia/',
     image: 'https://www.rimasebatidas.pt/wp-content/uploads/2019/02/ItsATrap_11Lit3s_53.jpg',
@@ -136,6 +142,7 @@ const pressArticles = [
   {
     date: '2018-12-20',
     outlet: 'NiT',
+    titleEn: "It’s a Trap: a huge rap party is happening in Lisbon this Saturday",
     title: 'It’s a Trap: este sábado há uma festa épica de rap em Lisboa',
     url: 'https://www.nit.pt/cultura/musica/its-trap-sabado-ha-festa-epica-rap-lisboa',
     summary: {
@@ -146,6 +153,7 @@ const pressArticles = [
   {
     date: '2018-08-29',
     outlet: 'BANTUMEN',
+    titleEn: "It’s a Trap with NGA, one week before his new album",
     title: 'IT’S A TRAP com NGA, uma semana antes do novo álbum',
     url: 'https://www.bantumen.com/en/artigo/nga-its-a-trap/',
     summary: {
@@ -156,6 +164,7 @@ const pressArticles = [
   {
     date: '2018-03-22',
     outlet: 'NiT',
+    titleEn: "Hip-hop fans: there’s a party for you this Friday",
     title: 'Fãs de hip hop: esta sexta-feira há uma festa para vocês',
     url: 'https://www.nit.pt/cultura/musica/fas-hip-hop-esta-sexta-feira-ha-festa-voces',
     summary: {
@@ -166,6 +175,7 @@ const pressArticles = [
   {
     date: '2017-06-23',
     outlet: 'Time Out',
+    titleEn: "Time Out Market: the best things happening over the next few days",
     title: 'Time Out Market: o melhor dos próximos dias',
     url: 'https://www.timeout.pt/lisboa/pt/blog/time-out-market-o-melhor-dos-proximos-dias-062317',
     summary: {
@@ -286,7 +296,7 @@ const copy = {
       intro: 'The dance floor, seen from the inside.',
       press: <>In the <em>press.</em></>,
       coverage: 'Selected news, interviews, reviews and features about It’s a Trap.',
-      contact: 'Photography & press enquiries',
+      contact: 'Press and photography enquiries',
     },
     community: {
       eyebrow: 'BE PART OF WHAT COMES NEXT',
@@ -700,7 +710,7 @@ function App() {
                 .map(article => (
                 <article className={`pressCard${article.image ? ' hasPressImage' : ''}`} key={article.url}>
                   {article.image && (
-                    <a className="pressImageLink" href={article.url} target="_blank" rel="noopener noreferrer" aria-label={article.title}>
+                    <a className="pressImageLink" href={article.url} target="_blank" rel="noopener noreferrer" aria-label={words(article.titleEn, article.title)}>
                       <img src={article.image} alt="" loading="lazy" />
                     </a>
                   )}
@@ -716,7 +726,7 @@ function App() {
                       </time>
                     </div>
                     {article.imageCredit && <span className="pressImageCredit">{words('Photo: ', 'Fotografia: ')}{article.imageCredit}</span>}
-                    <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a></h3>
+                    <h3><a href={article.url} target="_blank" rel="noopener noreferrer">{words(article.titleEn, article.title)}</a></h3>
                     <p>{words(article.summary.en, article.summary.pt)}</p>
                   </div>
                 </article>
